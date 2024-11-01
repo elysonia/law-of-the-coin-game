@@ -6,7 +6,6 @@ signal _coin_side_selected(result)
 signal _flip_delay_timer_started
 
 
-
 func _ready():
 	pass
 
