@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://4m0j7bl6yy0d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ddpy"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="CoinFlipHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 271.0
+offset_right = 622.0
+offset_bottom = 372.0
+text = "Time"
+label_settings = SubResource("LabelSettings_8ddpy")
+horizontal_alignment = 1
+vertical_alignment = 1

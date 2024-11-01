@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://1lhlqvwew24j"]
+
+[ext_resource type="PackedScene" uid="uid://bhft5joepxv2k" path="res://scenes/coin_flip/coin_side_selection/heads_button/heads_button.tscn" id="1_0njw4"]
+[ext_resource type="Script" path="res://scenes/coin_flip/coin_side_selection/coin_side_selection.gd" id="1_n6tmq"]
+[ext_resource type="PackedScene" uid="uid://c3nlkpgyjl4cv" path="res://scenes/coin_flip/coin_side_selection/tails_button/tails_button.tscn" id="2_ryexe"]
+[ext_resource type="Resource" uid="uid://bmr5pqjrt0rto" path="res://resources/coin_sides/coin_heads.tres" id="2_soiap"]
+[ext_resource type="Resource" uid="uid://dngln3ofsygaw" path="res://resources/coin_sides/coin_tails.tres" id="3_1frur"]
+
+[node name="CoinSideSelection" type="Node2D"]
+script = ExtResource("1_n6tmq")
+item_list = Array[Resource("res://resources/scripts/random_item.gd")]([ExtResource("2_soiap"), ExtResource("3_1frur")])
+
+[node name="HeadsButton" parent="." instance=ExtResource("1_0njw4")]
+offset_left = 287.0
+offset_top = 426.0
+offset_right = 461.0
+offset_bottom = 578.0
+
+[node name="TailsButton" parent="." instance=ExtResource("2_ryexe")]
+offset_left = 621.0
+offset_top = 426.0
+offset_right = 800.0
+offset_bottom = 578.0
+
+[connection signal="pressed" from="HeadsButton" to="." method="_on_heads_button_pressed"]
+[connection signal="pressed" from="TailsButton" to="." method="_on_tails_button_pressed"]
