@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhft5joepxv2k"]
+[gd_scene load_steps=3 format=3 uid="uid://bhft5joepxv2k"]
 
 [ext_resource type="Texture2D" uid="uid://dpti2obsp18vx" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip/goldcoin-heads.png" id="1_d3fpy"]
+[ext_resource type="Script" path="res://scenes/coin_flip/player_control/coin_side_control/heads_button/heads_button.gd" id="2_utr8t"]
 
 [node name="HeadsButton" type="TextureButton"]
 anchors_preset = 15
@@ -12,3 +13,4 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("1_d3fpy")
 stretch_mode = 0
+script = ExtResource("2_utr8t")

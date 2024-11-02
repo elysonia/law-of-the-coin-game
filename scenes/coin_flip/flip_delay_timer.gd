@@ -6,7 +6,7 @@ var previous_time_left_rounded: int = 0
 
 
 func _ready():
-	pass
+	GlobalCoinEvents.coin_player_picked.connect( _on_coin_events_coin_player_picked)
 
 
 func _process(_delta):
@@ -21,5 +21,5 @@ func _process(_delta):
 	timer_label_updated.emit(time_left_rounded)
 
 
-func _on_player_control_flip_delay_timer_started():
+func _on_coin_events_coin_player_picked(_player_choice):
 	start()

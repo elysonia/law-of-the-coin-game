@@ -7,6 +7,7 @@ signal flip_delay_timer_started
 
 
 func _ready():
+	GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
 	_coin_side_control.show()
 	_arrow_keys_control.hide()
 
@@ -19,7 +20,6 @@ func _on_flip_delay_timer_timeout():
 	hide()
 
 
-func _on_coin_side_control_coin_side_selected():
+func _on_coin_events_coin_player_picked(_player_choice):
 	_coin_side_control.hide()
 	_arrow_keys_control.show()
-	flip_delay_timer_started.emit()

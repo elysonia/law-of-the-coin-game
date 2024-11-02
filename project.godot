@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

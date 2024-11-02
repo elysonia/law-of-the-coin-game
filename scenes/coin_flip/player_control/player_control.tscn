@@ -31,5 +31,3 @@ text = "Mash arrow keys to increase rate of success"
 label_settings = SubResource("LabelSettings_yu4y8")
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[connection signal="coin_side_selected" from="CoinSideControl" to="." method="_on_coin_side_control_coin_side_selected"]
