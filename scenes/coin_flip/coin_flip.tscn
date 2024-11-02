@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxx5jw5ve7arh"]
+[gd_scene load_steps=7 format=3 uid="uid://cxx5jw5ve7arh"]
 
 [ext_resource type="PackedScene" uid="uid://t1w1uis47idt" path="res://scenes/coin_flip/coin/coin.tscn" id="1_32oyj"]
-[ext_resource type="PackedScene" uid="uid://1lhlqvwew24j" path="res://scenes/coin_flip/coin_side_selection/coin_side_selection.tscn" id="2_6ygqx"]
+[ext_resource type="PackedScene" uid="uid://1lhlqvwew24j" path="res://scenes/coin_flip/coin_side_random_picker/coin_side_random_picker.tscn" id="2_6ygqx"]
 [ext_resource type="Script" path="res://scenes/coin_flip/flip_delay_timer.gd" id="3_ppuq7"]
 [ext_resource type="PackedScene" uid="uid://4m0j7bl6yy0d" path="res://scenes/coin_flip/coin_flip_hud/coin_flip_hud.tscn" id="4_n1jpg"]
 [ext_resource type="Script" path="res://scenes/coin_flip/coin_flip_hud/coin_flip_hud.gd" id="5_muyx5"]
+[ext_resource type="PackedScene" uid="uid://twu8nv30fyyd" path="res://scenes/coin_flip/player_control/player_control.tscn" id="6_c7hhw"]
 
 [node name="CoinFlip" type="Node2D"]
 position = Vector2(10, -14)
@@ -12,7 +13,7 @@ position = Vector2(10, -14)
 [node name="Coin" parent="." instance=ExtResource("1_32oyj")]
 position = Vector2(542, 296)
 
-[node name="CoinSideSelection" parent="." instance=ExtResource("2_6ygqx")]
+[node name="CoinSideRandomPicker" parent="." instance=ExtResource("2_6ygqx")]
 
 [node name="FlipDelayTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -26,9 +27,13 @@ offset_right = -10.0
 offset_bottom = 17.0
 script = ExtResource("5_muyx5")
 
-[connection signal="_coin_side_selected" from="CoinSideSelection" to="Coin" method="_on_coin_side_selection__coin_side_selected"]
-[connection signal="_flip_delay_timer_started" from="CoinSideSelection" to="Coin" method="_on_coin_side_selection__flip_delay_timer_started"]
-[connection signal="_flip_delay_timer_started" from="CoinSideSelection" to="FlipDelayTimer" method="_on_coin_side_selection__flip_delay_timer_started"]
-[connection signal="timeout" from="FlipDelayTimer" to="CoinSideSelection" method="_on_flip_delay_timer_timeout"]
+[node name="PlayerControl" parent="." instance=ExtResource("6_c7hhw")]
+metadata/_edit_horizontal_guides_ = [545.0]
+
+[connection signal="coin_side_selected" from="CoinSideRandomPicker" to="Coin" method="_on_coin_side_random_picker_coin_side_selected"]
+[connection signal="timeout" from="FlipDelayTimer" to="CoinSideRandomPicker" method="_on_flip_delay_timer_timeout"]
 [connection signal="timeout" from="FlipDelayTimer" to="CoinFlipHUD" method="_on_flip_delay_timer_timeout"]
+[connection signal="timeout" from="FlipDelayTimer" to="PlayerControl" method="_on_flip_delay_timer_timeout"]
 [connection signal="timer_label_updated" from="FlipDelayTimer" to="CoinFlipHUD" method="_on_flip_delay_timer_timer_label_updated"]
+[connection signal="flip_delay_timer_started" from="PlayerControl" to="Coin" method="_on_player_control_flip_delay_timer_started"]
+[connection signal="flip_delay_timer_started" from="PlayerControl" to="FlipDelayTimer" method="_on_player_control_flip_delay_timer_started"]

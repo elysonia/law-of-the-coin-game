@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://1lhlqvwew24j"]
 
-[ext_resource type="Script" path="res://scenes/coin_flip/coin_side_selection/coin_side_selection.gd" id="1_n6tmq"]
+[ext_resource type="Script" path="res://scenes/coin_flip/coin_side_random_picker/coin_side_random_picker.gd" id="1_n6tmq"]
 [ext_resource type="Resource" uid="uid://bmr5pqjrt0rto" path="res://resources/coin_sides/coin_heads.tres" id="2_soiap"]
 [ext_resource type="Resource" uid="uid://dngln3ofsygaw" path="res://resources/coin_sides/coin_tails.tres" id="3_1frur"]
 
-[node name="CoinSideSelection" type="Node2D"]
+[node name="CoinSideRandomPicker" type="Node2D"]
 script = ExtResource("1_n6tmq")
 item_list = Array[Resource("res://resources/scripts/random_item.gd")]([ExtResource("2_soiap"), ExtResource("3_1frur")])

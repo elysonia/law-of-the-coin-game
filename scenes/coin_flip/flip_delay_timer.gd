@@ -1,14 +1,12 @@
 extends Timer
 
-
 signal timer_label_updated(time)
-
 
 var previous_time_left_rounded: int = 0
 
 
 func _ready():
-	pass 
+	pass
 
 
 func _process(_delta):
@@ -23,6 +21,5 @@ func _process(_delta):
 	timer_label_updated.emit(time_left_rounded)
 
 
-
-func _on_coin_side_selection__flip_delay_timer_started():
+func _on_player_control_flip_delay_timer_started():
 	start()
