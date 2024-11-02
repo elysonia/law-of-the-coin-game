@@ -1,7 +1,5 @@
 extends Control
 
-signal flip_delay_timer_started
-
 @onready var _arrow_keys_control = $ArrowKeysControl
 @onready var _coin_side_control = $CoinSideControl
 

@@ -6,6 +6,7 @@ extends Node2D
 
 
 func _ready():
+	GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
 	_tails_animation.hide()
 	_heads_animation.hide()
 
@@ -21,7 +22,7 @@ func _reset_animation():
 	_heads_animation.show()
 
 
-func _on_player_control_flip_delay_timer_started():
+func _on_coin_events_coin_player_picked(_player_coin):
 	_reset_animation()
 
 
