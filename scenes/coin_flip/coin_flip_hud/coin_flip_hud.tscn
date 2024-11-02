@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4m0j7bl6yy0d"]
+[gd_scene load_steps=5 format=3 uid="uid://4m0j7bl6yy0d"]
+
+[ext_resource type="Script" path="res://scenes/coin_flip/coin_flip_hud/flip_delay_timer.gd" id="1_mbemh"]
+[ext_resource type="Script" path="res://scenes/coin_flip/coin_flip_hud/coin_flip_hud.gd" id="1_ts3lr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ddpy"]
 font_size = 50
@@ -11,20 +14,22 @@ font_color = Color(0, 0, 0, 1)
 [node name="CoinFlipHUD" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_ts3lr")
 
-[node name="TimerLabel" type="Label" parent="."]
-layout_mode = 0
+[node name="FlipDelayTimer" type="Timer" parent="."]
+script = ExtResource("1_mbemh")
+
+[node name="TimerLabel" type="Label" parent="FlipDelayTimer"]
 offset_left = 472.0
 offset_top = 212.0
 offset_right = 615.0
 offset_bottom = 313.0
-text = "Time"
+text = "time"
 label_settings = SubResource("LabelSettings_8ddpy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimerTitleLabel" type="Label" parent="."]
-layout_mode = 0
+[node name="TimerTitleLabel" type="Label" parent="FlipDelayTimer"]
 offset_left = 394.0
 offset_top = 165.0
 offset_right = 692.0
