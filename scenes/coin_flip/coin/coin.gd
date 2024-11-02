@@ -7,8 +7,8 @@ extends Node2D
 
 func _ready():
 	GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
-	_tails_animation.hide()
-	_heads_animation.hide()
+	GlobalCoinEvents.coin_random_picker_picked.connect(_on_coin_events_coin_random_picker_picked)
+	_reset_animation()
 
 
 func _process(_delta):
@@ -26,7 +26,7 @@ func _on_coin_events_coin_player_picked(_player_coin):
 	_reset_animation()
 
 
-func _on_coin_side_random_picker_coin_side_selected(result: Variant):
+func _on_coin_events_coin_random_picker_picked(result: Variant):
 	_reset_animation()
 
 	if result == "heads":

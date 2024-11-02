@@ -1,11 +1,11 @@
 class_name CoinSideRandomPicker
 extends RandomPicker
 
-signal coin_side_selected(result)
-
 
 func _ready():
-	pass
+	GlobalCoinEvents.coin_delay_countdown_finished.connect(
+		_on_coin_delay_countdown_finished
+	)
 
 
 func _process(_delta):
@@ -14,8 +14,8 @@ func _process(_delta):
 
 func get_coin_result():
 	var result = pick_random_item()
-	coin_side_selected.emit(result)
+	GlobalCoinEvents.coin_random_picker_picked.emit(result)
 
 
-func _on_flip_delay_timer_timeout():
+func _on_coin_delay_countdown_finished():
 	get_coin_result()

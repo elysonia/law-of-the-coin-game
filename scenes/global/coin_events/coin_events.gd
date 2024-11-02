@@ -2,9 +2,10 @@
 class_name CoinEvents
 extends Node2D
 
+# Emit on delay timer timeout
 # Should:
-#	- Maybe it should be moved to coin_flip_hud
-signal coin_timer_text_updated(time: float)
+#   - Trigger random picker for heads or tails
+signal coin_delay_countdown_finished
 
 # Emit when a coin side has picked randomly
 # Should:
