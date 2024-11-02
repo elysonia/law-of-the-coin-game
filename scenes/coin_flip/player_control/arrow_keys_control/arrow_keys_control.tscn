@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvk0xt087m4ev"]
+
+[ext_resource type="Script" path="res://scenes/coin_flip/player_control/arrow_keys_control/arrow_keys_control.gd" id="1_2845r"]
+[ext_resource type="PackedScene" uid="uid://wqbmi8sd2bky" path="res://scenes/coin_flip/player_control/arrow_keys_control/left_arrow_button/left_arrow_button.tscn" id="1_yke3i"]
+[ext_resource type="PackedScene" uid="uid://dx3l7jh6vsu5x" path="res://scenes/coin_flip/player_control/arrow_keys_control/right_arrow_button/right_arrow_button.tscn" id="2_xudls"]
+
+[node name="ArrowKeysControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2845r")
+metadata/_edit_vertical_guides_ = [545.0]
+metadata/_edit_horizontal_guides_ = [481.0]
+
+[node name="LeftArrowButton" parent="." instance=ExtResource("1_yke3i")]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 432.0
+offset_right = 514.0
+offset_bottom = 482.0
+
+[node name="RightArrowButton" parent="." instance=ExtResource("2_xudls")]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 431.0
+offset_right = 689.0
+offset_bottom = 481.0
+
+[connection signal="pressed" from="LeftArrowButton" to="." method="_on_left_arrow_button_pressed"]
+[connection signal="pressed" from="RightArrowButton" to="." method="_on_right_arrow_button_pressed"]
+
+[editable path="LeftArrowButton"]
