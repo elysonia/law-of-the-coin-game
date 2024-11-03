@@ -3,6 +3,8 @@ extends Timer
 
 var previous_time_left_rounded: int = 0
 
+# TODO: Check why the labels can't be referenced inside FlipDelayTimer
+# unless they are direct children of FlipDelayTimer
 @onready var _timer_label = $TimerLabel
 @onready var _timer_title_label = $TimerTitleLabel
 
@@ -16,7 +18,11 @@ func _ready():
 
 
 func _process(_delta):
-	var time_left_rounded = floori(time_left)
+	# Uses floori instead of randomf to avoid NARROWING_CONVERSION,
+	# 	a linter warning where float is converted into int, losing precision.
+	#	1 is added to accurately display the countdown number.
+	# TODO: Find a better way if any
+	var time_left_rounded = floori(time_left) + 1
 
 	# Prevent countdown label from showing float numbers
 	if time_left_rounded == previous_time_left_rounded:
