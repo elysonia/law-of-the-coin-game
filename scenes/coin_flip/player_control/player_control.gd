@@ -23,6 +23,6 @@ func _on_coin_events_coin_delay_countdown_finished():
 	hide()
 
 
-func _on_coin_events_coin_player_picked(_player_choice):
+func _on_coin_events_coin_player_picked(_player_coin_name):
 	_coin_side_control.hide()
 	_arrow_keys_control.show()

@@ -19,4 +19,4 @@ signal coin_random_picker_picked(result_coin)
 # 	- Start the delay countdown
 # 	- Show the UI for arrow buttons and delay countdown text
 #	- Show default coin face
-signal coin_player_picked(player_coin)
+signal coin_player_picked(player_coin_name)

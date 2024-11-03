@@ -22,7 +22,7 @@ func _reset_animation():
 	_heads_animation.show()
 
 
-func _on_coin_events_coin_player_picked(_player_coin):
+func _on_coin_events_coin_player_picked(_player_coin_name):
 	_reset_animation()
 
 

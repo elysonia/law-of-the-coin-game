@@ -58,6 +58,6 @@ func _hide_timer_texts():
 	_timer_title_label.hide()
 
 
-func _on_coin_events_coin_player_picked(_player_choice):
+func _on_coin_events_coin_player_picked(_player_coin_name):
 	start()
 	_show_timer_texts()
