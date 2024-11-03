@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Level" load_steps=2 format=3 uid="uid://difwnte4d32q6"]
+
+[ext_resource type="Script" path="res://resources/scripts/level.gd" id="1_1dvuk"]
+
+[resource]
+script = ExtResource("1_1dvuk")
+level_name = "4"
+player_win_rate = 0.0
