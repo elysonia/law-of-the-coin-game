@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_6jjd2")
 level_name = "2"
-player_win_rate = 0.5
+player_win_rate = 0.4
