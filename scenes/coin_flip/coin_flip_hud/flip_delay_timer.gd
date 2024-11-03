@@ -18,6 +18,9 @@ func _ready():
 
 
 func _process(_delta):
+	if not time_left:
+		return
+
 	# Uses floori instead of randomf to avoid NARROWING_CONVERSION,
 	# 	a linter warning where float is converted into int, losing precision.
 	#	1 is added to accurately display the countdown number.
