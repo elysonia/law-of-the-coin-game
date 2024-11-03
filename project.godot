@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
+GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
+GlobalEnums="*res://scenes/global/enums.gd"
 
 [rendering]
 
