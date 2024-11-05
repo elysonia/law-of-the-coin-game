@@ -11,6 +11,7 @@ func _ready():
 	GlobalCoinEvents.coin_delay_countdown_finished.connect(
 		_on_coin_events_coin_delay_countdown_finished
 	)
+
 	_coin_side_control.show()
 	_arrow_keys_control.hide()
 

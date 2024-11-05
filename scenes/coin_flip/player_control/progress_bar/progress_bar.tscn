@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://boou3bet222g3"]
+
+[node name="ProgressBar" type="ProgressBar"]
+offset_left = 400.0
+offset_top = 389.0
+offset_right = 686.0
+offset_bottom = 421.0
+theme_override_font_sizes/font_size = 20

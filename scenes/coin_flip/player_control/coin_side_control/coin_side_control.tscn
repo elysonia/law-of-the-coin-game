@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2c87e623lc6x"]
+[gd_scene load_steps=4 format=3 uid="uid://c2c87e623lc6x"]
 
 [ext_resource type="PackedScene" uid="uid://bhft5joepxv2k" path="res://scenes/coin_flip/player_control/coin_side_control/heads_button/heads_button.tscn" id="1_0a5kl"]
+[ext_resource type="Script" path="res://scenes/coin_flip/player_control/coin_side_control/coin_side_control.gd" id="1_fl3rp"]
 [ext_resource type="PackedScene" uid="uid://c3nlkpgyjl4cv" path="res://scenes/coin_flip/player_control/coin_side_control/tails_button/tails_button.tscn" id="2_mrqq8"]
 
 [node name="CoinSideControl" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_fl3rp")
 
 [node name="HeadsButton" parent="." instance=ExtResource("1_0a5kl")]
 layout_mode = 1

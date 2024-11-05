@@ -27,6 +27,7 @@ func _reset_arrow_pressed():
 
 func _add_pick_chance():
 	GlobalLevelState.player_win_rate += GlobalEnums.ARROW_KEY_INCREMENT_RATE
+	GlobalLevelEvents.level_player_win_rate_updated.emit()
 	_reset_arrow_pressed()
 
 

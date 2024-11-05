@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://twu8nv30fyyd"]
+[gd_scene load_steps=7 format=3 uid="uid://twu8nv30fyyd"]
 
 [ext_resource type="Script" path="res://scenes/coin_flip/player_control/player_control.gd" id="1_u0gy0"]
 [ext_resource type="PackedScene" uid="uid://cvk0xt087m4ev" path="res://scenes/coin_flip/player_control/arrow_keys_control/arrow_keys_control.tscn" id="3_im16u"]
+[ext_resource type="PackedScene" uid="uid://boou3bet222g3" path="res://scenes/coin_flip/player_control/progress_bar/progress_bar.tscn" id="3_tuth2"]
 [ext_resource type="PackedScene" uid="uid://c2c87e623lc6x" path="res://scenes/coin_flip/player_control/coin_side_control/coin_side_control.tscn" id="4_8f26a"]
+[ext_resource type="Script" path="res://scenes/coin_flip/player_control/progress_bar/progress_bar.gd" id="4_84usf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yu4y8"]
 font_size = 22
@@ -11,13 +13,6 @@ font_size = 22
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u0gy0")
-metadata/_edit_horizontal_guides_ = [494.0]
-
-[node name="CoinSideControl" parent="." instance=ExtResource("4_8f26a")]
-offset_left = -9.0
-offset_top = 49.0
-offset_right = -9.0
-offset_bottom = 49.0
 
 [node name="ArrowKeysControl" parent="." instance=ExtResource("3_im16u")]
 
@@ -31,3 +26,17 @@ text = "Mash arrow keys to increase rate of success"
 label_settings = SubResource("LabelSettings_yu4y8")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="CoinSideControl" parent="." instance=ExtResource("4_8f26a")]
+offset_left = -9.0
+offset_top = 49.0
+offset_right = -9.0
+offset_bottom = 49.0
+
+[node name="ProgressBar" parent="." instance=ExtResource("3_tuth2")]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 384.0
+offset_right = 688.0
+offset_bottom = 416.0
+script = ExtResource("4_84usf")
