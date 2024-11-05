@@ -16,8 +16,10 @@ func get_coin_result():
 		else:
 			item.pick_chance = 1 - GlobalLevelState.player_win_rate
 
-	var result = pick_random_item()
-	GlobalCoinEvents.coin_random_picker_picked.emit(result)
+	var result_coin_name = pick_random_item()
+	var is_successful_throw = result_coin_name == _player_coin_name
+
+	GlobalCoinEvents.coin_random_picker_picked.emit(result_coin_name, is_successful_throw)
 
 
 func _on_coin_delay_countdown_finished():
