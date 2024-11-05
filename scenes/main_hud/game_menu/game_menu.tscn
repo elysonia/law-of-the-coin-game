@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0p7valow0sl"]
+
+[ext_resource type="PackedScene" uid="uid://caiwn7brp2sym" path="res://scenes/main_hud/game_menu/menu_button/menu_button.tscn" id="1_sfdoy"]
+[ext_resource type="Script" path="res://scenes/main_hud/game_menu/menu_button/menu_button.gd" id="2_onw3m"]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBarContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 3.0
+offset_right = 1109.0
+offset_bottom = 47.0
+
+[node name="MenuButton" parent="TopBarContainer" instance=ExtResource("1_sfdoy")]
+layout_mode = 2
+item_count = 0
+script = ExtResource("2_onw3m")
