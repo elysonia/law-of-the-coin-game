@@ -9,14 +9,24 @@ signal coin_delay_countdown_finished
 
 # Emit when a coin side has picked randomly
 # Should:
-# 	- Hide arrow buttons and timer
+# 	- Hide arrow buttons, progress bar and timer
 # 	- Play animation of the result
-signal coin_random_picker_picked(result_coin)
+signal coin_random_picker_picked(result_coin_name, is_successful_throw)
 
 # Emit when the player picks a coin face
 # Should:
 # 	- Hide the UI for coin faces
 # 	- Start the delay countdown
-# 	- Show the UI for arrow buttons and delay countdown text
+# 	- Show the UI for arrow buttons, progress bar and delay countdown text
 #	- Show default coin face
 signal coin_player_picked(player_coin_name)
+
+# Emit when the randomly picked coin matches the player choice
+# Should:
+#   - Show the UI to restart, go to the next level and back to title screen
+signal coin_flip_succeeded
+
+# Emit when the randomly picked coin does no match the player choice
+# Should:
+#   - Show the UI to restart and back to title screen
+signal coin_flip_failed

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bha4idm30721u"]
+
+[ext_resource type="Script" path="res://scenes/main_hud/level_transition/level_transition.gd" id="1_wummu"]
+[ext_resource type="PackedScene" uid="uid://7y3rmvcbbll5" path="res://scenes/main_hud/level_transition/next_trial_button/next_trial_button.tscn" id="2_grv6l"]
+[ext_resource type="Script" path="res://scenes/main_hud/level_transition/next_trial_button/next_trial_button.gd" id="3_qkmn6"]
+[ext_resource type="PackedScene" uid="uid://dpqkahjyevneg" path="res://scenes/main_hud/level_transition/restart_button/restart_button.tscn" id="4_0i34o"]
+[ext_resource type="Script" path="res://scenes/main_hud/level_transition/restart_button/restart_button.gd" id="5_kxpxd"]
+[ext_resource type="PackedScene" uid="uid://cj2r4b13l4jge" path="res://scenes/main_hud/level_transition/back_to_title_button/back_to_title_button.tscn" id="6_yr5jm"]
+[ext_resource type="Script" path="res://scenes/main_hud/level_transition/back_to_title_button/back_to_title_button.gd" id="7_rbk7x"]
+
+[node name="LevelTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wummu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 432.0
+offset_right = 665.0
+offset_bottom = 644.0
+
+[node name="NextTrialButton" parent="VBoxContainer" instance=ExtResource("2_grv6l")]
+layout_mode = 2
+script = ExtResource("3_qkmn6")
+
+[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("4_0i34o")]
+layout_mode = 2
+script = ExtResource("5_kxpxd")
+
+[node name="BackToTitleButton" parent="VBoxContainer" instance=ExtResource("6_yr5jm")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Back to title"
+script = ExtResource("7_rbk7x")
