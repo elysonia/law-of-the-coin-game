@@ -1,6 +1,6 @@
 # Stores constants and enums
 
-extends Object
+extends Node
 
 
 const COIN = {
