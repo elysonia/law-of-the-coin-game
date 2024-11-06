@@ -6,9 +6,9 @@ func _ready():
 	GlobalCoinEvents.coin_flip_failed.connect(_on_coin_flip_failed)
 	hide()
 
+
 func _pressed():
-	GlobalLevelEvents.game_title_shown.emit()
-	hide()
+	GlobalLevelState.goto_scene("res://scenes/main.tscn")
 
 
 func _on_coin_flip_failed():

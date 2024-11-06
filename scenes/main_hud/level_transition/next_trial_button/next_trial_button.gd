@@ -10,7 +10,7 @@ func _pressed():
 	var next_level_index = GlobalLevelState.current_level_index + 1
 
 	# Prevent attempting to start a level that doesn't exist
-	if next_level_index > GlobalLevelState.available_levels.levels.size() - 1:
+	if next_level_index > GlobalLevelState._available_levels.levels.size() - 1:
 		GlobalLevelEvents.game_ended.emit()
 		return
 
@@ -18,7 +18,8 @@ func _pressed():
 
 	GlobalLevelState.current_level_index = next_level_index
 	GlobalLevelState.player_win_rate = next_level.player_win_rate
-	GlobalLevelEvents.game_continued.emit()
+
+	get_tree().reload_current_scene()
 
 	hide()
 

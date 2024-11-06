@@ -1,13 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3eqf4nb2u2v6"]
 
-[ext_resource type="PackedScene" uid="uid://cxx5jw5ve7arh" path="res://scenes/coin_flip/coin_flip.tscn" id="1_e5rkb"]
-[ext_resource type="PackedScene" uid="uid://bk0p7valow0sl" path="res://scenes/main_hud/game_menu/game_menu.tscn" id="2_ptv87"]
-[ext_resource type="PackedScene" uid="uid://bha4idm30721u" path="res://scenes/main_hud/level_transition/level_transition.tscn" id="3_1ehvc"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_jxrvg"]
+[ext_resource type="Texture2D" uid="uid://cfx5ewadro7d6" path="res://assets/title_bg.png" id="2_n0uu5"]
+[ext_resource type="PackedScene" uid="uid://bwrb0s6848di0" path="res://scenes/main_hud/title_screen/title_screen.tscn" id="3_5bti6"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_jxrvg")
 
-[node name="CoinFlip" parent="." instance=ExtResource("1_e5rkb")]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.231162, 0.230313, 0.228002, 1)
+light_mask = 3
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("2_n0uu5")
 
-[node name="GameMenu" parent="." instance=ExtResource("2_ptv87")]
-
-[node name="LevelTransition" parent="." instance=ExtResource("3_1ehvc")]
+[node name="TitleScreen" parent="." instance=ExtResource("3_5bti6")]

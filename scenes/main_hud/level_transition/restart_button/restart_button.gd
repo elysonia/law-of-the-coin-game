@@ -8,8 +8,12 @@ func _ready():
 
 
 func _pressed():
-	GlobalLevelEvents.game_restarted.emit()
-	hide()
+	var current_level = GlobalLevelState.get_level(0)
+
+	GlobalLevelState.current_level_index = 0
+	GlobalLevelState.player_win_rate = current_level.player_win_rate
+
+	get_tree().reload_current_scene()
 
 
 func _on_coin_flip_failed():

@@ -7,6 +7,8 @@ extends Node
 #   - Show "back to menu" and restart button
 signal game_ended
 
+signal game_started
+
 # Emit when the player restarts the game by pressing a button
 # Should:
 #   - Reset level stats to default
@@ -16,7 +18,7 @@ signal game_restarted
 # Should:
 #   - Show perks and items selection scene (later)
 #   - Show coin flip scene
-# signal game_continued
+signal game_continued
 
 signal game_title_shown
 
