@@ -11,7 +11,6 @@ func _pressed():
 
 	# Prevent attempting to start a level that doesn't exist
 	if next_level_index > GlobalLevelState._available_levels.levels.size() - 1:
-		GlobalLevelEvents.game_ended.emit()
 		return
 
 	var next_level = GlobalLevelState.get_level(next_level_index)

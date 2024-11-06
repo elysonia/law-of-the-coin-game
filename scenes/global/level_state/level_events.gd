@@ -1,12 +1,6 @@
 class_name LevelEvents
 extends Node
 
-# Emit when:
-#   - Player has reached the end
-# Should:
-#   - Show "back to menu" and restart button
-signal game_ended
-
 signal game_started
 
 # Emit when the player restarts the game by pressing a button
