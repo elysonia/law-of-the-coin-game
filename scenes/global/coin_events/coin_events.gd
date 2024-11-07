@@ -2,6 +2,11 @@
 class_name CoinEvents
 extends Node2D
 
+# TODO: IMPORTANT - REDUCE SIGNALS
+#   - Move the heads/tails button to coinflip and instantiate from there
+#   - More the arrow keys to coinflip and instantiate from there!
+#   - Hide progressbar before arrow keys
+
 # Emit on delay timer timeout
 # Should:
 #   - Trigger random picker for heads or tails
