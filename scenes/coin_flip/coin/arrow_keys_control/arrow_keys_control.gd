@@ -27,18 +27,18 @@ func _add_pick_chance():
 
 
 func _on_right_arrow_button_pressed():
+	_is_right_arrow_pressed = true
+
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
 	if should_add_pick_chance:
 		_add_pick_chance()
-	else:
-		_is_right_arrow_pressed = true
 
 
 func _on_left_arrow_button_pressed():
+	_is_left_arrow_pressed = true
+
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
 	if should_add_pick_chance:
 		_add_pick_chance()
-	else:
-		_is_left_arrow_pressed = true
