@@ -3,19 +3,11 @@ extends Control
 var _is_left_arrow_pressed = false
 var _is_right_arrow_pressed = false
 
-var _progress_bar_scene = null
+@onready var _progress_bar = $ProgressBar
 
 
 func _ready():
-	var progress_bar = load("res://scenes/coin_flip/player_control/progress_bar/progress_bar.tscn")
-
-	_progress_bar_scene = progress_bar.instantiate()
-	_progress_bar_scene.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
-
-	get_tree().root.add_child(_progress_bar_scene)
-
-
-# TODO: Maybe adding the key shortcuts programmatically helps maintainability
+	_progress_bar.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
 
 
 # Ensure adding pick chance only when the left and right arrow are pressed alternately
@@ -30,7 +22,7 @@ func _reset_arrow_pressed():
 
 func _add_pick_chance():
 	GlobalLevelState.player_win_rate += GlobalEnums.ARROW_KEY_INCREMENT_RATE
-	_progress_bar_scene.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
+	_progress_bar.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
 	_reset_arrow_pressed()
 
 
