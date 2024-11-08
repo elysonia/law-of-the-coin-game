@@ -14,10 +14,10 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_ge6qg")
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_left = 504.0
-offset_top = 234.0
-offset_right = 647.0
-offset_bottom = 335.0
+offset_left = 498.0
+offset_top = 240.0
+offset_right = 641.0
+offset_bottom = 341.0
 text = "time"
 label_settings = SubResource("LabelSettings_8ddpy")
 horizontal_alignment = 1
