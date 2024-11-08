@@ -3,6 +3,7 @@ extends Control
 var _is_left_arrow_pressed = false
 var _is_right_arrow_pressed = false
 
+@onready var flip_delay_timer = $FlipDelayTimer
 @onready var _progress_bar = $ProgressBar
 
 

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnn6untukcir"]
+
+[ext_resource type="Script" path="res://scenes/coin_flip/coin/arrow_keys_control/flip_delay_timer/flip_delay_timer.gd" id="1_ge6qg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ddpy"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2542h"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="FlipDelayTimer" type="Timer"]
+script = ExtResource("1_ge6qg")
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 234.0
+offset_right = 647.0
+offset_bottom = 335.0
+text = "time"
+label_settings = SubResource("LabelSettings_8ddpy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerTitleLabel" type="Label" parent="."]
+offset_left = 426.0
+offset_top = 187.0
+offset_right = 724.0
+offset_bottom = 242.0
+theme_override_font_sizes/font_size = 20
+text = "Flipping coin in:"
+label_settings = SubResource("LabelSettings_2542h")

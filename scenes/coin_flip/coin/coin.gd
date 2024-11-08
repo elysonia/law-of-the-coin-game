@@ -1,7 +1,8 @@
 class_name Coin
 extends RandomPicker
 
-var _arrow_keys_control = null
+var _player_coin_name = GlobalEnums.COIN.INDEX
+var _arrow_keys_control_scene = null
 var _coin_side_control_scene = null
 
 @onready var _tails_animation = $TailsAnimatedSprite2D
@@ -18,10 +19,6 @@ func _ready():
 	_reset_animation()
 
 
-func _process(_delta):
-	pass
-
-
 func _connect_with_coin_buttons():
 	_coin_side_control_scene.heads_button.pressed.connect(
 		_on_coin_player_picked.bind(GlobalEnums.COIN.HEADS)
@@ -35,19 +32,21 @@ func _show_arrow_keys():
 	var arrow_keys_control = load(
 		"res://scenes/coin_flip/coin/arrow_keys_control/arrow_keys_control.tscn"
 	)
-	_arrow_keys_control = arrow_keys_control.instantiate()
-	get_tree().root.add_child(_arrow_keys_control)
+	_arrow_keys_control_scene = arrow_keys_control.instantiate()
+	get_tree().root.add_child(_arrow_keys_control_scene)
+	_arrow_keys_control_scene.flip_delay_timer.timeout.connect(_get_coin_result)
 
 
-func _get_coin_result(player_coin_name):
+func _get_coin_result():
+	_arrow_keys_control_scene.queue_free()
 	for item in item_list:
-		if str(item.name) == player_coin_name:
+		if str(item.name) == _player_coin_name:
 			item.pick_chance = GlobalLevelState.player_win_rate
 		else:
 			item.pick_chance = 1 - GlobalLevelState.player_win_rate
 
 	var result_coin_name = pick_random_item()
-	var is_successful_throw = result_coin_name == player_coin_name
+	var is_successful_throw = result_coin_name == _player_coin_name
 
 	_on_coin_random_picker_picked(result_coin_name, is_successful_throw)
 
@@ -66,7 +65,8 @@ func _deferred_add_coin_control(node):
 
 # TODO: Maybe start the flipping animation but stop midway
 # 	so the coin is "midair" during countdown
-func _on_coin_player_picked(_player_coin_name):
+func _on_coin_player_picked(player_coin_name):
+	_player_coin_name = player_coin_name
 	_reset_animation()
 	_coin_side_control_scene.queue_free()
 	_show_arrow_keys()

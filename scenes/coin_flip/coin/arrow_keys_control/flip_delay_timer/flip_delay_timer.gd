@@ -10,11 +10,11 @@ var previous_time_left_rounded: int = 0
 
 
 func _ready():
-	GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
-	timeout.connect(_on_flip_delay_timer_timeout)
+	# GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
+	# timeout.connect(_on_flip_delay_timer_timeout)
 	wait_time = 5
 	one_shot = true
-	_hide_timer_texts()
+	start()
 
 
 func _process(_delta):
@@ -36,9 +36,9 @@ func _process(_delta):
 	_update_timer_texts(time_left_rounded)
 
 
-func _on_flip_delay_timer_timeout():
-	_hide_timer_texts()
-	GlobalCoinEvents.coin_delay_countdown_finished.emit()
+# func _on_flip_delay_timer_timeout():
+# 	_hide_timer_texts()
+# 	GlobalCoinEvents.coin_delay_countdown_finished.emit()
 
 
 func _update_timer_texts(time):
@@ -57,7 +57,6 @@ func _hide_timer_texts():
 	_timer_label.hide()
 	_timer_title_label.hide()
 
-
-func _on_coin_events_coin_player_picked(_player_coin_name):
-	start()
-	_show_timer_texts()
+# func _on_coin_events_coin_player_picked(_player_coin_name):
+# 	start()
+# 	_show_timer_texts()
