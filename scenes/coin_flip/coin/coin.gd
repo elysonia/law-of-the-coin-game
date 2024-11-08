@@ -19,6 +19,24 @@ func _ready():
 	_reset_animation()
 
 
+func _deferred_add_coin_control(node):
+	get_tree().root.add_child(node)
+
+	_coin_side_control_scene.heads_button.pressed.connect(
+		_on_player_picked.bind(GlobalEnums.COIN.HEADS)
+	)
+	_coin_side_control_scene.tails_button.pressed.connect(
+		_on_player_picked.bind(GlobalEnums.COIN.TAILS)
+	)
+
+
+# Show faceless coin before flipping animation
+func _reset_animation():
+	_tails_animation.hide()
+	_heads_animation.set_frame(0)
+	_heads_animation.show()
+
+
 func _show_arrow_keys():
 	var arrow_keys_control = load(
 		"res://scenes/coin_flip/coin/arrow_keys_control/arrow_keys_control.tscn"
@@ -55,30 +73,13 @@ func _get_coin_result():
 		_tails_animation.play()
 
 
-# Show faceless coin before flipping animation
-func _reset_animation():
-	_tails_animation.hide()
-	_heads_animation.set_frame(0)
-	_heads_animation.show()
-
-
-func _deferred_add_coin_control(node):
-	get_tree().root.add_child(node)
-
-	_coin_side_control_scene.heads_button.pressed.connect(
-		_on_player_picked.bind(GlobalEnums.COIN.HEADS)
-	)
-	_coin_side_control_scene.tails_button.pressed.connect(
-		_on_player_picked.bind(GlobalEnums.COIN.TAILS)
-	)
-
-
 # TODO: Maybe start the flipping animation but stop midway
 # 	so the coin is "midair" during countdown
 func _on_player_picked(player_coin_name):
 	_player_coin_name = player_coin_name
-	_reset_animation()
 	_coin_side_control_scene.queue_free()
+	
+	_reset_animation()
 	_show_arrow_keys()
 
 
