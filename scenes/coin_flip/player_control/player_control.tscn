@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://twu8nv30fyyd"]
-
-[ext_resource type="Script" path="res://scenes/coin_flip/player_control/player_control.gd" id="1_u0gy0"]
-
-[node name="PlayerControl" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_u0gy0")
