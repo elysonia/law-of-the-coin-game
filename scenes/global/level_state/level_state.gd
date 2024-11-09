@@ -11,7 +11,7 @@ var player_win_rate = 0
 
 # TODO: Research load as local function variable vs preload as local class variable more
 var _main_scene = preload("res://scenes/main.tscn")
-var _game_level_scene = preload("res://scenes/game_level/game_level.tscn")
+var _game_scene = preload("res://scenes/game/game.tscn")
 var _available_levels = preload("res://resources/levels/levels.tres")
 
 
@@ -45,13 +45,13 @@ func goto_main_scene():
 	get_tree().root.add_child(main_scene)
 
 
-func goto_game_level_scene():
-
+func goto_game_scene():
+	print("game")
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
-	current_scene = _game_level_scene.instantiate()
+	current_scene = _game_scene.instantiate()
 
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene

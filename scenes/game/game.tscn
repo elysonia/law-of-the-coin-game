@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c02kdx7pn1ys3"]
+
+[ext_resource type="Texture2D" uid="uid://f7f8aa6a8s28" path="res://assets/coin_flip_bg.png" id="1_0jjtc"]
+[ext_resource type="PackedScene" uid="uid://cxx5jw5ve7arh" path="res://scenes/coin_flip/coin_flip.tscn" id="1_lf3hm"]
+[ext_resource type="PackedScene" uid="uid://bk0p7valow0sl" path="res://scenes/game_menu/game_menu.tscn" id="2_2qxbd"]
+
+[sub_resource type="Theme" id="Theme_h17fg"]
+
+[node name="Game" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.535112, 0.593163, 0.755619, 1)
+self_modulate = Color(0.939553, 0.821856, 0.79899, 1)
+offset_right = 1152.0
+offset_bottom = 640.0
+theme = SubResource("Theme_h17fg")
+texture = ExtResource("1_0jjtc")
+
+[node name="CoinFlip" parent="." instance=ExtResource("1_lf3hm")]
+
+[node name="GameMenu" parent="." instance=ExtResource("2_2qxbd")]

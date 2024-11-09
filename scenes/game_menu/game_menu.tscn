@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk0p7valow0sl"]
+
+[ext_resource type="PackedScene" uid="uid://caiwn7brp2sym" path="res://scenes/game_menu/menu_button/menu_button.tscn" id="1_sfdoy"]
+[ext_resource type="Script" path="res://scenes/game_menu/game_menu.gd" id="1_w6p3n"]
+[ext_resource type="Script" path="res://scenes/game_menu/menu_button/menu_button.gd" id="2_onw3m"]
+[ext_resource type="PackedScene" uid="uid://bha4idm30721u" path="res://scenes/game_menu/level_transition/level_transition.tscn" id="3_huxy0"]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w6p3n")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [320.0, 40.0]
+
+[node name="MenuButton" parent="." instance=ExtResource("1_sfdoy")]
+layout_mode = 2
+offset_left = 38.0
+offset_right = 91.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+item_count = 0
+script = ExtResource("2_onw3m")
+
+[node name="LevelTransition" parent="." instance=ExtResource("3_huxy0")]
+layout_mode = 1
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 24.0
+offset_right = 600.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.791999, 0.791999, 0.791999, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Trial"
+vertical_alignment = 1

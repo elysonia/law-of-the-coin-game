@@ -17,7 +17,7 @@ func _pressed():
 	GlobalLevelState.current_level_index = next_level_index
 	GlobalLevelState.player_win_rate = next_level.player_win_rate
 
-	GlobalLevelState.goto_game_level_scene()
+	GlobalLevelState.goto_game_scene()
 
 
 func _on_coin_flip_succeeded():
