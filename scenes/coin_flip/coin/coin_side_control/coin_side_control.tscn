@@ -8,17 +8,18 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ofrmq")
-metadata/_edit_horizontal_guides_ = [477.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="HeadsButton" parent="." instance=ExtResource("1_0a5kl")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 342.0
-offset_top = 356.0
-offset_right = 438.0
-offset_bottom = 435.0
+offset_left = 368.0
+offset_top = 320.0
+offset_right = 464.0
+offset_bottom = 399.0
 scale = Vector2(1.5, 1.5)
 
 [node name="TailsButton" parent="." instance=ExtResource("2_mrqq8")]
@@ -26,10 +27,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 644.0
-offset_top = 356.0
-offset_right = 740.0
-offset_bottom = 435.0
+offset_left = 640.0
+offset_top = 320.0
+offset_right = 736.0
+offset_bottom = 399.0
 scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="HeadsButton" to="." method="_on_heads_button_pressed"]

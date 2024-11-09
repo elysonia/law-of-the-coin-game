@@ -8,6 +8,8 @@
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_0honj")
+metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1153.0
@@ -15,15 +17,21 @@ offset_bottom = 648.0
 texture = ExtResource("5_wpfl4")
 
 [node name="CoinFlip" parent="." instance=ExtResource("1_eyppa")]
+position = Vector2(24, -56)
 
 [node name="LevelLabel" type="Label" parent="."]
-offset_left = 507.0
-offset_top = 9.0
-offset_right = 606.0
-offset_bottom = 63.0
+offset_left = 536.0
+offset_top = 32.0
+offset_right = 635.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Trial"
+horizontal_alignment = 1
 
 [node name="GameMenu" parent="." instance=ExtResource("4_uvtx7")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_yfgup")]
+offset_top = -24.0
+offset_bottom = -24.0

@@ -4,6 +4,8 @@
 
 [node name="CoinFlip" type="Node2D"]
 position = Vector2(10, -14)
+metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Coin" parent="." instance=ExtResource("1_32oyj")]
 position = Vector2(542, 296)
