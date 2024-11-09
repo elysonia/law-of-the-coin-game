@@ -2,7 +2,6 @@
 class_name CoinEvents
 extends Node2D
 
-
 # Emit when the randomly picked coin matches the player choice
 # Should:
 #   - Show the UI to restart, go to the next level and back to title screen

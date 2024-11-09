@@ -1,7 +1,6 @@
 class_name Level
 extends Resource
 
-
 ## Level name
 @export var level_name: String
 

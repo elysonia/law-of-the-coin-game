@@ -78,7 +78,7 @@ func _get_coin_result():
 func _on_player_picked(player_coin_name):
 	_player_coin_name = player_coin_name
 	_coin_side_control_scene.queue_free()
-	
+
 	_reset_animation()
 	_show_arrow_keys()
 

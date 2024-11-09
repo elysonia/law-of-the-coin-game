@@ -50,4 +50,3 @@ func goto_game_level_scene():
 
 	get_tree().root.add_child(current_level_scene)
 	get_tree().current_scene = current_level_scene
-
