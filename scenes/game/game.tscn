@@ -12,7 +12,7 @@
 modulate = Color(0.535112, 0.593163, 0.755619, 1)
 self_modulate = Color(0.939553, 0.821856, 0.79899, 1)
 offset_right = 1152.0
-offset_bottom = 640.0
+offset_bottom = 648.0
 theme = SubResource("Theme_h17fg")
 texture = ExtResource("1_0jjtc")
 
