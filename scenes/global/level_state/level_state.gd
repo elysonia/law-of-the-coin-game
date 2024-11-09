@@ -9,6 +9,8 @@ var current_level_index = 0
 # Default player win rate for the current level
 var player_win_rate = 0
 
+# TODO: Research load as local function variable vs preload as local class variable more
+var _main_scene = preload("res://scenes/main.tscn")
 var _game_level_scene = preload("res://scenes/game_level/game_level.tscn")
 var _available_levels = preload("res://resources/levels/levels.tres")
 
@@ -21,10 +23,10 @@ func _ready():
 	current_level_scene = root.get_child(root.get_child_count() - 1)
 
 
-func reset_level():
-	current_level_index = 0
-	var level = get_level(current_level_index)
-	GlobalLevelState.player_win_rate = level.player_win_rate
+func check_is_last_level():
+	var last_level_index = GlobalLevelState._available_levels.levels.size() - 1
+
+	return current_level_index >= last_level_index
 
 
 func get_level(level_index):
@@ -33,42 +35,19 @@ func get_level(level_index):
 	return level
 
 
-func goto_scene(path):
-	"""
-	This function will usually be called from a signal callback
-	or other functions in the current scene.
-	Deleting the scene immediately is bad as it may still be executing code
-	which could cause a crash or unexpected behavior.
+func goto_main_scene():
+	var main_scene = _main_scene.instantiate()
 
-	The solution is to defer the load to a later time when we
-	can be sure that no code from the current scene is running.
-	"""
+	if current_level_scene:
+		current_level_scene.queue_free()
+		current_level_scene = null
 
-	# call_deferred ensures _deferred_goto_scene only runs after
-	# the current scene is done running.
-	call_deferred("_deferred_goto_scene", path)
+	get_tree().root.add_child(main_scene)
 
 
 func goto_game_level_scene():
-	call_deferred("_deferred_goto_game_level_scene")
-
-
-func _deferred_goto_game_level_scene():
-	if current_level_scene:
-		get_tree().unload_current_scene()
-		current_level_scene = null
-
 	current_level_scene = _game_level_scene.instantiate()
 
 	get_tree().root.add_child(current_level_scene)
 	get_tree().current_scene = current_level_scene
 
-
-func _deferred_goto_scene(path):
-	var new_scene = load(path).instantiate()
-
-	if current_level_scene:
-		get_tree().unload_current_scene()
-		current_level_scene = null
-
-	get_tree().root.add_child(new_scene)
