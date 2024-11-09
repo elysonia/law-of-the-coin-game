@@ -2,7 +2,7 @@
 class_name LevelState
 extends Node
 
-var current_level_scene = null
+var current_scene = null
 
 var current_level_index = 0
 
@@ -20,7 +20,7 @@ func _ready():
 	player_win_rate = current_level.player_win_rate
 
 	var root = get_tree().root
-	current_level_scene = root.get_child(root.get_child_count() - 1)
+	current_scene = root.get_child(root.get_child_count() - 1)
 
 
 func check_is_last_level():
@@ -38,15 +38,20 @@ func get_level(level_index):
 func goto_main_scene():
 	var main_scene = _main_scene.instantiate()
 
-	if current_level_scene:
-		current_level_scene.queue_free()
-		current_level_scene = null
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null
 
 	get_tree().root.add_child(main_scene)
 
 
 func goto_game_level_scene():
-	current_level_scene = _game_level_scene.instantiate()
 
-	get_tree().root.add_child(current_level_scene)
-	get_tree().current_scene = current_level_scene
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null
+
+	current_scene = _game_level_scene.instantiate()
+
+	get_tree().root.add_child(current_scene)
+	get_tree().current_scene = current_scene
