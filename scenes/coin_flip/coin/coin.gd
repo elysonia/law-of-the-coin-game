@@ -7,6 +7,7 @@ var _coin_side_control_scene = null
 
 @onready var _tails_animation = $TailsAnimatedSprite2D
 @onready var _heads_animation = $HeadsAnimatedSprite2D
+@onready var _updates_label = preload("res://scenes/notifications/updates_label/updates_label.tscn")
 
 
 func _ready():
@@ -85,6 +86,18 @@ func _on_player_picked(player_coin_name):
 
 func _on_animation_finished(is_successful_throw):
 	if is_successful_throw:
+		if not GlobalLevelState.check_is_last_level():
+			GlobalLevelState.set_money(GlobalLevelState.money + GlobalEnums.DEFAULT_REWARD_MONEY)
+
+			var updates_label_text = (
+				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " compensatory damages"
+			)
+
+			var updates_label = _updates_label.instantiate()
+			updates_label.text = updates_label_text
+			get_tree().root.add_child(updates_label)
+			updates_label.fade_tween()
+
 		GlobalCoinEvents.coin_flip_succeeded.emit()
 	else:
 		GlobalCoinEvents.coin_flip_failed.emit()

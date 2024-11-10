@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk0p7valow0sl"]
+[gd_scene load_steps=6 format=3 uid="uid://bk0p7valow0sl"]
 
 [ext_resource type="PackedScene" uid="uid://caiwn7brp2sym" path="res://scenes/game_menu/menu_button/menu_button.tscn" id="1_sfdoy"]
 [ext_resource type="Script" path="res://scenes/game_menu/game_menu.gd" id="1_w6p3n"]
 [ext_resource type="Script" path="res://scenes/game_menu/menu_button/menu_button.gd" id="2_onw3m"]
 [ext_resource type="PackedScene" uid="uid://bha4idm30721u" path="res://scenes/game_menu/level_transition/level_transition.tscn" id="3_huxy0"]
+[ext_resource type="PackedScene" uid="uid://ci8mu5pesvdmf" path="res://scenes/game_menu/money_label/money_label.tscn" id="5_vcmha"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -14,14 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w6p3n")
 metadata/_edit_vertical_guides_ = [576.0]
-metadata/_edit_horizontal_guides_ = [320.0, 40.0]
+metadata/_edit_horizontal_guides_ = [320.0]
 
 [node name="MenuButton" parent="." instance=ExtResource("1_sfdoy")]
 layout_mode = 2
 offset_left = 38.0
 offset_right = 91.0
 offset_bottom = 64.0
-theme_override_colors/font_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+theme_override_colors/font_color = Color(0.662745, 0.227451, 0.976471, 1)
 theme_override_constants/h_separation = 0
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 15
@@ -42,3 +43,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Trial"
 vertical_alignment = 1
+
+[node name="MoneyLabel" parent="." instance=ExtResource("5_vcmha")]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 56.0
+offset_right = 624.0
+offset_bottom = 79.0

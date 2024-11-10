@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://5i0c2pi2hto6"]
+
+[ext_resource type="Script" path="res://scenes/notifications/updates_label/updates_label.gd" id="1_a8tef"]
+
+[node name="UpdatesLabel" type="Label"]
+offset_left = 664.0
+offset_top = 200.0
+offset_right = 768.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(0.597177, 0.597176, 0.597176, 1)
+theme_override_font_sizes/font_size = 15
+text = "$"
+script = ExtResource("1_a8tef")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci8mu5pesvdmf"]
+
+[ext_resource type="Script" path="res://scenes/game_menu/money_label/money_label.gd" id="1_hmyqc"]
+
+[node name="MoneyLabel" type="Label"]
+offset_left = 608.0
+offset_top = 64.0
+offset_right = 696.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Money"
+script = ExtResource("1_hmyqc")
