@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cyypvvdxrmjgh"]
+[gd_scene load_steps=2 format=3 uid="uid://cyypvvdxrmjgh"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/start_button/start_button.gd" id="1_gk62q"]
 
 [node name="StartButton" type="Button"]
 size_flags_stretch_ratio = 0.0
@@ -6,3 +8,4 @@ theme_override_constants/outline_size = 0
 theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 67
 text = "Start"
+script = ExtResource("1_gk62q")

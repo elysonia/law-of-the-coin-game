@@ -17,7 +17,7 @@ grow_vertical = 2
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="LevelTransitionContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 484.0
 offset_top = 324.0
@@ -26,17 +26,17 @@ offset_bottom = 480.0
 theme_override_constants/separation = 3
 alignment = 1
 
-[node name="NextTrialButton" parent="VBoxContainer" instance=ExtResource("2_grv6l")]
+[node name="NextTrialButton" parent="LevelTransitionContainer" instance=ExtResource("2_grv6l")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 script = ExtResource("2_ajf44")
 
-[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("4_0i34o")]
+[node name="RestartButton" parent="LevelTransitionContainer" instance=ExtResource("4_0i34o")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 script = ExtResource("4_kidjc")
 
-[node name="BackToTitleButton" parent="VBoxContainer" instance=ExtResource("6_yr5jm")]
+[node name="BackToTitleButton" parent="LevelTransitionContainer" instance=ExtResource("6_yr5jm")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Back to title"
