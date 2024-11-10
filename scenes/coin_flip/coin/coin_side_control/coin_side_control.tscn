@@ -33,5 +33,20 @@ offset_right = 736.0
 offset_bottom = 399.0
 scale = Vector2(1.5, 1.5)
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 424.0
+offset_right = 664.0
+offset_bottom = 473.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Click on coins 
+or use
+<- Left  or  Right ->
+arrows "
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="HeadsButton" to="." method="_on_heads_button_pressed"]
 [connection signal="pressed" from="TailsButton" to="." method="_on_tails_button_pressed"]

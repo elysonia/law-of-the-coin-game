@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3nlkpgyjl4cv"]
+[gd_scene load_steps=5 format=3 uid="uid://c3nlkpgyjl4cv"]
 
 [ext_resource type="Texture2D" uid="uid://yveu68ymuq5m" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip/goldcoin-tails.png" id="1_jif8r"]
+[ext_resource type="Texture2D" uid="uid://d26wppmbqd6y7" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip/goldcoin-tails-pressed.png" id="2_6qk81"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5vnte"]
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_jl4l1"]
+events = [SubResource("InputEventKey_5vnte")]
 
 [node name="TailsButton" type="TextureButton"]
 anchors_preset = 15
@@ -12,5 +19,7 @@ offset_right = 5.0
 offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut = SubResource("Shortcut_jl4l1")
 texture_normal = ExtResource("1_jif8r")
+texture_pressed = ExtResource("2_6qk81")
 stretch_mode = 0

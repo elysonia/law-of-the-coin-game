@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhft5joepxv2k"]
+[gd_scene load_steps=5 format=3 uid="uid://bhft5joepxv2k"]
 
 [ext_resource type="Texture2D" uid="uid://dpti2obsp18vx" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip/goldcoin-heads.png" id="1_d3fpy"]
+[ext_resource type="Texture2D" uid="uid://xrlwh586nbxw" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip/goldcoin-heads-pressed.png" id="2_reyi2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ymc5p"]
+keycode = 4194319
+
+[sub_resource type="Shortcut" id="Shortcut_g5lly"]
+events = [SubResource("InputEventKey_ymc5p")]
 
 [node name="HeadsButton" type="TextureButton"]
 anchors_preset = 15
@@ -10,5 +17,7 @@ offset_right = 8.0
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut = SubResource("Shortcut_g5lly")
 texture_normal = ExtResource("1_d3fpy")
+texture_pressed = ExtResource("2_reyi2")
 stretch_mode = 0
