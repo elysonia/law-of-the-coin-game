@@ -7,6 +7,7 @@ extends Button
 
 func _ready():
 	GlobalCoinEvents.coin_flip_succeeded.connect(_on_coin_flip_succeeded)
+	disabled = true
 	hide()
 
 
@@ -37,4 +38,5 @@ func _on_coin_flip_succeeded():
 	if GlobalLevelState.check_is_last_level():
 		return
 
+	disabled = false
 	show()
