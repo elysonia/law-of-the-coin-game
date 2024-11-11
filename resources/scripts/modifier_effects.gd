@@ -9,10 +9,10 @@ extends Resource
 
 ## Specify fixed or range of cost for next trial.
 @export_category("Trial cost")
-## Fixed cost of next trial.
+## Fixed cost of the trial.
 @export var fixed_trial_cost: int
 @export var fixed_trial_cost_desc: String
-## Additional range of cost for next trial.
+## Additional range of cost for the trial.
 @export_range(0, 10) var range_trial_cost
 @export var range_trial_cost_desc: String
 

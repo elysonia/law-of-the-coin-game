@@ -15,5 +15,10 @@ extends RandomItem
 @export var next_trial_effects: ModifierEffects
 ## Effects activating on the current trial and lasts multiple trials.
 @export var multi_trial_effects: ModifierEffects
-## Path to image representation
-@export_file(".png", ".jpg", ".jpeg", ".svg") var image
+
+@export_category("Images for input states")
+## Displayed as button texture on normal mode
+@export_file(".png", ".jpg", ".jpeg", ".svg") var normal
+## Displayed as button texture on any other action
+@export_file(".png", ".jpg", ".jpeg", ".svg") var active
+
