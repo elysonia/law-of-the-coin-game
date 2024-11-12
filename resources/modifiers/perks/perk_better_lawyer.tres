@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://ctjl2sqykvk5c"]
+
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_xxjiv"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_3cx3i"]
+
+[sub_resource type="Resource" id="Resource_u6w5n"]
+script = ExtResource("1_xxjiv")
+fixed_coin_pick_chance = 0.0
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 1
+fixed_trial_cost_desc = "The next trial will cost 1 coin."
+range_trial_cost = 2.0
+range_trial_cost_desc = "Lawyer will take 1 - 2 coins from the settlement money next trial."
+button_mash_time_increase = 0
+handicap = ""
+decrease_level_modifiers_effectiveness_by = 0.0
+
+[sub_resource type="Resource" id="Resource_17ego"]
+script = ExtResource("1_xxjiv")
+fixed_coin_pick_chance = 0.03
+coin_pick_chance_increment = 2.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_level_modifiers_effectiveness_by = 0.0
+
+[resource]
+script = ExtResource("2_3cx3i")
+display_name = "Turn over a new law(yer)"
+type = "PERK"
+appear_condition = "ANYTIME"
+price = 4
+description = PackedStringArray("Nah, I’d win.", "Get a better lawyer. Brings the cost of the next trial down and increases rate of success.", "Lawyer wants a cut from your settlement money.")
+trial_effects = SubResource("Resource_17ego")
+next_trial_effects = SubResource("Resource_u6w5n")
+normal = "res://assets/Modifiers/Perks/perk-nego100.png"
+active = "res://assets/Modifiers/Perks/perk-nego100-active.png"
+name = &"better_lawyer"
+pick_chance = 0.1
+can_be_picked = true

@@ -2,20 +2,25 @@ class_name ModifierEffects
 extends Resource
 
 @export_category("Player choice success rate")
-## Fixed success rate of chosen coin side.
-## Replaces the default level coin pick chance.
-## Stacks with coin_pick_chance_increment.
+## Fixed success rate of chosen coin side for the effect.
+## Stacks with the default level success rate.
 @export var fixed_coin_pick_chance: float
 ## Scale success rate depending on the level. e.g. 0.1 for 10% and 2.0 double the chance each round.
+## e.g. 1: Level 2 = 0.05 fixed_coin_pick_chance then
+## Level 3 = 0.05 fixed_coin_pick_chance + 0.05 increment.
+## e.g. 2: Level 2 = 0.05 fixed_coin_pick_chance
+## Level 3 = 0.05 fixed_coin_pick_chance * 2.0 increment.
 @export var coin_pick_chance_increment: float
 
 ## Specify fixed or range of cost for next trial.
 @export_category("Trial cost")
 ## Fixed cost of the trial.
+## The trial will cost this much by default.
 @export var fixed_trial_cost: int
 ## Description of trial cost for in-game hints.
 @export var fixed_trial_cost_desc: String
 ## Additional range of cost for the trial.
+## The trial will cost an extra amount in the range specified.
 @export_range(0, 10) var range_trial_cost
 ## Description of range of trial cost for in-game hints.
 @export var range_trial_cost_desc: String
@@ -29,19 +34,16 @@ extends Resource
 	"NONE", "NO_ITEMS", "NO_MONEY", "NO_PERKS", "BLURRY_VISION", "LOWER_MODIFIER_EFFECTIVENESS"
 )
 var handicap: String
-## For when the modifier counters other level modifiers.
-@export var decrease_level_modifiers_effectiveness_by: float
+## When the modifier is in effect, decrease effectiveness of other modifiers by this rate.
+@export var decrease_other_modifiers_effectiveness_by: float
+
+## Conditions to be fulfilled for effect to stop
+@export_category("Multitrial effect stop condition")
+## Stop modifier effect when the counter modifier is in effect
+@export var counter_modifier: Modifier
 
 @export_category("Effect State")
 ## Change to true while in use
-var _is_in_use: bool = false
+var is_enabled: bool = false
 ## Change to true after use
-var _is_used: bool = false
-
-
-func set_is_in_use(value: bool):
-	_is_in_use = value
-
-
-func set_is_used(value: bool):
-	_is_used = value
+var is_disabled: bool = false

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://c5tx75itukan5"]
+
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_o8mj3"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_lw74o"]
+
+[sub_resource type="Resource" id="Resource_5vrng"]
+script = ExtResource("1_o8mj3")
+fixed_coin_pick_chance = 0.05
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[sub_resource type="Resource" id="Resource_vfgv6"]
+script = ExtResource("1_o8mj3")
+fixed_coin_pick_chance = -0.05
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[resource]
+script = ExtResource("2_lw74o")
+display_name = "Multidirectional Keycap"
+type = "ITEM"
+appear_condition = "ANYTIME"
+price = 6
+description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "Transforms arrow keys into one key. Only mash one key from now on to increase rate of success. All arrow keys can be used.", "All subsequent trials get extra 5% decrease in rate of success")
+trial_effects = SubResource("Resource_vfgv6")
+multi_trial_effects = SubResource("Resource_5vrng")
+normal = "res://assets/Modifiers/Items/item-multidirectionalbtn.png"
+active = "res://assets/Modifiers/Items/item-multidirectionalbtn-active.png"
+name = &"multidirectional_keycap"
+pick_chance = 0.1
+can_be_picked = true

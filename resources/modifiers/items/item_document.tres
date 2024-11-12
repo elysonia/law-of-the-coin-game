@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://c5tlkdus0j3sc"]
+
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_5cjru"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_1j6e0"]
+
+[sub_resource type="Resource" id="Resource_2nq5q"]
+script = ExtResource("1_5cjru")
+fixed_coin_pick_chance = 0.0
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = "NO_PERKS"
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[sub_resource type="Resource" id="Resource_ihmnv"]
+script = ExtResource("1_5cjru")
+fixed_coin_pick_chance = 0.1
+coin_pick_chance_increment = 0.1
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[resource]
+script = ExtResource("2_1j6e0")
+display_name = "Document"
+type = "ITEM"
+appear_condition = "ANYTIME"
+price = 5
+description = PackedStringArray("Copious amount of printed Wikipedia pages.", "Contains evidence to prove your case. Significantly increases rate of success.", "No perk options next round.")
+trial_effects = SubResource("Resource_ihmnv")
+next_trial_effects = SubResource("Resource_2nq5q")
+normal = "res://assets/Modifiers/Items/item-document.png"
+active = "res://assets/Modifiers/Items/item-document-active.png"
+name = &"document"
+pick_chance = 0.1
+can_be_picked = true
