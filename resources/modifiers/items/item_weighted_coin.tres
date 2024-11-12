@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://biys3mvhpsdtp"]
+
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_1fks5"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_s2a1a"]
+
+[sub_resource type="Resource" id="Resource_usdyv"]
+script = ExtResource("1_1fks5")
+fixed_coin_pick_chance = -0.03
+coin_pick_chance_increment = -2.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[sub_resource type="Resource" id="Resource_q7q5o"]
+script = ExtResource("1_1fks5")
+fixed_coin_pick_chance = 0.1
+coin_pick_chance_increment = 0.1
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[resource]
+script = ExtResource("2_s2a1a")
+display_name = "Weighted Coin"
+type = "ITEM"
+appear_condition = "ANYTIME"
+price = 5
+description = PackedStringArray("A loaded coin is a heavy burden.", "Significantly increases rate of success.", "Caught cheating, judge is harder on you next trial.")
+trial_effects = SubResource("Resource_q7q5o")
+next_trial_effects = SubResource("Resource_usdyv")
+normal = "res://assets/Modifiers/Items/item-weightedcoin.png"
+active = "res://assets/Modifiers/Items/item-weightedcoin-active.png"
+name = &"weighted_coin"
+pick_chance = 0.1
+can_be_picked = true

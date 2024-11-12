@@ -1,24 +1,31 @@
 class_name Modifier
 extends RandomItem
 
+@export_category("Modifier details")
+## Name of the modifier
+@export var display_name: String
 @export_enum("ITEM", "PERK") var type: String
 ## Conditions for modifier appearance.
-@export_enum("ANYTIME", "NEXT_LEVEL_LAST", "BLURRY_VISION") var appear_condition: String
+@export_enum("ANYTIME", "LAST_TRIAL", "BLURRY_VISION") var appear_condition: String
 ## Buying price for modifier.
 @export var price: int
 ## Modifier description. Each element is a new line.
 @export var description: PackedStringArray
 
+@export_category("Modifier effects")
 ## Effects activating on the current trial and affects on the current trial only.
+## Set is_disabled to true after use.
 @export var trial_effects: ModifierEffects
 ## Effects activating on the next trial and affects the next trial only.
+## Set is_disabled to true after use.
 @export var next_trial_effects: ModifierEffects
 ## Effects activating on the current trial and lasts multiple trials.
+## Set is_disabled to true after effect_stop_conditions are fulfilled.
 @export var multi_trial_effects: ModifierEffects
 
 @export_category("Images for input states")
 ## Displayed as button texture on normal mode
-@export_file(".png", ".jpg", ".jpeg", ".svg") var normal
+@export_file("*.png", "*.jpg", "*.jpeg", "*.svg") var normal: String
 ## Displayed as button texture on any other action
-@export_file(".png", ".jpg", ".jpeg", ".svg") var active
+@export_file("*.png", "*.jpg", "*.jpeg", "*.svg") var active: String
 

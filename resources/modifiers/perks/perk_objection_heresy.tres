@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://buq02el01ltdb"]
+
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_gwxds"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_w80ui"]
+
+[sub_resource type="Resource" id="Resource_mi4c8"]
+script = ExtResource("1_gwxds")
+fixed_coin_pick_chance = 0.05
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.0
+
+[sub_resource type="Resource" id="Resource_qrcxn"]
+script = ExtResource("1_gwxds")
+fixed_coin_pick_chance = 0.0
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 5
+handicap = ""
+decrease_other_modifiers_effectiveness_by = 0.05
+
+[resource]
+script = ExtResource("2_w80ui")
+display_name = "Objection! Heresy!"
+type = "PERK"
+appear_condition = "ANYTIME"
+price = 5
+description = PackedStringArray("Paper thin defense reinforced with 100% crocodile tears.", "Drag the hearing out. Add 5 seconds to button mashing time.", "Lowers the effectiveness of other perks/items this round by 5% each if applicable")
+trial_effects = SubResource("Resource_qrcxn")
+next_trial_effects = SubResource("Resource_mi4c8")
+normal = "res://assets/Modifiers/Perks/perk-objectionheresy.png"
+active = "res://assets/Modifiers/Perks/perk-objectionheresy-active.png"
+name = &"objection_heresy"
+pick_chance = 0.1
+can_be_picked = true

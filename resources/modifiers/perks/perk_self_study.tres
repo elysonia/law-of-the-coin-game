@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Modifier" load_steps=6 format=3 uid="uid://dn5k3bumagoqh"]
+
+[ext_resource type="Resource" uid="uid://ft5dbiequcv8" path="res://resources/modifiers/items/item_glasses.tres" id="1_bkdfs"]
+[ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_bxfnr"]
+[ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_6v1sb"]
+
+[sub_resource type="Resource" id="Resource_1adio"]
+script = ExtResource("1_bxfnr")
+fixed_coin_pick_chance = 0.0
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = "BLURRY_VISION"
+decrease_other_modifiers_effectiveness_by = 0.0
+counter_modifier = ExtResource("1_bkdfs")
+
+[sub_resource type="Resource" id="Resource_wihg8"]
+script = ExtResource("1_bxfnr")
+fixed_coin_pick_chance = 0.02
+coin_pick_chance_increment = 2.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+handicap = "BLURRY_VISION"
+decrease_other_modifiers_effectiveness_by = 0.0
+counter_modifier = ExtResource("1_bkdfs")
+
+[resource]
+script = ExtResource("2_6v1sb")
+display_name = "Turn over a new page"
+type = "PERK"
+appear_condition = "ANYTIME"
+price = 3
+description = PackedStringArray("Well acktually, ", "Study law by yourself. Slightly increase rate of success.", "Your eyesight is destroyed from too much reading. Lowers ability to make decisions next round.")
+trial_effects = SubResource("Resource_wihg8")
+multi_trial_effects = SubResource("Resource_1adio")
+normal = ""
+active = ""
+name = &"self_study"
+pick_chance = 0.1
+can_be_picked = true
