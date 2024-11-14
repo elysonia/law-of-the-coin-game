@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvrjhdjlvsgw8"]
+
+[ext_resource type="PackedScene" uid="uid://bwa7k8vkv0f63" path="res://scenes/modifier_selection/perks_and_items_random_picker/perks_and_items_random_picker.tscn" id="1_bnxol"]
+
+[node name="ModifierSelection" type="Node2D"]
+
+[node name="PerksAndItemsRandomPicker" parent="." instance=ExtResource("1_bnxol")]

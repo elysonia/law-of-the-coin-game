@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://byfrvr45hapnu"]
+
+[ext_resource type="Texture2D" uid="uid://w75w2qaepw30" path="res://assets/Modifiers/Perks/perk-bribe.png" id="1_p5ae1"]
+[ext_resource type="Texture2D" uid="uid://cfq2sqw3l7yu6" path="res://assets/Modifiers/Perks/perk-bribe-active.png" id="2_ae5hx"]
+[ext_resource type="Script" path="res://scenes/modifier_selection/perks_and_items_random_picker/modifier_button/modifier_button.gd" id="3_2sqyv"]
+
+[node name="ModifierButton" type="TextureButton"]
+offset_right = 96.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+tooltip_text = "Text"
+toggle_mode = true
+texture_normal = ExtResource("1_p5ae1")
+texture_pressed = ExtResource("2_ae5hx")
+texture_hover = ExtResource("2_ae5hx")
+script = ExtResource("3_2sqyv")

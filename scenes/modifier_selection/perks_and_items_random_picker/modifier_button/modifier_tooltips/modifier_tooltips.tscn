@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://gvjm311kcm0r"]
+
+[ext_resource type="Script" path="res://scenes/modifier_selection/perks_and_items_random_picker/modifier_button/modifier_tooltips/modifier_tooltips.gd" id="1_2m628"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrlpt"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.113868, 0.127711, 0.143427, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.512801, 0.189057, 0.288202, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.154876, 0.154876, 0.154876, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(-5, 5)
+
+[node name="ModifierTooltips" type="RichTextLabel"]
+clip_contents = false
+custom_minimum_size = Vector2(300, 100)
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/italics_font_size = 13
+theme_override_font_sizes/bold_italics_font_size = 13
+theme_override_font_sizes/mono_font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_jrlpt")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+script = ExtResource("1_2m628")
