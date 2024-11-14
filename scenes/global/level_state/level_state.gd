@@ -6,13 +6,13 @@ signal money_updated
 
 var current_scene = null
 var current_level_index = 0
-var player_win_rate = 0
 var money = 0
+var modifiers = preload("res://resources/modifiers/modifiers.tres")
+var player_win_rate = 0
 
-# TODO: Research load as local function variable vs preload as local class variable more
-var _title_screen_scene = preload("res://scenes/title_screen/title_screen.tscn")
-var _game_scene = preload("res://scenes/game/game.tscn")
 var _available_levels = preload("res://resources/levels/levels.tres")
+var _game_scene = preload("res://scenes/game/game.tscn")
+var _title_screen_scene = preload("res://scenes/title_screen/title_screen.tscn")
 
 
 func _ready():

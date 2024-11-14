@@ -1,8 +1,7 @@
 class_name ModifierRandomPicker
 extends Node
 
-@export var perks: Array[Modifier] = []
-@export var items: Array[Modifier] = []
+@export var modifiers: Modifiers
 
 
 func generate_unique_random_integers_list(
@@ -33,7 +32,7 @@ func get_random_modifiers(
 ):
 	var modifier_list = []
 	var random_integers = generate_unique_random_integers_list(
-		number_of_modifiers_required, 0, available_modifier_list.size()
+		number_of_modifiers_required, 0, available_modifier_list.size() - 1
 	)
 
 	for integer in random_integers:
@@ -44,12 +43,12 @@ func get_random_modifiers(
 
 
 func get_perks(number_of_perks_required):
-	var available_perks = perks.filter(func(perk): return perk.can_be_picked)
+	var available_perks = modifiers.perks.filter(func(perk): return perk.can_be_picked)
 
 	return get_random_modifiers(number_of_perks_required, available_perks)
 
 
 func get_items(number_of_items_required):
-	var available_items = items.filter(func(item): return item.can_be_picked)
+	var available_items = modifiers.items.filter(func(item): return item.can_be_picked)
 
 	return get_random_modifiers(number_of_items_required, available_items)
