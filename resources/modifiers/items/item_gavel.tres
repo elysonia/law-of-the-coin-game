@@ -27,4 +27,4 @@ normal = "res://assets/Modifiers/Items/item-gavel.png"
 active = "res://assets/Modifiers/Items/item-gavel-active.png"
 name = &"Gavel"
 pick_chance = 0.1
-can_be_picked = true
+can_be_picked = false

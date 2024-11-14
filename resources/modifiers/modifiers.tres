@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Modifiers" load_steps=12 format=3 uid="uid://dy5b2pgaqruh6"]
+
+[ext_resource type="Resource" uid="uid://c5tlkdus0j3sc" path="res://resources/modifiers/items/item_document.tres" id="1_n31uf"]
+[ext_resource type="Resource" uid="uid://kw0pyyflll06" path="res://resources/modifiers/items/item_gavel.tres" id="2_pdhol"]
+[ext_resource type="Resource" uid="uid://ft5dbiequcv8" path="res://resources/modifiers/items/item_glasses.tres" id="3_ehp1n"]
+[ext_resource type="Resource" uid="uid://c5tx75itukan5" path="res://resources/modifiers/items/item_multidirectional_keycap.tres" id="4_wee6u"]
+[ext_resource type="Resource" uid="uid://biys3mvhpsdtp" path="res://resources/modifiers/items/item_weighted_coin.tres" id="5_3565p"]
+[ext_resource type="Resource" uid="uid://ctjl2sqykvk5c" path="res://resources/modifiers/perks/perk_better_lawyer.tres" id="6_ahg8p"]
+[ext_resource type="Resource" uid="uid://blqdcwin6qylu" path="res://resources/modifiers/perks/perk_hush_money_burger.tres" id="7_gq7q0"]
+[ext_resource type="Resource" uid="uid://buq02el01ltdb" path="res://resources/modifiers/perks/perk_objection_heresy.tres" id="8_7fhob"]
+[ext_resource type="Resource" uid="uid://dfflkuek2hbtu" path="res://resources/modifiers/perks/perk_photogenic.tres" id="9_a6kaj"]
+[ext_resource type="Resource" uid="uid://dn5k3bumagoqh" path="res://resources/modifiers/perks/perk_self_study.tres" id="10_qiocn"]
+[ext_resource type="Script" path="res://resources/scripts/modifiers.gd" id="11_vtj7a"]
+
+[resource]
+script = ExtResource("11_vtj7a")
+items = Array[Resource("res://resources/scripts/modifier.gd")]([ExtResource("1_n31uf"), ExtResource("2_pdhol"), ExtResource("3_ehp1n"), ExtResource("4_wee6u"), ExtResource("5_3565p")])
+perks = Array[Resource("res://resources/scripts/modifier.gd")]([ExtResource("6_ahg8p"), ExtResource("7_gq7q0"), ExtResource("8_7fhob"), ExtResource("9_a6kaj"), ExtResource("10_qiocn")])

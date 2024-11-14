@@ -13,7 +13,7 @@ range_trial_cost = 2.0
 range_trial_cost_desc = "Lawyer will take 1 - 2 coins from the settlement money next trial."
 button_mash_time_increase = 0
 handicap = ""
-decrease_level_modifiers_effectiveness_by = 0.0
+decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_17ego"]
 script = ExtResource("1_xxjiv")
@@ -25,7 +25,7 @@ range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
 handicap = ""
-decrease_level_modifiers_effectiveness_by = 0.0
+decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_3cx3i")
