@@ -7,8 +7,9 @@ signal money_updated
 var current_scene = null
 var current_level_index = 0
 var money = 0
-var modifiers = preload("res://resources/modifiers/modifiers.tres")
 var player_win_rate = 0
+var modifiers = preload("res://resources/modifiers/modifiers.tres")
+var current_modifiers = []
 
 var _available_levels = preload("res://resources/levels/levels.tres")
 var _game_scene = preload("res://scenes/game/game.tscn")

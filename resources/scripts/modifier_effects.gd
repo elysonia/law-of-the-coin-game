@@ -40,6 +40,7 @@ extends Resource
 @export var counter_modifier: Modifier
 
 @export_category("Effect State")
+# Might not need these.
 ## Change to true while in use
 var is_enabled: bool = false
 ## Change to true after use
