@@ -12,7 +12,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "NO_PERKS"
+handicap = 3
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_ihmnv"]
@@ -24,14 +24,14 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_1j6e0")
 display_name = "Document"
-type = "ITEM"
-appear_condition = "ANYTIME"
+type = 0
+appear_condition = 0
 price = 5
 description = PackedStringArray("Copious amount of printed Wikipedia pages.", "Contains evidence to prove your case. Significantly increases rate of success.", "No perk options next round.")
 trial_effects = SubResource("Resource_ihmnv")

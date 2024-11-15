@@ -12,7 +12,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_mqc1h"]
@@ -24,14 +24,14 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_6usk6")
 display_name = "Photogenic"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 3
 description = PackedStringArray("Too handsome to be in jail.", "Your aesthetically pleasing mugshot went viral and the populace rallies to your defense.", "The populace realizes you’re not hot in person and send you hate mail which affects your mental well-being as well as physical . Reduces rate of success next round.")
 trial_effects = SubResource("Resource_mqc1h")

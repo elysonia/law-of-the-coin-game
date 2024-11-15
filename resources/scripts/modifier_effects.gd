@@ -30,10 +30,7 @@ extends Resource
 ## Increase button mashing time in seconds
 @export var button_mash_time_increase: int
 ## Disadvantages for the current, next or subsequent trials.
-@export_enum(
-	"NONE", "NO_ITEMS", "NO_MONEY", "NO_PERKS", "BLURRY_VISION", "LOWER_MODIFIER_EFFECTIVENESS"
-)
-var handicap: String
+@export var handicap: GlobalEnums.ModifierHandicap
 ## When the modifier is in effect, decrease effectiveness of other modifiers by this rate.
 @export var decrease_other_modifiers_effectiveness_by: float
 

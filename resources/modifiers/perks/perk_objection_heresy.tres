@@ -12,7 +12,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_qrcxn"]
@@ -24,14 +24,14 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 5
-handicap = ""
+handicap = 5
 decrease_other_modifiers_effectiveness_by = 0.05
 
 [resource]
 script = ExtResource("2_w80ui")
 display_name = "Objection! Heresy!"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 5
 description = PackedStringArray("Paper thin defense reinforced with 100% crocodile tears.", "Drag the hearing out. Add 5 seconds to button mashing time.", "Lowers the effectiveness of other perks/items this round by 5% each if applicable")
 trial_effects = SubResource("Resource_qrcxn")

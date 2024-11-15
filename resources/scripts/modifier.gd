@@ -4,9 +4,9 @@ extends RandomItem
 @export_category("Modifier details")
 ## Name of the modifier
 @export var display_name: String
-@export_enum("ITEM", "PERK") var type: String
+@export var type: GlobalEnums.ModifierType
 ## Conditions for modifier appearance.
-@export_enum("ANYTIME", "LAST_TRIAL", "BLURRY_VISION") var appear_condition: String
+@export var appear_condition: GlobalEnums.ModifierAppearCondition
 ## Buying price for modifier.
 @export var price: int
 ## Modifier description. Each element is a new line.

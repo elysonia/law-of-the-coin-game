@@ -12,7 +12,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_q7q5o"]
@@ -24,14 +24,14 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_s2a1a")
 display_name = "Weighted Coin"
-type = "ITEM"
-appear_condition = "ANYTIME"
+type = 0
+appear_condition = 0
 price = 5
 description = PackedStringArray("A loaded coin is a heavy burden.", "Significantly increases rate of success.", "Caught cheating, judge is harder on you next trial.")
 trial_effects = SubResource("Resource_q7q5o")

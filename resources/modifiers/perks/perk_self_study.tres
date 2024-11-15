@@ -13,7 +13,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "BLURRY_VISION"
+handicap = 4
 decrease_other_modifiers_effectiveness_by = 0.0
 counter_modifier = ExtResource("1_bkdfs")
 
@@ -26,15 +26,15 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "BLURRY_VISION"
+handicap = 4
 decrease_other_modifiers_effectiveness_by = 0.0
 counter_modifier = ExtResource("1_bkdfs")
 
 [resource]
 script = ExtResource("2_6v1sb")
 display_name = "Turn over a new page"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 3
 description = PackedStringArray("Well acktually, ", "Study law by yourself. Slightly increase rate of success.", "Your eyesight is destroyed from too much reading. Lowers ability to make decisions next round.")
 trial_effects = SubResource("Resource_wihg8")

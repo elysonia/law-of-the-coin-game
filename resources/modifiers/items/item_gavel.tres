@@ -12,19 +12,19 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "NO_MONEY"
+handicap = 2
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("1_bjqjp")
 display_name = "Gavel"
-type = "ITEM"
-appear_condition = "LAST_TRIAL"
+type = 0
+appear_condition = 1
 price = 10
 description = PackedStringArray("I own this place.", "You’re the judge now. Guaranteed win.", "No reward money due to impersonating a judge. ")
 trial_effects = SubResource("Resource_2003h")
 normal = "res://assets/Modifiers/Items/item-gavel.png"
 active = "res://assets/Modifiers/Items/item-gavel-active.png"
-name = &"Gavel"
+name = &"gavel"
 pick_chance = 0.1
 can_be_picked = false
