@@ -2,9 +2,10 @@ extends RichTextLabel
 
 
 func initialize(modifier: Modifier):
+	var type = GlobalEnums.ModifierType.find_key(modifier.type)
 	var title = (
 		"[font_size={20}][b]"
-		+ modifier.type.capitalize()
+		+ type.capitalize()
 		+ ": "
 		+ "[color=orange]"
 		+ modifier.display_name
