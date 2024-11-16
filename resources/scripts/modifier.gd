@@ -14,6 +14,8 @@ extends RandomItem
 
 @export_category("Modifier effects")
 ## Effects activating on the current trial and affects on the current trial only.
+## If there are parameters overlapping with multi_trial_effect,
+## move to multi_trial_effects as they are activated at the same time.
 ## Set is_disabled to true after use.
 @export var trial_effects: ModifierEffects
 ## Effects activating on the next trial and affects the next trial only.
@@ -29,3 +31,6 @@ extends RandomItem
 ## Displayed as button texture on any other action
 @export_file("*.png", "*.jpg", "*.jpeg", "*.svg") var active: String
 
+
+@export_category("Modifier Manager")
+@export_file("*.gd") var manager_script: String = "res://resources/scripts/modifier_manager.gd"

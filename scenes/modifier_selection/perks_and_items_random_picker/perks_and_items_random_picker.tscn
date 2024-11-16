@@ -7,7 +7,7 @@ script = ExtResource("1_8f55l")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
-[node name="Button" type="Button" parent="."]
+[node name="StartTrialButton" type="Button" parent="."]
 offset_left = 904.0
 offset_top = 520.0
 offset_right = 1101.0

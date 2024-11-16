@@ -16,11 +16,15 @@ extends Resource
 @export_category("Trial cost")
 ## Fixed cost of the trial.
 ## The trial will cost this much by default.
+## The lowest fixed trial cost is prioritized when
+## an overlap occurs with another modifier.
 @export var fixed_trial_cost: int
 ## Description of trial cost for in-game hints.
 @export var fixed_trial_cost_desc: String
 ## Additional range of cost for the trial.
 ## The trial will cost an extra amount in the range specified.
+## The highest extra trial cost is prioritized when
+## an overlap occurs with another modifier.
 @export_range(0, 10) var range_trial_cost
 ## Description of range of trial cost for in-game hints.
 @export var range_trial_cost_desc: String
@@ -28,10 +32,14 @@ extends Resource
 ## Additional fun effects.
 @export_category("Special Effects")
 ## Increase button mashing time in seconds
+## The highest value takes priority when
+## an overlap occurs with another modifier.
 @export var button_mash_time_increase: int
 ## Disadvantages for the current, next or subsequent trials.
 @export var handicap: GlobalEnums.ModifierHandicap
 ## When the modifier is in effect, decrease effectiveness of other modifiers by this rate.
+## The highest value takes priority when
+## an overlap occurs with another modifier.
 @export var decrease_other_modifiers_effectiveness_by: float
 
 ## Conditions to be fulfilled for effect to stop
