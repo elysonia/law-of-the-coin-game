@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://0yjtl6b4etqi"]
+
+[ext_resource type="Shader" path="res://shaders/hex_pixelization.gdshader" id="1_mwt2m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_418ak"]
+shader = ExtResource("1_mwt2m")
+shader_parameter/size = Vector2(-3, 4)
+
+[node name="PixelatedFilter" type="CanvasLayer"]
+process_priority = 10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_418ak")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
