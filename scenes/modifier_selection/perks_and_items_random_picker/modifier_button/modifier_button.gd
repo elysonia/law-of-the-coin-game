@@ -2,10 +2,9 @@ class_name ModifierButton
 extends TextureButton
 
 var modifier_obj: Modifier
-var tooltip_scene = load(
+var tooltip_scene = preload(
 	"./modifier_tooltips/modifier_tooltips.tscn"
 )
-
 
 func initialize(modifier: Modifier):
 	modifier_obj = modifier
