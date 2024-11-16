@@ -13,7 +13,7 @@ func _pressed():
 
 	GlobalLevelState.current_level_index = 0
 	GlobalLevelState.player_win_rate = current_level.player_win_rate
-	GlobalLevelState.set_money(0)
+	GlobalLevelState.set_money(0, null)
 
 	get_tree().reload_current_scene()
 

@@ -87,10 +87,12 @@ func _on_player_picked(player_coin_name):
 func _on_animation_finished(is_successful_throw):
 	if is_successful_throw:
 		if not GlobalLevelState.check_is_last_level():
-			GlobalLevelState.set_money(GlobalLevelState.money + GlobalEnums.DEFAULT_REWARD_MONEY)
-
 			var updates_label_text = (
 				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " compensatory damages"
+			)
+
+			GlobalLevelState.set_money(
+				GlobalLevelState.money + GlobalEnums.DEFAULT_REWARD_MONEY, updates_label_text
 			)
 
 			var updates_label = _updates_label.instantiate()
