@@ -51,6 +51,7 @@ next_trial_effects = SubResource("Resource_lv3un")
 multi_trial_effects = SubResource("Resource_i50e4")
 normal = "res://assets/Modifiers/Items/item-glasses.png"
 active = "res://assets/Modifiers/Items/item-glasses-active.png"
+manager_script = ""
 name = &"glasses"
 pick_chance = 0.1
 can_be_picked = false

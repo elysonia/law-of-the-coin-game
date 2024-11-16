@@ -38,6 +38,7 @@ trial_effects = SubResource("Resource_17ego")
 next_trial_effects = SubResource("Resource_u6w5n")
 normal = "res://assets/Modifiers/Perks/perk-nego100.png"
 active = "res://assets/Modifiers/Perks/perk-nego100-active.png"
+manager_script = "res://resources/modifiers/perks/perk_better_lawyer.gd"
 name = &"better_lawyer"
 pick_chance = 0.1
 can_be_picked = true

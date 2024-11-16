@@ -38,6 +38,7 @@ trial_effects = SubResource("Resource_mqc1h")
 next_trial_effects = SubResource("Resource_vj1w8")
 normal = "res://assets/Modifiers/Perks/perk-photogenic.png"
 active = "res://assets/Modifiers/Perks/perk-photogenic-active.png"
+manager_script = "res://resources/modifiers/perks/perk_photogenic.gd"
 name = &"photogenic"
 pick_chance = 0.1
 can_be_picked = true

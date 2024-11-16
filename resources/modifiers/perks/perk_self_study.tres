@@ -41,6 +41,7 @@ trial_effects = SubResource("Resource_wihg8")
 multi_trial_effects = SubResource("Resource_1adio")
 normal = "res://assets/Modifiers/Perks/perk-study.png"
 active = "res://assets/Modifiers/Perks/perk-study-active.png"
+manager_script = ""
 name = &"self_study"
 pick_chance = 0.1
 can_be_picked = true

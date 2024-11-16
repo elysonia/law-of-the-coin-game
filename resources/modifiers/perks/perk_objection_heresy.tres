@@ -38,6 +38,7 @@ trial_effects = SubResource("Resource_qrcxn")
 next_trial_effects = SubResource("Resource_mi4c8")
 normal = "res://assets/Modifiers/Perks/perk-objectionheresy.png"
 active = "res://assets/Modifiers/Perks/perk-objectionheresy-active.png"
+manager_script = "res://resources/modifiers/perks/perk_objection_heresy.gd"
 name = &"objection_heresy"
 pick_chance = 0.1
 can_be_picked = true

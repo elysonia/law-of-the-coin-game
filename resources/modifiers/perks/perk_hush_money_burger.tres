@@ -38,6 +38,7 @@ trial_effects = SubResource("Resource_a6wn1")
 next_trial_effects = SubResource("Resource_by0e2")
 normal = "res://assets/Modifiers/Perks/perk-bribe.png"
 active = "res://assets/Modifiers/Perks/perk-bribe-active.png"
+manager_script = "res://resources/modifiers/perks/perk_hush_money_burger.gd"
 name = &"hush_money_burger"
 pick_chance = 0.1
 can_be_picked = true

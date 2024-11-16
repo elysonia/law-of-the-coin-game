@@ -38,6 +38,7 @@ trial_effects = SubResource("Resource_ihmnv")
 next_trial_effects = SubResource("Resource_2nq5q")
 normal = "res://assets/Modifiers/Items/item-document.png"
 active = "res://assets/Modifiers/Items/item-document-active.png"
+manager_script = "res://resources/modifiers/items/item_document.gd"
 name = &"document"
 pick_chance = 0.1
 can_be_picked = true
