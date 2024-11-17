@@ -16,7 +16,7 @@ func _init(modifier: Modifier):
 	# Deduct fee from player money.
 	var new_player_money = GlobalLevelState.money - _modifier.price
 	var money_update_text = " ".join(["-$", str(_modifier.price), _modifier.display_name])
-	GlobalLevelState.set_money(new_player_money, money_update_text)
+	GlobalLevelState.set_money(new_player_money, money_update_text, true)
 
 
 ## Getter for the "stopped" state of the modifier.

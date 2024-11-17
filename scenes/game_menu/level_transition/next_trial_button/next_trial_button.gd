@@ -1,7 +1,5 @@
 extends Button
 
-@onready var _updates_label = preload("res://scenes/notifications/updates_label/updates_label.tscn")
-
 
 func _ready():
 	GlobalCoinEvents.coin_flip_succeeded.connect(_on_coin_flip_succeeded)
@@ -56,9 +54,6 @@ func _pressed():
 
 		})
 
-	# TODO: Compare level handicaps and appear_condition in GlobalLevelState.modifiers
-	#	 then modify can_be_picked if the conditions are met.
-
 	var next_level_index = GlobalLevelState.current_level_index + 1
 	var next_level = GlobalLevelState.get_level(next_level_index)
 	var next_level_fee = next_trial_cost_map.fixed_trial_cost if next_trial_cost_map.fixed_trial_cost > 0 else randi_range(1, 3)
@@ -70,18 +65,10 @@ func _pressed():
 	var next_level_fee_notification = "-$" + str(next_level_fee) + " " + next_level_fee_text
 	var next_level_extra_fee_notification = "-$" + str(next_trial_cost_map.range_trial_cost) + " " + next_trial_cost_map.range_trial_cost_desc if next_trial_cost_map.range_trial_cost > 0 else ""
 	
-	GlobalLevelState.set_money(GlobalLevelState.money - next_level_fee, next_level_fee_notification)
+	GlobalLevelState.set_money(GlobalLevelState.money - next_level_fee, next_level_fee_notification, true)
 	
 	if next_trial_cost_map.range_trial_cost > 0:
-		GlobalLevelState.set_money(GlobalLevelState.money - next_trial_cost_map.range_trial_cost, next_level_extra_fee_notification)
-
-	var notification_texts = [next_level_fee_notification, next_level_extra_fee_notification]
-
-	for notification_text in notification_texts:
-		var updates_label = _updates_label.instantiate()
-		updates_label.text = notification_text
-		get_tree().root.add_child(updates_label)
-		await updates_label.fade_tween().finished
+		GlobalLevelState.set_money(GlobalLevelState.money - next_trial_cost_map.range_trial_cost, next_level_extra_fee_notification, true)
 
 	GlobalLevelState.goto_game_scene()
 
