@@ -2,6 +2,7 @@ extends ModifierManager
 
 
 func _change_player_choice_success_rate(effects):
+	# Reduce the success rate at the rate of success in the previous round.
 	if effects.coin_pick_chance_increment == -2.0:
 		var current_increment_rate = (
 			_get_exponential_value_for_current_level(effects.fixed_coin_pick_chance) / 2

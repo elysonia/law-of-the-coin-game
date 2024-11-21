@@ -1,7 +1,5 @@
 extends ModifierManager
 
 
-func start_current_trial_effects():
-	super.start_current_trial_effects()
-
+func goto_next_trial():
 	GlobalLevelState.level_modifier_handicaps.append(_modifier.trial_effects.handicap)
