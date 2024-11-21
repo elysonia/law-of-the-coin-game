@@ -4,14 +4,14 @@ extends Node
 
 var _modifier: Modifier
 
-
 # Default behavior as reference:
 # 1. Deducts modifier fee from the player money.
 # 2. Applies player win rate effects.
 # 3. Checks if effects can be applied/removed from current level.
 
+
 func _init(modifier: Modifier):
-	_modifier = modifier
+	_modifier = modifier.duplicate()
 
 	# Deduct fee from player money.
 	var new_player_money = GlobalLevelState.money - _modifier.price
@@ -22,9 +22,9 @@ func _init(modifier: Modifier):
 ## Getter for the "stopped" state of the modifier.
 func get_is_stopped():
 	return (
-		not _modifier.trial_effects
-		and not _modifier.next_trial_effects
-		and not _modifier.multi_trial_effects
+		_modifier.trial_effects == null
+		and _modifier.next_trial_effects == null
+		and _modifier.multi_trial_effects == null
 	)
 
 
@@ -33,6 +33,14 @@ func get_modifier():
 	return _modifier
 
 
+## Apply effects that influences the start of next
+## modifier selection like handicaps, extra costs
+func goto_next_trial():
+	pass
+
+
+## Apply effects influencing the start of the next
+## coin toss like player win rate
 func start_trial():
 	start_current_trial_effects()
 	start_multi_trial_effects()
@@ -44,10 +52,10 @@ func end_trial():
 
 
 func start_current_trial_effects():
-	if not _modifier.trial_effects:
+	if _modifier.trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.trial_effects):
+	if _check_is_effect_countered(_modifier.trial_effects) >= 0:
 		_modifier.trial_effects = null
 		return
 
@@ -55,10 +63,10 @@ func start_current_trial_effects():
 
 
 func start_multi_trial_effects():
-	if not _modifier.multi_trial_effects:
+	if _modifier.multi_trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.multi_trial_effects):
+	if _check_is_effect_countered(_modifier.multi_trial_effects) >= 0:
 		_modifier.multi_trial_effects = null
 		return
 
@@ -66,7 +74,7 @@ func start_multi_trial_effects():
 
 
 func stop_current_trial_effects():
-	if not _modifier.next_trial_effects:
+	if _modifier.next_trial_effects == null:
 		_modifier.trial_effects = null
 		return
 
@@ -75,10 +83,10 @@ func stop_current_trial_effects():
 
 
 func stop_multi_trial_effects():
-	if not _modifier.multi_trial_effects:
+	if _modifier.multi_trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.multi_trial_effects):
+	if _check_is_effect_countered(_modifier.multi_trial_effects) >= 0:
 		_modifier.multi_trial_effects = null
 
 
@@ -90,9 +98,13 @@ func _check_is_effect_countered(modifier_effect):
 
 
 func _get_exponential_value_for_current_level(value):
+	# Effects start at current_level_index 1, no increment necessary.
+	if GlobalLevelState.current_level_index == 1:
+		return value
+
 	var exponentiated_value = value
 
-	for _level in range(0, GlobalLevelState.current_level_index + 1):
+	for _level in range(0, GlobalLevelState.current_level_index):
 		exponentiated_value *= 2
 
 	return exponentiated_value
@@ -105,10 +117,9 @@ func _change_player_choice_success_rate(effects):
 				return _get_exponential_value_for_current_level(effects.fixed_coin_pick_chance)
 
 			return (
-				effects.fixed_coin_pick_chance
-				+ (effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index + 1))
+				(effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index + 1))
 			))
-		.call()
+		. call()
 	)
 
 	GlobalLevelState.player_win_rate += additional_coin_pick_chance
