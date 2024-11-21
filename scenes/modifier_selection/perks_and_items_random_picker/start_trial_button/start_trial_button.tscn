@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c02y3b6dojbht"]
+
+[node name="StartTrialButton" type="Button"]
+offset_left = 904.0
+offset_top = 520.0
+offset_right = 1101.0
+offset_bottom = 583.0
+theme_override_font_sizes/font_size = 40
+text = "Start Trial"
