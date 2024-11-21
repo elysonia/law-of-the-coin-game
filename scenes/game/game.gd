@@ -1,0 +1,27 @@
+extends Node2D
+
+var current_scene
+
+var _game_mode_scene_mapping = {
+	GlobalEnums.GameMode.MODIFIER_SELECTION:
+	preload(
+		"res://scenes/modifier_selection/perks_and_items_random_picker/perks_and_items_random_picker.tscn"
+	),
+	GlobalEnums.GameMode.COIN_FLIP: preload("res://scenes/coin_flip/coin_flip.tscn")
+}
+
+
+func _ready():
+	_on_game_mode_changed(GlobalEnums.GameMode.COIN_FLIP)
+	GlobalLevelState.game_mode_changed.connect(_on_game_mode_changed)
+
+
+func _on_game_mode_changed(game_mode: GlobalEnums.GameMode):
+	var game_mode_scene = _game_mode_scene_mapping[game_mode]
+
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null
+
+	current_scene = game_mode_scene.instantiate()
+	get_tree().root.add_child(current_scene)

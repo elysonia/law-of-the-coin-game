@@ -3,6 +3,7 @@ class_name LevelState
 extends Node
 
 signal money_updated
+signal game_mode_changed(game_mode: GlobalEnums.GameMode)
 
 var current_scene = null
 var current_level_index = 0
@@ -40,7 +41,6 @@ func get_level(level_index):
 
 
 func goto_main_scene():
-
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
@@ -101,7 +101,6 @@ func reset_game():
 	level_button_mash_time = {value = 5, label = ""}
 	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 	level_notifications = []
-
 
 	var current_level = get_level(current_level_index)
 	player_win_rate = current_level.player_win_rate

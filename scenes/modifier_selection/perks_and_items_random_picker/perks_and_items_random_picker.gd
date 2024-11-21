@@ -1,5 +1,7 @@
 extends ModifierRandomPicker
 
+signal temp_modifier_cost_updated(temp_modifier_cost)
+
 const MAX_NUMBER_OF_MODIFIER_CHOSEN = 2
 const MAX_NUMBER_OF_MODIFIER_CHOICES = 3
 
@@ -9,18 +11,14 @@ var temp_modifier_list = []
 @onready var _modifier_container = $Control/ModifierContainer
 @onready var _modifier_button = preload("./modifier_button/modifier_button.tscn")
 
-# TODO: Complete
-# func _init():
-# pass
-
 
 func _ready():
 	modifiers = GlobalLevelState.modifiers
 	_start_trial_button.pressed.connect(_on_start_trial_button_pressed)
 
+
 	# TODO: Check if NO_PERKS or NO_ITEM are in effect.
 	# TODO: Make sure the NO_PERKS and NO_ITEM modifiers are not options at the same time.
-	# TODO: Check if there are enough available modifiers to show as options.
 	var all_selectable_modifiers = []
 	var modifier_choices = []
 
@@ -34,7 +32,7 @@ func _ready():
 	var is_show_all_selectable_modifiers = all_selectable_modifiers.size() <= 3
 
 	if is_show_all_selectable_modifiers:
-		modifier_choices.append_array(is_show_all_selectable_modifiers)
+		modifier_choices.append_array(all_selectable_modifiers)
 	else:
 		var number_of_choices = randi_range(2, 3)
 		var number_of_perk_choices = (
@@ -61,15 +59,32 @@ func _ready():
 
 		button.initialize(modifier_choice)
 
-		# TODO: Disable button if player doesn't have enough money
+		# Disable button if player doesn't have enough money
+		temp_modifier_cost_updated.connect(button.on_temp_modifier_cost_updated)
+
 		button.toggled.connect(
 			func(toggled_on):
 				if not toggled_on:
+					button.is_toggled = false
 					temp_modifier_list = temp_modifier_list.filter(
-						func(modifier): return modifier.name == modifier_choice.name
+						func(modifier): return modifier.name != modifier_choice.name
 					)
+					var temp_modifier_cost = temp_modifier_list.reduce(
+						func(accum, modifier):
+							accum += modifier.price
+							return accum
+					, 0)
+					temp_modifier_cost_updated.emit(temp_modifier_cost) 
+
 				else:
+					button.is_toggled = true
 					temp_modifier_list.append(modifier_choice)
+					var temp_modifier_cost = temp_modifier_list.reduce(
+						func(accum, modifier):
+							accum += modifier.price
+							return accum
+					, 0)
+					temp_modifier_cost_updated.emit(temp_modifier_cost) 
 		)
 
 		_modifier_container.add_child(button)
@@ -78,14 +93,12 @@ func _ready():
 func _on_start_trial_button_pressed():
 	var modifier_managers_list = []
 	for modifier in temp_modifier_list:
-		var modifier_manager = load(modifier.manager_script).new(modifier)
-
-		# Adding to a group to allow calling a method without iterating.
-		modifier_manager.add_to_group(GlobalEnums.GROUP.MODIFIER_MANAGERS)
-
-		# Adding to a list to store in state for persistence throughout the levels
-		# without needing to save the current state on the PackedScene.
+		var manager_script = modifier.manager_script
+		var modifier_manager = load(manager_script).new(modifier)
+		
 		modifier_managers_list.append(modifier_manager)
-
-	GlobalLevelState.level_modifiers.append(modifier_managers_list)
-	get_tree().call_group(GlobalEnums.GROUP.MODIFIER_MANAGERS, "start_trial")
+		modifier_manager.start_trial()
+	
+	GlobalLevelState.level_modifiers.append_array(modifier_managers_list)
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
+	

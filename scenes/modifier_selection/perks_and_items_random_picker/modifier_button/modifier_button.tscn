@@ -14,3 +14,17 @@ texture_normal = ExtResource("1_p5ae1")
 texture_pressed = ExtResource("2_ae5hx")
 texture_hover = ExtResource("2_ae5hx")
 script = ExtResource("3_2sqyv")
+
+[node name="ButtonLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.943648, 0, 0.155589, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.120707, 0.0470408, 0.00503613, 1)
+theme_override_font_sizes/font_size = 25
+text = "Cannot Afford"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

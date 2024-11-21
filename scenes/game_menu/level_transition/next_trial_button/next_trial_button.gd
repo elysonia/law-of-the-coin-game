@@ -8,41 +8,41 @@ func _ready():
 
 
 func _pressed():
-	# Reset handicaps
-	GlobalLevelState.level_modifier_handicaps = []
-
-	for modifier in GlobalLevelState.level_modifiers:
-		modifier.add_to_group(GlobalEnums.GROUP.MODIFIER_MANAGERS)
-
-	# Stop current modifiers.
-	get_tree().call_group(GlobalEnums.GROUP.MODIFIER_MANAGERS, "end_trial")
-
-	var new_level_modifiers = []
-	
-	# Remove modifiers that are no longer in effect
-	for modifier in GlobalLevelState.level_modifiers:
-		if not modifier.get_is_stopped():
-			new_level_modifiers.append(modifier)
-
-	GlobalLevelState.level_modifiers = new_level_modifiers
-
 	# Prevent attempting to start a level that doesn't exist
 	if GlobalLevelState.check_is_last_level():
 		return
+
+	# Reset handicaps
+	GlobalLevelState.level_modifier_handicaps = []
+	var new_level_modifiers = []
+
+	for modifier in GlobalLevelState.level_modifiers:
+		modifier.end_trial()
+
+		# Remove modifiers that are no longer in effect
+		if not modifier.get_is_stopped():
+			new_level_modifiers.append(modifier)
+
+			# Start modifiers that should apply immediately 
+			# on the modifier selection screen.
+			modifier.goto_next_trial()
+		else:
+			pass
 	
-	# Start modifiers that should apply not and on the modifier selection screen.
-	get_tree().call_group(GlobalEnums.GROUP.MODIFIER_MANAGERS, "start_trial")
-
+	GlobalLevelState.level_modifiers = new_level_modifiers
+	
 	var next_trial_cost_map = GlobalLevelState.level_modifiers.reduce(
-		func(accum, modifier):
-			if modifier.fixed_trial_cost > 0 and modifier.fixed_trial_cost < accum.fixed_trial_cost:
-				accum.fixed_trial_cost = modifier.fixed_trial_cost
-				accum.fixed_trial_cost_desc = modifier.fixed_trial_cost_desc
+		func(accum, modifier_manager):
+			var current_trial_effects = modifier_manager.get_modifier().trial_effects
+		
+			if current_trial_effects.fixed_trial_cost > 0 and current_trial_effects.fixed_trial_cost < accum.fixed_trial_cost:
+				accum.fixed_trial_cost = current_trial_effects.fixed_trial_cost
+				accum.fixed_trial_cost_desc = current_trial_effects.fixed_trial_cost_desc
 
-			var range_trial_cost_result = randi_range(1, modifier.range_trial_cost) if modifier.range_trial_cost else 0
+			var range_trial_cost_result = randi_range(1, current_trial_effects.range_trial_cost) if current_trial_effects.range_trial_cost else 0
 			if range_trial_cost_result > accum.range_trial_cost:
 				accum.range_trial_cost = range_trial_cost_result
-				accum.range_trial_cost_desc = modifier.range_trial_cost_desc
+				accum.range_trial_cost_desc = current_trial_effects.range_trial_cost_desc
 
 
 			return accum
@@ -70,7 +70,9 @@ func _pressed():
 	if next_trial_cost_map.range_trial_cost > 0:
 		GlobalLevelState.set_money(GlobalLevelState.money - next_trial_cost_map.range_trial_cost, next_level_extra_fee_notification, true)
 
-	GlobalLevelState.goto_game_scene()
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.MODIFIER_SELECTION)
+
+	hide()
 
 
 func _on_coin_flip_succeeded():
