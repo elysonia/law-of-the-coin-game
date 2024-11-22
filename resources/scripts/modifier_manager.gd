@@ -116,10 +116,11 @@ func _change_player_choice_success_rate(effects):
 			if effects.coin_pick_chance_increment == 2.0:
 				return _get_exponential_value_for_current_level(effects.fixed_coin_pick_chance)
 
-			return (
-				(effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index + 1))
-			))
+			return effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index))
 		. call()
 	)
 
-	GlobalLevelState.player_win_rate += additional_coin_pick_chance
+	GlobalLevelState.player_win_rate += (
+		additional_coin_pick_chance
+		* (1 - GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value)
+	)
