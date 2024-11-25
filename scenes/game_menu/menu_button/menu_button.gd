@@ -11,4 +11,5 @@ func _ready():
 func _on_popup_item_pressed(id):
 	match id:
 		BACK_TO_TITLE:
+			GlobalLevelState.reset_game()
 			GlobalLevelState.goto_main_scene()

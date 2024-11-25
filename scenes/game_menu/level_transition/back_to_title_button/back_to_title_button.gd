@@ -9,6 +9,7 @@ func _ready():
 
 
 func _pressed():
+	GlobalLevelState.reset_game()
 	GlobalLevelState.goto_main_scene()
 
 
