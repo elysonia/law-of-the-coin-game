@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Law Of The Coin:re:re"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/title_screen/title_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
 GlobalEnums="*res://scenes/global/enums.gd"
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
+
+[gui]
+
+timers/tooltip_delay_sec=0.1
 
 [rendering]
 
