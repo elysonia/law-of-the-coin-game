@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ci8mu5pesvdmf" path="res://scenes/game_menu/money_label/money_label.tscn" id="5_vcmha"]
 
 [node name="GameMenu" type="Control"]
+process_priority = -1
+process_physics_priority = -1
+z_index = 11
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +21,8 @@ metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
 [node name="MenuButton" parent="." instance=ExtResource("1_sfdoy")]
+process_priority = -1
+process_physics_priority = -1
 layout_mode = 2
 offset_left = 38.0
 offset_right = 91.0

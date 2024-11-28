@@ -15,19 +15,14 @@ func _ready():
 	)
 
 	_coin_side_control_scene = coin_side_control.instantiate()
-	call_deferred("_deferred_add_coin_control", _coin_side_control_scene)
-	_reset_animation()
-
-
-func _deferred_add_coin_control(node):
-	get_tree().root.add_child(node)
-
-	_coin_side_control_scene.heads_button.pressed.connect(
+	get_parent().add_child.call_deferred(_coin_side_control_scene)
+	_coin_side_control_scene.get_node("HeadsButton").pressed.connect(
 		_on_player_picked.bind(GlobalEnums.COIN.HEADS)
 	)
-	_coin_side_control_scene.tails_button.pressed.connect(
+	_coin_side_control_scene.get_node("TailsButton").pressed.connect(
 		_on_player_picked.bind(GlobalEnums.COIN.TAILS)
 	)
+	_reset_animation()
 
 
 # Show faceless coin before flipping animation
@@ -42,8 +37,9 @@ func _show_arrow_keys():
 		"res://scenes/coin_flip/coin/arrow_keys_control/arrow_keys_control.tscn"
 	)
 	_arrow_keys_control_scene = arrow_keys_control.instantiate()
-	get_tree().root.add_child(_arrow_keys_control_scene)
-	_arrow_keys_control_scene.flip_delay_timer.timeout.connect(_get_coin_result)
+	get_parent().add_child.call_deferred(_arrow_keys_control_scene)
+	_arrow_keys_control_scene.initialize()
+	_arrow_keys_control_scene.get_node("FlipDelayTimer").timeout.connect(_get_coin_result)
 
 
 func _get_coin_result():

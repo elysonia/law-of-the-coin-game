@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c30y170d8r0m1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ivq3y"]
+device = -1
+keycode = 4194320
+
+[sub_resource type="Shortcut" id="Shortcut_vehhl"]
+events = [SubResource("InputEventKey_ivq3y")]
+
+[node name="UpButton" type="Button"]
+offset_right = 32.0
+offset_bottom = 31.0
+shortcut = SubResource("Shortcut_vehhl")
+text = "^"

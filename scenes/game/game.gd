@@ -24,4 +24,4 @@ func _on_game_mode_changed(game_mode: GlobalEnums.GameMode):
 		current_scene = null
 
 	current_scene = game_mode_scene.instantiate()
-	get_tree().root.add_child(current_scene)
+	get_children()[0].add_sibling(current_scene)

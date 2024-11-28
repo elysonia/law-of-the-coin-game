@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://deloefuo46p8k"]
+
+[ext_resource type="PackedScene" uid="uid://y8pbpx5ls1e1" path="res://scenes/coin_flip/coin/arrow_keys_control/multidirectional_keycap_buttons/left_button.tscn" id="1_gebs0"]
+[ext_resource type="PackedScene" uid="uid://beneow0xwyrhh" path="res://scenes/coin_flip/coin/arrow_keys_control/multidirectional_keycap_buttons/down_button.tscn" id="2_702tc"]
+[ext_resource type="PackedScene" uid="uid://b8o0nflyopi1s" path="res://scenes/coin_flip/coin/arrow_keys_control/multidirectional_keycap_buttons/right_button.tscn" id="3_dg7o0"]
+[ext_resource type="PackedScene" uid="uid://c30y170d8r0m1" path="res://scenes/coin_flip/coin/arrow_keys_control/multidirectional_keycap_buttons/up_button.tscn" id="4_wpvus"]
+
+[node name="MultidirectionalKeycapContainer" type="Control"]
+layout_mode = 3
+anchor_right = 0.993
+anchor_bottom = 0.988
+offset_left = -1.0
+offset_right = 7.06396
+offset_bottom = 7.776
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="UpButton" parent="." instance=ExtResource("4_wpvus")]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 376.0
+offset_right = 592.0
+offset_bottom = 407.0
+
+[node name="LeftButton" parent="." instance=ExtResource("1_gebs0")]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 400.0
+offset_right = 544.0
+offset_bottom = 431.0
+
+[node name="DownButton" parent="." instance=ExtResource("2_702tc")]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 424.0
+offset_right = 592.0
+offset_bottom = 455.0
+
+[node name="RightButton" parent="." instance=ExtResource("3_dg7o0")]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 400.0
+offset_right = 640.0
+offset_bottom = 431.0
+
+[node name="MultidirectionalKeycapLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 464.0
+offset_right = 680.0
+offset_bottom = 513.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mash any arrow button to increase rate of success"
+horizontal_alignment = 1
+autowrap_mode = 2

@@ -7,10 +7,8 @@ keycode = 4194321
 events = [SubResource("InputEventKey_3xc6i")]
 
 [node name="RightArrowButton" type="Button"]
-offset_left = -15.0
-offset_top = 3.0
-offset_right = 105.0
-offset_bottom = 53.0
+offset_right = 120.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_pavny")
 text = "Right ->"
