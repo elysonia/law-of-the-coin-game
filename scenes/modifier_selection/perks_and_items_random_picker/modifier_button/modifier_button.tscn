@@ -8,7 +8,7 @@
 offset_right = 96.0
 offset_bottom = 80.0
 scale = Vector2(2, 2)
-tooltip_text = "Text"
+tooltip_text = "text"
 toggle_mode = true
 texture_normal = ExtResource("1_p5ae1")
 texture_pressed = ExtResource("2_ae5hx")

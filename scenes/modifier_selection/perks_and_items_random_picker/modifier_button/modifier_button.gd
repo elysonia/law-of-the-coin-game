@@ -21,8 +21,18 @@ func initialize(modifier: Modifier):
 
 
 func _make_custom_tooltip(_for_text):
+	var stylebox = get_theme_stylebox("panel", "TooltipPanel")
 	var new_tooltip = tooltip_scene.instantiate()
+
+	# Make transparent the default PopupPanel backdrop that still shows up
+	# beneath the custom tooltip
+	stylebox.set_bg_color(Color(0, 0, 0, 0))
 	new_tooltip.initialize(modifier_obj)
+
+	if GlobalEnums.ModifierHandicap.BLURRY_VISION in GlobalLevelState.level_modifier_handicaps:
+		var simple_blur_filter = load("res://scenes/game/simple_blur_filter.tscn").instantiate()
+		new_tooltip.add_child(simple_blur_filter)
+
 	return new_tooltip
 
 
