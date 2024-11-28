@@ -5,13 +5,14 @@ extends Node
 signal money_updated
 signal game_mode_changed(game_mode: GlobalEnums.GameMode)
 
+# TODO: Fix original modifiers getting mutated
+var modifiers
 var current_scene = null
 var current_level_index = 0
 var money = 0
 var player_win_rate = 0
-var modifiers = preload("res://resources/modifiers/modifiers.tres")
 
-var level_modifiers = []
+var level_modifiers: Array = []
 var level_modifier_handicaps = []
 var level_button_mash_time = {value = 5, label = ""}
 var level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
@@ -24,14 +25,28 @@ var _updates_label = preload("res://scenes/notifications/updates_label/updates_l
 
 
 func _ready():
+	_reset_modifiers()
+	var current_level = get_level(current_level_index)
+	player_win_rate = current_level.player_win_rate
+
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+
+
+func _reset_modifiers():
+	modifiers = load("res://resources/modifiers/modifiers.tres").duplicate(true)
 
 
 func check_is_last_level():
 	var last_level_index = GlobalLevelState._available_levels.levels.size() - 1
 
 	return current_level_index >= last_level_index
+
+
+func check_is_next_level_last_level():
+	var last_level_index = GlobalLevelState._available_levels.levels.size() - 1
+
+	return last_level_index - current_level_index == 1
 
 
 func get_level(level_index):
@@ -92,15 +107,14 @@ func show_all_notifications():
 
 
 func reset_game():
-	current_scene = null
+	_reset_modifiers()
 	current_level_index = 0
 	money = 0
+	var current_level = get_level(current_level_index)
+	player_win_rate = current_level.player_win_rate
 
 	level_modifiers = []
 	level_modifier_handicaps = []
 	level_button_mash_time = {value = 5, label = ""}
 	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 	level_notifications = []
-
-	var current_level = get_level(current_level_index)
-	player_win_rate = current_level.player_win_rate

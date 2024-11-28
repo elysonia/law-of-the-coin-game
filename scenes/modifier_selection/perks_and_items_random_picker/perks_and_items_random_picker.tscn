@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwa7k8vkv0f63"]
+[gd_scene load_steps=3 format=3 uid="uid://bwa7k8vkv0f63"]
 
 [ext_resource type="Script" path="res://scenes/modifier_selection/perks_and_items_random_picker/perks_and_items_random_picker.gd" id="1_8f55l"]
 [ext_resource type="PackedScene" uid="uid://c02y3b6dojbht" path="res://scenes/modifier_selection/perks_and_items_random_picker/start_trial_button/start_trial_button.tscn" id="2_8a682"]
-[ext_resource type="Script" path="res://scenes/modifier_selection/perks_and_items_random_picker/start_trial_button/start_trial_button.gd" id="3_b2aid"]
 
 [node name="PerksAndItemsRandomPicker" type="Node2D"]
 script = ExtResource("1_8f55l")
@@ -10,8 +9,12 @@ metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
 [node name="Control" type="CenterContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 64.0
 offset_right = 576.0
-offset_bottom = 288.0
+offset_bottom = 336.0
+grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="ModifierContainer" type="FlowContainer" parent="Control"]
@@ -20,7 +23,6 @@ vertical = true
 
 [node name="StartTrialButton" parent="." instance=ExtResource("2_8a682")]
 process_priority = -1
-script = ExtResource("3_b2aid")
 
 [node name="InstructionLabel" type="Label" parent="."]
 offset_left = 400.0
