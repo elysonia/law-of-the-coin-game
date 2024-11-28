@@ -19,7 +19,8 @@ func start_current_trial_effects():
 			label = _modifier.display_name
 		}
 
-	# Decrease other modifiers' effectiveness
+	# Decrease other modifiers' effectiveness and make sure it applies to all other modifiers
+	# TODO: Test
 	if (
 		_modifier.trial_effects.decrease_other_modifiers_effectiveness_by
 		> GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value
