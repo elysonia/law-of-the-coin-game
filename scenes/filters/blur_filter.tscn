@@ -4,7 +4,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f0neu"]
 shader = ExtResource("1_lkyf1")
-shader_parameter/lod = 2.102
+shader_parameter/lod = 2.021
 
 [node name="BlurFilter" type="CanvasLayer"]
 process_priority = 10
