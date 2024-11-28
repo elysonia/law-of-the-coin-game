@@ -45,10 +45,16 @@ func get_random_modifiers(
 func get_perks(number_of_perks_required):
 	var available_perks = modifiers.perks.filter(func(perk): return perk.can_be_picked)
 
+	if number_of_perks_required >= available_perks.size():
+		return available_perks
+
 	return get_random_modifiers(number_of_perks_required, available_perks)
 
 
 func get_items(number_of_items_required):
 	var available_items = modifiers.items.filter(func(item): return item.can_be_picked)
+
+	if number_of_items_required >= available_items.size():
+		return available_items
 
 	return get_random_modifiers(number_of_items_required, available_items)
