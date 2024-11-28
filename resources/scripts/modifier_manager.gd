@@ -3,6 +3,7 @@ class_name ModifierManager
 extends Node
 
 var _modifier: Modifier
+var _parent_node
 
 # Default behavior as reference:
 # 1. Deducts modifier fee from the player money.
@@ -10,13 +11,15 @@ var _modifier: Modifier
 # 3. Checks if effects can be applied/removed from current level.
 
 
-func _init(modifier: Modifier):
+func _init(modifier: Modifier, parent_node):
 	_modifier = modifier.duplicate()
-
+	_parent_node = parent_node
 	# Deduct fee from player money.
 	var new_player_money = GlobalLevelState.money - _modifier.price
 	var money_update_text = " ".join(["-$", str(_modifier.price), _modifier.display_name])
 	GlobalLevelState.set_money(new_player_money, money_update_text, true)
+
+	_update_global_level_state_modifiers()
 
 
 ## Getter for the "stopped" state of the modifier.
@@ -124,3 +127,17 @@ func _change_player_choice_success_rate(effects):
 		additional_coin_pick_chance
 		* (1 - GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value)
 	)
+
+
+func _update_global_level_state_modifiers():
+	var modifier_type = (GlobalEnums.ModifierType.keys()[_modifier.type] + "s").to_lower()
+
+	var updated_modifiers = GlobalLevelState.modifiers[modifier_type].map(
+		func(original_modifier):
+			if original_modifier.name == _modifier.name:
+				original_modifier.can_be_picked = false
+
+			return original_modifier
+	)
+	
+	GlobalLevelState.modifiers.set(modifier_type, updated_modifiers)
