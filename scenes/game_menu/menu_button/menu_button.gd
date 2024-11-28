@@ -11,5 +11,8 @@ func _ready():
 func _on_popup_item_pressed(id):
 	match id:
 		BACK_TO_TITLE:
+			for modifier in GlobalLevelState.level_modifiers:
+				modifier.end_trial()
+
 			GlobalLevelState.reset_game()
 			GlobalLevelState.goto_main_scene()
