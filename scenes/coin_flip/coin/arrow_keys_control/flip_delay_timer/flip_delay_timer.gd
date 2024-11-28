@@ -3,16 +3,12 @@ extends Timer
 
 var previous_time_left_rounded: int = 0
 
-# TODO: Check why the labels can't be referenced inside FlipDelayTimer
-# unless they are direct children of FlipDelayTimer
 @onready var _timer_label = $TimerLabel
 @onready var _timer_title_label = $TimerTitleLabel
 
 
 func _ready():
-	# GlobalCoinEvents.coin_player_picked.connect(_on_coin_events_coin_player_picked)
-	# timeout.connect(_on_flip_delay_timer_timeout)
-	wait_time = 5
+	wait_time = GlobalLevelState.level_button_mash_time.value
 	one_shot = true
 	start()
 
