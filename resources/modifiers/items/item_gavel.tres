@@ -22,6 +22,7 @@ type = 0
 appear_condition = 1
 price = 10
 description = PackedStringArray("I own this place.", "You’re the judge now. Guaranteed win.", "No reward money due to impersonating a judge. ")
+order = 10
 trial_effects = SubResource("Resource_2003h")
 normal = "res://assets/Modifiers/Items/item-gavel.png"
 active = "res://assets/Modifiers/Items/item-gavel-active.png"

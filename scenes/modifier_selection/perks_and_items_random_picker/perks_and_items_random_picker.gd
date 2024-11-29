@@ -57,9 +57,13 @@ func _ready():
 			func(toggled_on):
 				if not toggled_on:
 					button.is_toggled = false
-					temp_modifier_list = temp_modifier_list.filter(
-						func(temp_modifier): return temp_modifier.name != modifier_choice.name
+					var new_temp_modifier_list = temp_modifier_list.filter(
+						func(temp_modifier):
+							return temp_modifier.name != modifier_choice.name
 					)
+
+					temp_modifier_list = new_temp_modifier_list
+
 					var temp_modifier_cost = temp_modifier_list.reduce(
 						func(accum, modifier):
 							accum += modifier.price
@@ -121,8 +125,22 @@ func _on_start_trial_button_pressed():
 		var modifier_manager = load(manager_script).new(modifier, get_tree().root.get_children()[3])
 		
 		modifier_managers_list.append(modifier_manager)
-
-		modifier_manager.start_trial()
 	
 	GlobalLevelState.level_modifiers.append_array(modifier_managers_list)
+	
+	var sorted_level_modifiers = GlobalLevelState.level_modifiers.duplicate()
+	
+	sorted_level_modifiers.sort_custom(
+		func(before, after):
+			var modifier_before = before.get_modifier()
+			var modifier_after = after.get_modifier()
+
+			if modifier_before.order < modifier_after.order:
+				return true
+			return false
+	)
+
+	for modifier_manager in sorted_level_modifiers:
+		modifier_manager.start_trial()
+		
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)

@@ -11,6 +11,9 @@ extends RandomItem
 @export var price: int
 ## Modifier description. Each element is a new line.
 @export var description: PackedStringArray
+## Order of application. Useful when some effects should override all others
+## or depend on other effects.
+@export var order: int = 0
 
 @export_category("Modifier effects")
 ## Effects activating on the current trial and affects on the current trial only.
