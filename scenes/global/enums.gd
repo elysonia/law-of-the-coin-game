@@ -18,5 +18,5 @@ enum GameMode { MODIFIER_SELECTION = 0, COIN_FLIP = 1 }
 # INDEX is the neutral value for when no choices have been made
 const COIN = {INDEX = "index", HEADS = "heads", TAILS = "tails"}
 
-const ARROW_KEY_INCREMENT_RATE = 0.05
+const ARROW_KEY_INCREMENT_RATE = 0.01
 const DEFAULT_REWARD_MONEY = 10
