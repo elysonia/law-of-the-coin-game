@@ -9,7 +9,7 @@ func goto_next_trial():
 
 	if _modifier.trial_effects != null:
 		GlobalLevelState.level_modifier_handicaps.append(_modifier.trial_effects.handicap)
-		_parent_node.get_children()[0].add_child(
+		_parent_node.add_child(
 			_instantiated_simple_blur
 		)
 
@@ -18,7 +18,7 @@ func goto_next_trial():
 		and _modifier.multi_trial_effects.handicap not in GlobalLevelState.level_modifier_handicaps
 	):
 		GlobalLevelState.level_modifier_handicaps.append(_modifier.multi_trial_effects.handicap)
-		_parent_node.get_children()[0].add_child(
+		_parent_node.add_child(
 			_instantiated_simple_blur
 		)
 
@@ -26,7 +26,7 @@ func goto_next_trial():
 func start_trial():
 	super.start_trial()
 	_instantiated_simple_blur = _simple_blur_filter.instantiate()
-	_parent_node.get_children()[0].add_child(
+	_parent_node.add_child(
 		_instantiated_simple_blur
 	)
 

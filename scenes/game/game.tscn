@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c02kdx7pn1ys3"]
+[gd_scene load_steps=5 format=3 uid="uid://c02kdx7pn1ys3"]
 
 [ext_resource type="Texture2D" uid="uid://f7f8aa6a8s28" path="res://assets/coin_flip_bg.png" id="1_0jjtc"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_f7slv"]
 [ext_resource type="PackedScene" uid="uid://bk0p7valow0sl" path="res://scenes/game_menu/game_menu.tscn" id="2_2qxbd"]
-[ext_resource type="PackedScene" uid="uid://6axrek00hkow" path="res://scenes/game/simple_blur_filter.tscn" id="4_ugltv"]
 
 [sub_resource type="Theme" id="Theme_h17fg"]
 
@@ -17,7 +16,5 @@ offset_right = 1152.0
 offset_bottom = 648.0
 theme = SubResource("Theme_h17fg")
 texture = ExtResource("1_0jjtc")
-
-[node name="SimpleBlurFilter" parent="." instance=ExtResource("4_ugltv")]
 
 [node name="GameMenu" parent="." instance=ExtResource("2_2qxbd")]
