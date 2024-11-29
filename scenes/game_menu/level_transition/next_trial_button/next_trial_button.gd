@@ -60,8 +60,6 @@ func _pressed():
 		GlobalLevelState.modifiers.set("perks", updated_perks)
 		GlobalLevelState.modifiers.set("items", updated_items)
 
-		# GlobalLevelState.modifiers = updated_modifiers
-
 	GlobalLevelState.level_modifiers = new_level_modifiers
 	
 	var next_trial_cost_map = GlobalLevelState.level_modifiers.reduce(
