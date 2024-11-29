@@ -58,7 +58,7 @@ func start_current_trial_effects():
 	if _modifier.trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.trial_effects) >= 0:
+	if _check_is_effect_countered(_modifier.trial_effects):
 		_modifier.trial_effects = null
 		return
 
@@ -69,7 +69,7 @@ func start_multi_trial_effects():
 	if _modifier.multi_trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.multi_trial_effects) >= 0:
+	if _check_is_effect_countered(_modifier.multi_trial_effects):
 		_modifier.multi_trial_effects = null
 		return
 
@@ -89,15 +89,19 @@ func stop_multi_trial_effects():
 	if _modifier.multi_trial_effects == null:
 		return
 
-	if _check_is_effect_countered(_modifier.multi_trial_effects) >= 0:
+	if _check_is_effect_countered(_modifier.multi_trial_effects):
 		_modifier.multi_trial_effects = null
 
 
 func _check_is_effect_countered(modifier_effect):
-	return GlobalLevelState.level_modifiers.find(
+	var counters = GlobalLevelState.level_modifiers.filter(
 		func(modifier_manager):
-			return modifier_effect.counter_modifier.name == modifier_manager.get_modifier().name
+			if modifier_effect.counter_modifier != null:
+				return modifier_effect.counter_modifier.name == modifier_manager.get_modifier().name
+			return false
 	)
+
+	return counters.size() > 0
 
 
 func _get_exponential_value_for_current_level(value):
@@ -113,15 +117,18 @@ func _get_exponential_value_for_current_level(value):
 	return exponentiated_value
 
 
-func _change_player_choice_success_rate(effects):
-	var additional_coin_pick_chance = (
-		(func():
-			if effects.coin_pick_chance_increment == 2.0:
-				return _get_exponential_value_for_current_level(effects.fixed_coin_pick_chance)
+func _get_additional_coin_pick_chance(effects):
+	if effects.coin_pick_chance_increment == 2.0:
+		return _get_exponential_value_for_current_level(effects.fixed_coin_pick_chance)
 
-			return effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index))
-		. call()
+	return (
+		effects.fixed_coin_pick_chance
+		+ (effects.coin_pick_chance_increment * (GlobalLevelState.current_level_index - 1))
 	)
+
+
+func _change_player_choice_success_rate(effects):
+	var additional_coin_pick_chance = _get_additional_coin_pick_chance(effects)
 
 	GlobalLevelState.player_win_rate += (
 		additional_coin_pick_chance
@@ -139,5 +146,5 @@ func _update_global_level_state_modifiers():
 
 			return original_modifier
 	)
-	
+
 	GlobalLevelState.modifiers.set(modifier_type, updated_modifiers)
