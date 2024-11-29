@@ -20,7 +20,6 @@ func _process(_delta):
 	# Uses floori instead of randomf to avoid NARROWING_CONVERSION,
 	# 	a linter warning where float is converted into int, losing precision.
 	#	1 is added to accurately display the countdown number.
-	# TODO: Find a better way if any
 	var time_left_rounded = floori(time_left) + 1
 
 	# Prevent countdown label from showing float numbers

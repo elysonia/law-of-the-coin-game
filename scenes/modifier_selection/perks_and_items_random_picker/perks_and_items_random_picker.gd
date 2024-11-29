@@ -116,7 +116,7 @@ func get_modifier_choices():
 		
 	return temp_modifier_choices
 
-# TODO: Make sure the existing modifiers are also applied, not just temp mods
+
 func _on_start_trial_button_pressed():
 	var modifier_managers_list = []
 

@@ -69,8 +69,6 @@ func _get_coin_result():
 		_tails_animation.play()
 
 
-# TODO: Maybe start the flipping animation but stop midway
-# 	so the coin is "midair" during countdown
 func _on_player_picked(player_coin_name):
 	_player_coin_name = player_coin_name
 	_coin_side_control_scene.queue_free()
