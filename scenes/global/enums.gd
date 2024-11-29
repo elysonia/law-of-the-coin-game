@@ -20,3 +20,4 @@ const COIN = {INDEX = "index", HEADS = "heads", TAILS = "tails"}
 
 const ARROW_KEY_INCREMENT_RATE = 0.01
 const DEFAULT_REWARD_MONEY = 10
+const DEFAULT_BUTTON_MASH_TIME = 5

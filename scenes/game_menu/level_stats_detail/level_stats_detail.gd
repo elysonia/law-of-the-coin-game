@@ -6,11 +6,11 @@ func initialize():
 	append_text(default_level_win_rate_text)
 
 	if GlobalLevelState.level_button_mash_time.value > 5:
-		var button_mash_time_text = "[font_size={10}]" + "+" + str(GlobalLevelState.level_button_mash_time.value  - 5) + " button mash time from " + GlobalLevelState.level_button_mash_time.label + "[/font_size]\n"
+		var button_mash_time_text = "[font_size={10}][color=green]" + "+" + str(GlobalLevelState.level_button_mash_time.value  - GlobalEnums.DEFAULT_BUTTON_MASH_TIME) + " button mash time from " + GlobalLevelState.level_button_mash_time.label + "[/color][/font_size]\n"
 		append_text(button_mash_time_text)
 	
 	if GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value > 0.0:
-		var decrease_other_modifiers_effectiveness_by_text = "[font_size={10}]" + str(GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value * 100) + " modifier effectiveness from " + GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.label + "[/font_size]\n"
+		var decrease_other_modifiers_effectiveness_by_text = "[font_size={10}][color=red]" + "-" + str(GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value * 100) + "% modifier effectiveness from " + GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.label + "[/color][/font_size]\n"
 		append_text(decrease_other_modifiers_effectiveness_by_text)
 
 	# Put some distance between the above special effects and modified effects.
