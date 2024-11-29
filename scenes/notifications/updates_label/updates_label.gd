@@ -2,6 +2,7 @@ class_name UpdatesLabel
 extends Label
 
 
+## Text moves upwards and fades
 func fade_tween():
 	var tween = create_tween()
 
