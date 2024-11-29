@@ -39,8 +39,10 @@ func _pressed():
 				return original_modifier
 		)
 
-		GlobalLevelState.modifiers.set("perks", updated_perks)
-		GlobalLevelState.modifiers.set("items", updated_items)
+		GlobalLevelState.modifiers = {
+			items = updated_items,
+			perks = updated_perks
+		}
 		
 	if GlobalLevelState.level_modifier_handicaps.has(GlobalEnums.ModifierHandicap.BLURRY_VISION):
 		var updated_perks = GlobalLevelState.modifiers.perks.map(
@@ -57,8 +59,11 @@ func _pressed():
 				return original_modifier
 		)
 
-		GlobalLevelState.modifiers.set("perks", updated_perks)
-		GlobalLevelState.modifiers.set("items", updated_items)
+		
+		GlobalLevelState.modifiers = {
+			items = updated_items,
+			perks = updated_perks
+		}
 
 	GlobalLevelState.level_modifiers = new_level_modifiers
 	

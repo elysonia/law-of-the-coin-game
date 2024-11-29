@@ -33,10 +33,6 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 
-func _reset_modifiers():
-	modifiers = load("res://resources/modifiers/modifiers.tres").duplicate(true)
-
-
 func check_is_last_level():
 	var last_level_index = GlobalLevelState._available_levels.levels.size() - 1
 
@@ -118,3 +114,17 @@ func reset_game():
 	level_button_mash_time = {value = 5, label = ""}
 	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 	level_notifications = []
+
+
+func _reset_modifiers():
+	var original_modifiers = load("res://resources/modifiers/modifiers.tres")
+
+	# Duplicate modifiers to prevent modifying the original.
+	# Resource.duplicate() doesn't work when there are nested arrays apparently
+	# so everything in an array has to be duplicated manually.
+	var new_modifiers = {
+		items = original_modifiers.items.map(func(item): return item.duplicate(true)),
+		perks = original_modifiers.perks.map(func(perk): return perk.duplicate(true))
+	}
+
+	modifiers = new_modifiers

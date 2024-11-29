@@ -147,4 +147,4 @@ func _update_global_level_state_modifiers():
 			return original_modifier
 	)
 
-	GlobalLevelState.modifiers.set(modifier_type, updated_modifiers)
+	GlobalLevelState.modifiers[modifier_type] = updated_modifiers

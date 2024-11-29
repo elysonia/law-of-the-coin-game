@@ -1,7 +1,7 @@
 class_name ModifierRandomPicker
 extends Node
 
-@export var modifiers: Modifiers
+@export var modifiers = {}
 
 
 func generate_unique_random_integers_list(
@@ -28,7 +28,7 @@ func generate_unique_random_integers_list(
 
 
 func get_random_modifiers(
-	number_of_modifiers_required, available_modifier_list: Array[Modifier] = []
+	number_of_modifiers_required, available_modifier_list = []
 ):
 	var modifier_list = []
 	var random_integers = generate_unique_random_integers_list(
