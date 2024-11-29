@@ -36,15 +36,23 @@ func _make_custom_tooltip(_for_text):
 	return new_tooltip
 
 
-func on_temp_modifier_cost_updated(temp_modifier_cost):
+func on_temp_modifier_cost_updated(temp_modifier_cost, temp_modifier_count):
 	if is_toggled:
 		return
+
+	if temp_modifier_count == 2:
+		disabled = true
+		_button_label.set_text("Max reached")
+		_button_label.show()
+		return 
 
 	var temp_remaining_money = GlobalLevelState.money - temp_modifier_cost
 
 	if modifier_obj.price > temp_remaining_money:
 		disabled = true
+		_button_label.set_text("Cannot afford")
 		_button_label.show()
 	else:
 		disabled = false
+		_button_label.set_text("Cannot afford")
 		_button_label.hide()
