@@ -130,10 +130,12 @@ func _get_additional_coin_pick_chance(effects):
 func _change_player_choice_success_rate(effects):
 	var additional_coin_pick_chance = _get_additional_coin_pick_chance(effects)
 
-	GlobalLevelState.player_win_rate += (
+	var possible_win_rate_increment = GlobalLevelState.player_win_rate + (
 		additional_coin_pick_chance
 		* (1 - GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value)
 	)
+
+	GlobalLevelState.player_win_rate = maxf(0, possible_win_rate_increment)
 
 
 func _update_global_level_state_modifiers():

@@ -17,7 +17,8 @@ func _change_player_choice_success_rate(effects):
 	# Reduce the success rate at the rate of success in the previous round.
 	if effects.coin_pick_chance_increment == -2.0:
 		var current_increment_rate = _get_additional_coin_pick_chance(effects)
-		GlobalLevelState.player_win_rate += current_increment_rate
+		var possible_win_rate_increment = GlobalLevelState.player_win_rate + current_increment_rate
+		GlobalLevelState.player_win_rate = maxf(0, possible_win_rate_increment)
 		return
 
 	super._change_player_choice_success_rate(effects)
