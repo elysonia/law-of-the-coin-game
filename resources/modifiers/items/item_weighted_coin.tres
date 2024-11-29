@@ -34,6 +34,7 @@ type = 0
 appear_condition = 0
 price = 5
 description = PackedStringArray("A loaded coin is a heavy burden.", "Significantly increases rate of success.", "Caught cheating, judge is harder on you next trial.")
+order = 1
 trial_effects = SubResource("Resource_q7q5o")
 next_trial_effects = SubResource("Resource_usdyv")
 normal = "res://assets/Modifiers/Items/item-weightedcoin.png"

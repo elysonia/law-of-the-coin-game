@@ -22,6 +22,7 @@ type = 0
 appear_condition = 0
 price = 6
 description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "Transforms arrow keys into one key. Only mash one key from now on to increase rate of success. All arrow keys can be used.", "All subsequent trials get extra 5% decrease in rate of success")
+order = 1
 multi_trial_effects = SubResource("Resource_5vrng")
 normal = "res://assets/Modifiers/Items/item-multidirectionalbtn.png"
 active = "res://assets/Modifiers/Items/item-multidirectionalbtn-active.png"

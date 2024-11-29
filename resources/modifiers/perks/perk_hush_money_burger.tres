@@ -34,6 +34,7 @@ type = 1
 appear_condition = 0
 price = 4
 description = PackedStringArray("Fries. Receipt.", "Bribe judge to gain significant favor in the current trial.", "The judge will require additional 1 - 2 coins as payment for the next trial.")
+order = 1
 trial_effects = SubResource("Resource_a6wn1")
 next_trial_effects = SubResource("Resource_by0e2")
 normal = "res://assets/Modifiers/Perks/perk-bribe.png"

@@ -34,6 +34,7 @@ type = 0
 appear_condition = 0
 price = 5
 description = PackedStringArray("Copious amount of printed Wikipedia pages.", "Contains evidence to prove your case. Significantly increases rate of success.", "No perk options next round.")
+order = 1
 trial_effects = SubResource("Resource_ihmnv")
 next_trial_effects = SubResource("Resource_2nq5q")
 normal = "res://assets/Modifiers/Items/item-document.png"

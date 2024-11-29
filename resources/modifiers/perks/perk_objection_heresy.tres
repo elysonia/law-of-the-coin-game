@@ -34,6 +34,7 @@ type = 1
 appear_condition = 0
 price = 5
 description = PackedStringArray("Paper thin defense reinforced with 100% crocodile tears.", "Drag the hearing out. Add 5 seconds to button mashing time.", "Lowers the effectiveness of other perks/items this round by 5% each if applicable")
+order = 0
 trial_effects = SubResource("Resource_qrcxn")
 next_trial_effects = SubResource("Resource_mi4c8")
 normal = "res://assets/Modifiers/Perks/perk-objectionheresy.png"

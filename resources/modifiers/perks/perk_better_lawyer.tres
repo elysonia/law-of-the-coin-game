@@ -34,6 +34,7 @@ type = 1
 appear_condition = 0
 price = 4
 description = PackedStringArray("Nah, I’d win.", "Get a better lawyer. Brings the cost of the next trial down and increases rate of success.", "Lawyer wants a cut from your settlement money.")
+order = 1
 trial_effects = SubResource("Resource_17ego")
 next_trial_effects = SubResource("Resource_u6w5n")
 normal = "res://assets/Modifiers/Perks/perk-nego100.png"

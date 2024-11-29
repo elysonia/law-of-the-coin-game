@@ -46,6 +46,7 @@ type = 0
 appear_condition = 2
 price = 5
 description = PackedStringArray("I can seeeeeeee", "Immune to blurry vision. Judge has slightly better impression of you from now on.", "No items next round.")
+order = 1
 trial_effects = SubResource("Resource_l80mp")
 next_trial_effects = SubResource("Resource_lv3un")
 multi_trial_effects = SubResource("Resource_i50e4")
