@@ -8,7 +8,10 @@ func goto_next_trial():
 
 func start_current_trial_effects():
 	super.start_current_trial_effects()
-	GlobalLevelState.level_modifier_handicaps.append(_modifier.trial_effects.handicap)
+	
+	if _modifier.trial_effects != null:
+		GlobalLevelState.level_modifier_handicaps.append(_modifier.trial_effects.handicap)
+
 	var simple_blur_filters = _parent_node.get_children().filter(
 		func(node): return node.name == "SimpleBlurFilter"
 	)
