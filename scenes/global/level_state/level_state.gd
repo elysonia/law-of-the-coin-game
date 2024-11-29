@@ -100,7 +100,7 @@ func show_all_notifications():
 
 	for level_notification in level_notifications_copy:
 		var updates_label = _updates_label.instantiate()
-		updates_label.text = level_notification
+		updates_label.set_text(level_notification)
 		get_tree().root.add_child(updates_label)
 		await updates_label.fade_tween().finished
 		updates_label.queue_free()
