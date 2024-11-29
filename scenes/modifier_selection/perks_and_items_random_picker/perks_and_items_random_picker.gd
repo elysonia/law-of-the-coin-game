@@ -1,12 +1,13 @@
 extends ModifierRandomPicker
 
-signal temp_modifier_cost_updated(temp_modifier_cost)
+signal temp_modifier_cost_updated(temp_modifier_cost, temp_modifier_count)
 
 const MAX_NUMBER_OF_MODIFIER_CHOSEN = 2
 const MAX_NUMBER_OF_MODIFIER_CHOICES = 3
 
 var temp_modifier_list = []
 
+@onready var _total_cost_label = $TotalCostLabel
 @onready var _start_trial_button = $StartTrialButton
 @onready var _modifier_container = $Control/ModifierContainer
 @onready var _modifier_button = preload("./modifier_button/modifier_button.tscn")
@@ -53,6 +54,9 @@ func _ready():
 		# Disable button if player doesn't have enough money
 		temp_modifier_cost_updated.connect(button.on_temp_modifier_cost_updated)
 
+		# In case the remaining money isn't enough at the start.
+		button.on_temp_modifier_cost_updated(0, temp_modifier_list.size())
+
 		button.toggled.connect(
 			func(toggled_on):
 				if not toggled_on:
@@ -69,7 +73,9 @@ func _ready():
 							accum += modifier.price
 							return accum
 					, 0)
-					temp_modifier_cost_updated.emit(temp_modifier_cost) 
+
+					_update_total_cost(temp_modifier_cost)
+					temp_modifier_cost_updated.emit(temp_modifier_cost, temp_modifier_list.size()) 
 
 				else:
 					button.is_toggled = true
@@ -79,9 +85,10 @@ func _ready():
 							accum += modifier.price
 							return accum
 					, 0)
-					temp_modifier_cost_updated.emit(temp_modifier_cost) 
-		)
 
+					_update_total_cost(temp_modifier_cost)
+					temp_modifier_cost_updated.emit(temp_modifier_cost, temp_modifier_list.size()) 
+		)
 
 
 func get_modifier_choices():
@@ -115,6 +122,11 @@ func get_modifier_choices():
 		return get_modifier_choices()
 		
 	return temp_modifier_choices
+
+
+func _update_total_cost(total_price):
+	var text = "Total: $" + str(total_price)
+	_total_cost_label.set_text(text)
 
 
 func _on_start_trial_button_pressed():
