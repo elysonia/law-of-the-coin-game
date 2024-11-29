@@ -7,6 +7,7 @@ var _coin_side_control_scene = null
 
 @onready var _tails_animation = $TailsAnimatedSprite2D
 @onready var _heads_animation = $HeadsAnimatedSprite2D
+@onready var _coin_label = preload("res://scenes/coin_flip/coin/coin_label/coin_label.tscn")
 
 
 func _ready():
@@ -73,12 +74,21 @@ func _on_player_picked(player_coin_name):
 	_player_coin_name = player_coin_name
 	_coin_side_control_scene.queue_free()
 
+	var coin_label = _coin_label.instantiate()
+	coin_label.set_text("Picked " + str(player_coin_name) + "!")
+	add_child(coin_label)
+	await coin_label.fade_tween().finished
+	coin_label.queue_free()
+
 	_reset_animation()
 	_show_arrow_keys()
 
 
 func _on_animation_finished(is_successful_throw):
+	var coin_label = _coin_label.instantiate()
+
 	if is_successful_throw:
+		coin_label.set_text("Success!")
 		if not GlobalLevelState.check_is_last_level():
 			var updates_label_text = (
 				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " compensatory damages"
@@ -88,6 +98,13 @@ func _on_animation_finished(is_successful_throw):
 				GlobalLevelState.money + GlobalEnums.DEFAULT_REWARD_MONEY, updates_label_text
 			)
 
+		add_child(coin_label)
+		await coin_label.fade_tween().finished
+		coin_label.queue_free()
 		GlobalCoinEvents.coin_flip_succeeded.emit()
 	else:
+		coin_label.set_text("Failed...")
+		add_child(coin_label)
+		await coin_label.fade_tween().finished
+		coin_label.queue_free()
 		GlobalCoinEvents.coin_flip_failed.emit()
