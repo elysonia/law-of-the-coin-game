@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c02y3b6dojbht"]
 
 [node name="StartTrialButton" type="Button"]
+z_index = 2
 offset_left = 904.0
 offset_top = 520.0
 offset_right = 1101.0

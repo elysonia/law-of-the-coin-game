@@ -1,12 +1,6 @@
 extends Button
 
 
-func _ready():
-	GlobalCoinEvents.coin_flip_succeeded.connect(_on_coin_flip_succeeded)
-	disabled = true
-	hide()
-
-
 func _pressed():
 	# Prevent attempting to start a level that doesn't exist
 	if GlobalLevelState.check_is_last_level():
@@ -112,14 +106,3 @@ func _pressed():
 		GlobalLevelState.set_money(GlobalLevelState.money - next_trial_cost_map.range_trial_cost, next_level_extra_fee_notification, true)
 
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.MODIFIER_SELECTION)
-
-	hide()
-
-
-func _on_coin_flip_succeeded():
-	# Prevent showing the button when player has reached the end
-	if GlobalLevelState.check_is_last_level():
-		return
-
-	disabled = false
-	show()
