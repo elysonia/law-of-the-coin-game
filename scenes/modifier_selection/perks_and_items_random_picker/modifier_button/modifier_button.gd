@@ -14,9 +14,10 @@ func _ready():
 
 func initialize(modifier: Modifier):
 	modifier_obj = modifier
-	texture_normal = ImageTexture.create_from_image(Image.load_from_file(modifier.normal))
-	texture_hover = ImageTexture.create_from_image(Image.load_from_file(modifier.active))
-	texture_pressed = ImageTexture.create_from_image(Image.load_from_file(modifier.active))
+	texture_normal = modifier.normal_image
+	texture_hover = modifier.active_image
+	texture_pressed = modifier.active_image
+
 	toggle_mode = true
 
 
@@ -44,7 +45,7 @@ func on_temp_modifier_cost_updated(temp_modifier_cost, temp_modifier_count):
 		disabled = true
 		_button_label.set_text("Max reached")
 		_button_label.show()
-		return 
+		return
 
 	var temp_remaining_money = GlobalLevelState.money - temp_modifier_cost
 

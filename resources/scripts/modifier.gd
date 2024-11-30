@@ -33,6 +33,8 @@ extends RandomItem
 @export_file("*.png", "*.jpg", "*.jpeg", "*.svg") var normal: String
 ## Displayed as button texture on any other action
 @export_file("*.png", "*.jpg", "*.jpeg", "*.svg") var active: String
+@export var normal_image: CompressedTexture2D
+@export var active_image: CompressedTexture2D
 
 
 @export_category("Modifier Manager")

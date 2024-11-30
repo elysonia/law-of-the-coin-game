@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://buq02el01ltdb"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://buq02el01ltdb"]
 
+[ext_resource type="Texture2D" uid="uid://dsjjiduti4nv6" path="res://assets/Modifiers/Perks/perk-objectionheresy-active.png" id="1_6gfc3"]
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_gwxds"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_w80ui"]
+[ext_resource type="Texture2D" uid="uid://blcun6g5nhpj" path="res://assets/Modifiers/Perks/perk-objectionheresy.png" id="3_tc6lg"]
 
 [sub_resource type="Resource" id="Resource_mi4c8"]
 script = ExtResource("1_gwxds")
@@ -39,6 +41,8 @@ trial_effects = SubResource("Resource_qrcxn")
 next_trial_effects = SubResource("Resource_mi4c8")
 normal = "res://assets/Modifiers/Perks/perk-objectionheresy.png"
 active = "res://assets/Modifiers/Perks/perk-objectionheresy-active.png"
+normal_image = ExtResource("3_tc6lg")
+active_image = ExtResource("1_6gfc3")
 manager_script = "res://resources/modifiers/perks/perk_objection_heresy.gd"
 name = &"objection_heresy"
 pick_chance = 0.1

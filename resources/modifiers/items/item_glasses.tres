@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=6 format=3 uid="uid://ft5dbiequcv8"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=8 format=3 uid="uid://ft5dbiequcv8"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_84m1m"]
+[ext_resource type="Texture2D" uid="uid://cr84yu0h784n8" path="res://assets/Modifiers/Items/item-glasses-active.png" id="1_y58p7"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_biax0"]
+[ext_resource type="Texture2D" uid="uid://dejx5ytr80m2a" path="res://assets/Modifiers/Items/item-glasses.png" id="3_08l8h"]
 
 [sub_resource type="Resource" id="Resource_i50e4"]
 script = ExtResource("1_84m1m")
@@ -52,6 +54,8 @@ next_trial_effects = SubResource("Resource_lv3un")
 multi_trial_effects = SubResource("Resource_i50e4")
 normal = "res://assets/Modifiers/Items/item-glasses.png"
 active = "res://assets/Modifiers/Items/item-glasses-active.png"
+normal_image = ExtResource("3_08l8h")
+active_image = ExtResource("1_y58p7")
 manager_script = "res://resources/modifiers/items/item_glasses.gd"
 name = &"glasses"
 pick_chance = 0.1

@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://dfflkuek2hbtu"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://dfflkuek2hbtu"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_1a5hb"]
+[ext_resource type="Texture2D" uid="uid://bg2lr11qww7s7" path="res://assets/Modifiers/Perks/perk-photogenic-active.png" id="1_2kcim"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_6usk6"]
+[ext_resource type="Texture2D" uid="uid://bv6qkjadjyc7w" path="res://assets/Modifiers/Perks/perk-photogenic.png" id="3_c2lcd"]
 
 [sub_resource type="Resource" id="Resource_vj1w8"]
 script = ExtResource("1_1a5hb")
@@ -39,6 +41,8 @@ trial_effects = SubResource("Resource_mqc1h")
 next_trial_effects = SubResource("Resource_vj1w8")
 normal = "res://assets/Modifiers/Perks/perk-photogenic.png"
 active = "res://assets/Modifiers/Perks/perk-photogenic-active.png"
+normal_image = ExtResource("3_c2lcd")
+active_image = ExtResource("1_2kcim")
 manager_script = "res://resources/modifiers/perks/perk_photogenic.gd"
 name = &"photogenic"
 pick_chance = 0.1
