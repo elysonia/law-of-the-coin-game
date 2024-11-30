@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://t1w1uis47idt"]
+[gd_scene load_steps=14 format=3 uid="uid://t1w1uis47idt"]
 
 [ext_resource type="Script" path="res://scenes/coin_flip/coin/coin.gd" id="1_8m5e7"]
 [ext_resource type="Texture2D" uid="uid://cbvh2ybqmv7tr" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1.png" id="1_jjq3d"]
@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bxmsmc8mvijjj" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame6.png" id="6_53um8"]
 [ext_resource type="Texture2D" uid="uid://ba1yf5jlcw053" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1-tails.png" id="7_jbyi0"]
 [ext_resource type="Texture2D" uid="uid://doy621qi1jjo6" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1-heads.png" id="8_icfod"]
-[ext_resource type="AudioStream" uid="uid://depk05m67evuc" path="res://sounds/gavel/gavel-of-justice-124029.mp3" id="12_jrrrg"]
-[ext_resource type="AudioStream" uid="uid://dvy8ga1undj4e" path="res://sounds/clears_throat/clears-throat-97166.mp3" id="13_1osio"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cuhqt"]
 animations = [{
@@ -90,9 +88,3 @@ frame_progress = 0.458025
 position = Vector2(6.66667, -30)
 sprite_frames = SubResource("SpriteFrames_rib48")
 frame_progress = 0.982804
-
-[node name="GavelSFXPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_jrrrg")
-
-[node name="ClearsThroatSFXPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_1osio")

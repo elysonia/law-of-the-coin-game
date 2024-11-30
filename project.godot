@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
 GlobalEnums="*res://scenes/global/enums.gd"
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
+SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [gui]
 

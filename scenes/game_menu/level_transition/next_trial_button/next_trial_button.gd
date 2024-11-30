@@ -2,13 +2,8 @@ extends Button
 
 
 func _pressed():
-	var sfx = get_node("DoorClosedSFXPlayer")
-	sfx.play()
-	
-	
 	# Prevent attempting to start a level that doesn't exist
 	if GlobalLevelState.check_is_last_level():
-		await sfx.finished
 		return
 
 	# Reset handicaps
@@ -113,5 +108,4 @@ func _pressed():
 	if next_trial_cost_map != null and next_trial_cost_map.range_trial_cost > 0:
 		GlobalLevelState.set_money(GlobalLevelState.money - next_trial_cost_map.range_trial_cost, next_level_extra_fee_notification, true)
 	
-	await sfx.finished
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.MODIFIER_SELECTION)
