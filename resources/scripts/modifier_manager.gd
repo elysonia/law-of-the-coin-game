@@ -22,6 +22,51 @@ func _init(modifier: Modifier, parent_node):
 	_update_global_level_state_modifiers()
 
 
+static func format_as_bbcode(text, font_size = "10", color = "white"):
+	return "[font_size={" + font_size + "}][color=" + color + "]" + text + "[/color][/font_size]"
+
+
+static func get_tooltip_title_text(modifier: Modifier):
+	var formatted_type_text = format_as_bbcode(
+		GlobalEnums.ModifierType.find_key(modifier.type).capitalize() + ": ", "20"
+	)
+	var formatted_display_name_text = format_as_bbcode(modifier.display_name, "20", "orange")
+
+	return "[b]" + formatted_type_text + formatted_display_name_text + "[/b]"
+
+
+static func get_tooltip_price_text(modifier: Modifier):
+	var formatted_price_text = format_as_bbcode(str(modifier.price) + " coins", "15")
+
+	return "[b]" + formatted_price_text + "[/b]"
+
+
+static func get_tooltip_flavor_text(modifier: Modifier):
+	var formatted_flavor_text = format_as_bbcode(modifier.description[0] + "\n", "12", "yellow")
+
+	return "[i]" + formatted_flavor_text + "[/i]"
+
+
+## Returns an array of strings formatted with BBCode.
+static func get_formatted_tooltip_text(modifier: Modifier):
+	var buff_text = format_as_bbcode(modifier.description[1] + "\n", "12", "green")
+	var debuff_text = format_as_bbcode(modifier.description[2] + "\n", "12", "red")
+
+	var formatted_text_array = [
+		[get_tooltip_title_text(modifier), get_tooltip_price_text(modifier)],
+		[get_tooltip_flavor_text(modifier), buff_text, debuff_text]
+	]
+
+	return formatted_text_array.reduce(
+		func(accum, text_array):
+			if accum == "":
+				return "\n".join(text_array)
+
+			return accum + "\n\n" + "\n".join(text_array),
+		""
+	)
+
+
 ## Getter for the "stopped" state of the modifier.
 func get_is_stopped():
 	return (
@@ -130,9 +175,12 @@ func _get_additional_coin_pick_chance(effects):
 func _change_player_choice_success_rate(effects):
 	var additional_coin_pick_chance = _get_additional_coin_pick_chance(effects)
 
-	var possible_win_rate_increment = GlobalLevelState.player_win_rate + (
-		additional_coin_pick_chance
-		* (1 - GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value)
+	var possible_win_rate_increment = (
+		GlobalLevelState.player_win_rate
+		+ (
+			additional_coin_pick_chance
+			* (1 - GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value)
+		)
 	)
 
 	GlobalLevelState.player_win_rate = maxf(0, possible_win_rate_increment)
