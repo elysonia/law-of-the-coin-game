@@ -14,6 +14,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
 handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
@@ -26,6 +27,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
 handicap = 1
 decrease_other_modifiers_effectiveness_by = 0.0
 
@@ -38,6 +40,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
 handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
@@ -47,7 +50,7 @@ display_name = "Glasses"
 type = 0
 appear_condition = 2
 price = 5
-description = PackedStringArray("I can seeeeeeee", "Immune to blurry vision. Judge has slightly better impression of you from now on.", "No items next round.")
+description = PackedStringArray("I can seeeeeeee", "Immune to blurry vision. Judge has slightly better impression of you from now on. +2% success rate, the success rate of ", "No item options next round..")
 order = 1
 trial_effects = SubResource("Resource_l80mp")
 next_trial_effects = SubResource("Resource_lv3un")

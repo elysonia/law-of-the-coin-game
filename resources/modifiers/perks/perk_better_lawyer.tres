@@ -14,6 +14,7 @@ fixed_trial_cost_desc = "Discounted trial cost"
 range_trial_cost = 2.0
 range_trial_cost_desc = "Lawyer fee"
 button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
 handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
@@ -26,6 +27,7 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
 handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
