@@ -37,7 +37,7 @@ display_name = "Turn over a new law(yer)"
 type = 1
 appear_condition = 0
 price = 4
-description = PackedStringArray("Nah, I’d win.", "Get a better lawyer. Brings the cost of the next trial down and increases rate of success.", "Lawyer wants a cut from your settlement money.")
+description = PackedStringArray("Nah, I’d win.", "[color=green]+3% success rate, doubles for each trial after the first.[/color]\nGet a better lawyer. Increases rate of success.", "[color=green]Next trial costs 1 coin[/color] but [color=red]lawyer wants a payment of 1 - 2 coins[/color].\nBrings the cost of the next trial down. Lawyer wants a cut from your settlement money.")
 order = 1
 trial_effects = SubResource("Resource_17ego")
 next_trial_effects = SubResource("Resource_u6w5n")

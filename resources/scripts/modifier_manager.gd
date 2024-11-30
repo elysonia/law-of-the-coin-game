@@ -49,12 +49,30 @@ static func get_tooltip_flavor_text(modifier: Modifier):
 
 ## Returns an array of strings formatted with BBCode.
 static func get_formatted_tooltip_text(modifier: Modifier):
-	var buff_text = format_as_bbcode(modifier.description[1] + "\n", "12", "green")
-	var debuff_text = format_as_bbcode(modifier.description[2] + "\n", "12", "red")
+	var formatted_desc_array = [get_tooltip_flavor_text(modifier)]
+	# TODO: Comfirm to new resource description format = PackedStringArray(flavor_text, current_trial_effects_desc, next_trial_effects_desc, multi_trial_effects_desc)
+	if not modifier.description[1].is_empty():
+		var current_trial_effects_desc_formatted_text = format_as_bbcode(
+			"Current trial:\n" + modifier.description[1] + "\n", "12"
+		)
+		formatted_desc_array.append(current_trial_effects_desc_formatted_text)
+
+	if not modifier.description[2].is_empty():
+		var next_trial_effects_desc_formatted_text = format_as_bbcode(
+			"Next trial:\n" + modifier.description[2] + "\n", "12"
+		)
+		formatted_desc_array.append(next_trial_effects_desc_formatted_text)
+
+	if modifier.description.size() > 3 and not modifier.description[3].is_empty():
+		var multi_trial_effects_desc_formatted_text = format_as_bbcode(
+			"Multiple trials:\n" + modifier.description[3] + "\n", "12"
+		)
+		formatted_desc_array.append(multi_trial_effects_desc_formatted_text)
+
 
 	var formatted_text_array = [
 		[get_tooltip_title_text(modifier), get_tooltip_price_text(modifier)],
-		[get_tooltip_flavor_text(modifier), buff_text, debuff_text]
+		formatted_desc_array
 	]
 
 	return formatted_text_array.reduce(

@@ -37,7 +37,7 @@ display_name = "Document"
 type = 0
 appear_condition = 0
 price = 5
-description = PackedStringArray("Copious amount of printed Wikipedia pages.", "Contains evidence to prove your case. Significantly increases the success rate.", "No perk modifier options next round.")
+description = PackedStringArray("Copious amount of printed Wikipedia pages.", "[color=yellow][i]Contains evidence to prove your case. Significantly increases the success rate.[/i][/color]\n[color=green]+10% success rate[/color] multiplied by the number of trials since the first.", "[color=red]No perk modifier options next round[/color].", "")
 order = 1
 trial_effects = SubResource("Resource_ihmnv")
 next_trial_effects = SubResource("Resource_2nq5q")
