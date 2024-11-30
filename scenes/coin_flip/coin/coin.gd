@@ -5,6 +5,8 @@ var _player_coin_name = GlobalEnums.COIN.INDEX
 var _arrow_keys_control_scene = null
 var _coin_side_control_scene = null
 
+@onready var _clears_throat_sfx_player = $ClearsThroatSFXPlayer
+@onready var _gavel_sfx_player = $GavelSFXPlayer
 @onready var _tails_animation = $TailsAnimatedSprite2D
 @onready var _heads_animation = $HeadsAnimatedSprite2D
 @onready var _coin_label = preload("res://scenes/coin_flip/coin/coin_label/coin_label.tscn")
@@ -23,6 +25,7 @@ func _ready():
 	_coin_side_control_scene.get_node("TailsButton").pressed.connect(
 		_on_player_picked.bind(GlobalEnums.COIN.TAILS)
 	)
+	_clears_throat_sfx_player.play(3)
 	_reset_animation()
 
 
@@ -44,6 +47,7 @@ func _show_arrow_keys():
 
 
 func _get_coin_result():
+	_gavel_sfx_player.play()
 	_arrow_keys_control_scene.queue_free()
 	for item in item_list:
 		if str(item.name) == _player_coin_name:
@@ -86,12 +90,11 @@ func _on_player_picked(player_coin_name):
 
 func _on_animation_finished(is_successful_throw):
 	var coin_label = _coin_label.instantiate()
-
 	if is_successful_throw:
 		coin_label.set_text("Success!")
 		if not GlobalLevelState.check_is_last_level():
 			var updates_label_text = (
-				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " compensatory damages"
+				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " reward money"
 			)
 
 			GlobalLevelState.set_money(

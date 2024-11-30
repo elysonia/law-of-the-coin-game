@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c02y3b6dojbht"]
+[gd_scene load_steps=2 format=3 uid="uid://c02y3b6dojbht"]
+
+[ext_resource type="AudioStream" uid="uid://b6lrl4427wxwu" path="res://sounds/door_open/sound-the-door-opened-in-the-courtroom.mp3" id="1_w35rk"]
 
 [node name="StartTrialButton" type="Button"]
 z_index = 2
@@ -8,3 +10,6 @@ offset_right = 1101.0
 offset_bottom = 583.0
 theme_override_font_sizes/font_size = 40
 text = "Start Trial"
+
+[node name="DoorOpenSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w35rk")

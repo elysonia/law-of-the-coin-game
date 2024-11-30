@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c02kdx7pn1ys3"]
+[gd_scene load_steps=7 format=3 uid="uid://c02kdx7pn1ys3"]
 
 [ext_resource type="Texture2D" uid="uid://f7f8aa6a8s28" path="res://assets/coin_flip_bg.png" id="1_0jjtc"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_f7slv"]
 [ext_resource type="PackedScene" uid="uid://bk0p7valow0sl" path="res://scenes/game_menu/game_menu.tscn" id="2_2qxbd"]
 [ext_resource type="PackedScene" uid="uid://c6njwor1ggu3h" path="res://scenes/game/game_music_player/game_music_player.tscn" id="4_rtbg6"]
+[ext_resource type="AudioStream" uid="uid://cd0q113lcdmba" path="res://sounds/crowd_worried/crowd-worried-90368.mp3" id="5_5je7u"]
 
 [sub_resource type="Theme" id="Theme_h17fg"]
 
@@ -21,3 +22,7 @@ texture = ExtResource("1_0jjtc")
 [node name="GameMenu" parent="." instance=ExtResource("2_2qxbd")]
 
 [node name="GameMusicPlayer" parent="." instance=ExtResource("4_rtbg6")]
+
+[node name="CrowdWorriedSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5je7u")
+autoplay = true

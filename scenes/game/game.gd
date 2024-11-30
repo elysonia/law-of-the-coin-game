@@ -11,6 +11,8 @@ var _game_mode_scene_mapping = {
 	GlobalEnums.GameMode.COIN_FLIP: preload("res://scenes/coin_flip/coin_flip.tscn")
 }
 
+@onready var _crowd_worried_sfx_player = $CrowdWorriedSFXPlayer
+
 
 func _ready():
 	_on_game_mode_changed(GlobalEnums.GameMode.COIN_FLIP)
@@ -31,6 +33,10 @@ func _update_level_stats_detail():
 func _on_game_mode_changed(game_mode: GlobalEnums.GameMode):
 
 	var game_mode_scene = _game_mode_scene_mapping[game_mode]
+	if game_mode == GlobalEnums.GameMode.MODIFIER_SELECTION:
+		_crowd_worried_sfx_player.set_volume_db(-4.0)
+	else:
+		_crowd_worried_sfx_player.set_volume_db(0)
 
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()

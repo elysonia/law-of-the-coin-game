@@ -130,6 +130,9 @@ func _update_total_cost(total_price):
 
 
 func _on_start_trial_button_pressed():
+	var sfx =  _start_trial_button.get_node("DoorOpenSFXPlayer")
+	sfx.play()
+
 	var modifier_managers_list = []
 
 	for modifier in temp_modifier_list:
@@ -154,5 +157,6 @@ func _on_start_trial_button_pressed():
 
 	for modifier_manager in sorted_level_modifiers:
 		modifier_manager.start_trial()
-		
+	
+	await sfx.finished
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
