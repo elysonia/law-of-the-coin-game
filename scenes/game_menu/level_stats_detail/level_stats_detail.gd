@@ -5,13 +5,18 @@ func initialize():
 	var default_level_win_rate_text = "[font_size={10}]" + "Default win rate: " + str(GlobalLevelState.get_level(GlobalLevelState.current_level_index).player_win_rate * 100) + " %" + "[/font_size]\n"
 	append_text(default_level_win_rate_text)
 
-	if GlobalLevelState.level_button_mash_time.value > 5:
-		var button_mash_time_text = "[font_size={10}][color=green]" + "+" + str(GlobalLevelState.level_button_mash_time.value  - GlobalEnums.DEFAULT_BUTTON_MASH_TIME) + " button mash time from " + GlobalLevelState.level_button_mash_time.label + "[/color][/font_size]\n"
+	if GlobalLevelState.level_button_mash_time.value != GlobalEnums.DEFAULT_BUTTON_MASH_TIME:
+		var operation_symbol = "+" if GlobalLevelState.level_button_mash_time.value > GlobalEnums.DEFAULT_BUTTON_MASH_TIME else "-"
+		var button_mash_time_text = "[font_size={10}][color=green]" + operation_symbol + str(GlobalLevelState.level_button_mash_time.value  - GlobalEnums.DEFAULT_BUTTON_MASH_TIME) + " button mash time from " + GlobalLevelState.level_button_mash_time.label + "[/color][/font_size]\n"
 		append_text(button_mash_time_text)
 	
 	if GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value > 0.0:
 		var decrease_other_modifiers_effectiveness_by_text = "[font_size={10}][color=red]" + "-" + str(GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.value * 100) + "% modifier effectiveness from " + GlobalLevelState.level_decrease_other_modifiers_effectiveness_by.label + "[/color][/font_size]\n"
 		append_text(decrease_other_modifiers_effectiveness_by_text)
+
+	if GlobalLevelState.level_button_mash_increment_rate.value != GlobalEnums.ARROW_KEY_INCREMENT_RATE:
+		var button_mash_increment_rate_text =  "[font_size={10}][color=lightblue]" + str(GlobalLevelState.level_button_mash_increment_rate.value  - GlobalEnums.ARROW_KEY_INCREMENT_RATE) + " to increment rate by button mashing from " + GlobalLevelState.level_button_mash_increment_rate.label + "[/color][/font_size]\n"
+		append_text(button_mash_increment_rate_text)
 
 	# Put some distance between the above special effects and modified effects.
 	append_text("\n")

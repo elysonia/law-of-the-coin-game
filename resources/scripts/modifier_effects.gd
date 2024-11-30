@@ -35,6 +35,11 @@ extends Resource
 ## The highest value takes priority when
 ## an overlap occurs with another modifier.
 @export var button_mash_time_increase: int
+## Modifier for the default win rate from mashing buttons relative to the default 0.01 increment.
+## Positive value for increase, negative value for decrease.
+## The smallest value takes priority in the occasion of an overlap.
+## Keep value below or equal to 1.0 where 1.0 doubles the increment.
+@export var button_mash_increment_rate: float
 ## Disadvantages for the current, next or subsequent trials.
 @export var handicap: GlobalEnums.ModifierHandicap
 ## When the modifier is in effect, decrease effectiveness of other modifiers by this rate.

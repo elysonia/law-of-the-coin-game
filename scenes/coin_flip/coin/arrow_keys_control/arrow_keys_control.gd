@@ -3,6 +3,7 @@ extends Control
 var _is_left_arrow_pressed = false
 var _is_right_arrow_pressed = false
 var _is_all_arrow_keys_used = false
+var _arrow_button_container = null
 
 
 func initialize():
@@ -43,6 +44,7 @@ func initialize():
 		).instantiate()
 
 		add_child(arrow_container_scene)
+		_arrow_button_container = arrow_container_scene
 		# TODO: Fix arrow buttons not responding to key input after pressing with mouse
 		arrow_container_scene.get_node("RightArrowButton").pressed.connect(_on_right_arrow_button_pressed)
 		arrow_container_scene.get_node("LeftArrowButton").pressed.connect(_on_left_arrow_button_pressed)
@@ -60,7 +62,7 @@ func _reset_arrow_pressed():
 
 func _add_pick_chance():
 	var progress_bar = get_node("PlayerWinRateBar")
-	GlobalLevelState.player_win_rate += GlobalEnums.ARROW_KEY_INCREMENT_RATE
+	GlobalLevelState.player_win_rate +=  GlobalLevelState.level_button_mash_increment_rate.value
 	progress_bar.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
 
 

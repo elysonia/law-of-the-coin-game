@@ -15,6 +15,7 @@ var player_win_rate = 0
 var level_modifiers: Array = []
 var level_modifier_handicaps = []
 var level_button_mash_time = {value = GlobalEnums.DEFAULT_BUTTON_MASH_TIME, label = ""}
+var level_button_mash_increment_rate = {value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = ""}
 var level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 var level_notifications: Array[String] = []
 

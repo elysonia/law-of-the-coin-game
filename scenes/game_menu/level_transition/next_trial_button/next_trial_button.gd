@@ -6,10 +6,11 @@ func _pressed():
 	if GlobalLevelState.check_is_last_level():
 		return
 
-	# Reset handicaps
+	# Reset special effects
 	GlobalLevelState.level_modifier_handicaps = []
 	GlobalLevelState.level_button_mash_time = {value = 5, label = ""}
 	GlobalLevelState.level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
+	GlobalLevelState.level_button_mash_increment_rate = {value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = ""}
 	
 	var new_level_modifiers = []
 
