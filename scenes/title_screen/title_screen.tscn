@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwrb0s6848di0"]
+[gd_scene load_steps=4 format=3 uid="uid://bwrb0s6848di0"]
 
 [ext_resource type="Texture2D" uid="uid://cfx5ewadro7d6" path="res://assets/title_bg.png" id="1_mf4c7"]
+[ext_resource type="PackedScene" uid="uid://cq886tp1l5ead" path="res://scenes/title_screen/title_screen_music_player.tscn" id="3_sbsfo"]
 [ext_resource type="PackedScene" uid="uid://cyypvvdxrmjgh" path="res://scenes/title_screen/start_button/start_button.tscn" id="3_v8l1x"]
 
 [node name="TitleScreen" type="Control"]
@@ -88,10 +89,10 @@ text = "5 perks"
 
 [node name="and" type="Label" parent="."]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 456.0
-offset_right = 350.0
-offset_bottom = 484.0
+offset_left = 288.0
+offset_top = 408.0
+offset_right = 358.0
+offset_bottom = 436.0
 theme_override_colors/font_color = Color(1, 0.792157, 0.376471, 0.784314)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.76662, 0.76662, 0.76662, 1)
@@ -114,7 +115,7 @@ theme_override_constants/shadow_offset_y = 18
 theme_override_font_sizes/font_size = 30
 text = "5 items"
 
-[node name="Label" type="Label" parent="."]
+[node name="Disclaimer" type="Label" parent="."]
 layout_mode = 2
 offset_left = 816.0
 offset_top = 376.0
@@ -130,7 +131,7 @@ Good luck.
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="."]
+[node name="Bored" type="Label" parent="."]
 layout_mode = 2
 offset_left = 728.0
 offset_top = 520.0
@@ -144,7 +145,7 @@ text = "made this to learn Godot at my own pace but got bored so I just worked o
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="."]
+[node name="Finished" type="Label" parent="."]
 layout_mode = 2
 offset_left = 952.0
 offset_top = 608.0
@@ -157,3 +158,5 @@ theme_override_font_sizes/font_size = 10
 text = "finished is better than perfect! I'll plan better next game! LOL!"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="TitleScreenMusicPlayer" parent="." instance=ExtResource("3_sbsfo")]
