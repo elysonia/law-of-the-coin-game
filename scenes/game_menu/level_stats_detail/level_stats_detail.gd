@@ -15,7 +15,7 @@ func initialize():
 		append_text(decrease_other_modifiers_effectiveness_by_text)
 
 	if GlobalLevelState.level_button_mash_increment_rate.value != GlobalEnums.ARROW_KEY_INCREMENT_RATE:
-		var button_mash_increment_rate_text =  "[font_size={10}][color=lightblue]" + str(GlobalLevelState.level_button_mash_increment_rate.value  - GlobalEnums.ARROW_KEY_INCREMENT_RATE) + " to increment rate by button mashing from " + GlobalLevelState.level_button_mash_increment_rate.label + "[/color][/font_size]\n"
+		var button_mash_increment_rate_text =  "[font_size={10}][color=lightblue]" + str((GlobalLevelState.level_button_mash_increment_rate.value  - GlobalEnums.ARROW_KEY_INCREMENT_RATE) * 100)  + "%" + " to increment rate by button mashing from " + GlobalLevelState.level_button_mash_increment_rate.label + "[/color][/font_size]\n"
 		append_text(button_mash_increment_rate_text)
 
 	# Put some distance between the above special effects and modified effects.
