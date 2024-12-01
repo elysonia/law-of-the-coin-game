@@ -37,7 +37,7 @@ display_name = "Objection! Heresy!"
 type = 1
 appear_condition = 0
 price = 5
-description = PackedStringArray("Paper thin defense reinforced with 100% crocodile tears.", "[color=green]+5s button mashing time[/color].[color=red]-5% in the effectiveness of each modifier if applicable[/color].\nDrag the hearing out and waste everybody\'s time. ", "+5% to the success rate next round because people feel sorry for you. ")
+description = PackedStringArray("Paper thin defense reinforced with 100% crocodile tears.", "[color=green]+5s button mashing time[/color].[color=red]-5% in the effectiveness of each modifier if applicable[/color].\n[color=yellow][i]Drag the hearing out and waste everybody\'s time[/i][/color]. ", "[color=green]+5% to the success rate[/color] next round because people feel sorry for you. ")
 order = 0
 trial_effects = SubResource("Resource_qrcxn")
 next_trial_effects = SubResource("Resource_mi4c8")

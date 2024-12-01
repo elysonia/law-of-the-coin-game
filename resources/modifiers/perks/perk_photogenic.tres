@@ -37,7 +37,7 @@ display_name = "Photogenic"
 type = 1
 appear_condition = 0
 price = 3
-description = PackedStringArray("Too handsome to be in jail.", "[color=green]+2% success rate, doubles for each past trial after the first[/color].\nYour aesthetically pleasing mugshot went viral and the populace rallies to your defense.", "[color=red]Lowers the success rate of next round by the success rate increment of this round by this perk[/color].\nThe populace realizes you’re not hot in person and send you hate mail which affects your mental well-being as well as physical .")
+description = PackedStringArray("Too handsome to be in jail.", "[color=green]+2% success rate, doubles for each past trial after the first[/color].\n[color=yellow][i]Your aesthetically pleasing mugshot went viral and the populace rallies to your defense[/i][/color].", "[color=red]Lowers the success rate of next round by the success rate increment of this round by this perk[/color].\n[color=yellow][i]The populace realizes you’re not hot in person and send you hate mail which affects your mental well-being as well as physical[/i][/color].")
 order = 1
 trial_effects = SubResource("Resource_mqc1h")
 next_trial_effects = SubResource("Resource_vj1w8")

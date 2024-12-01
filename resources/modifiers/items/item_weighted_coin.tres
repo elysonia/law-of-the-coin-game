@@ -37,7 +37,7 @@ display_name = "Weighted Coin"
 type = 0
 appear_condition = 0
 price = 5
-description = PackedStringArray("A loaded coin is a heavy burden.", "[color=green]+10% success rate[/color] multiplied by the number of trials since the first.\nSignificantly increases rate of success.", "[color=red]-3% success rate[/color], doubles for each trial after the first.\nCaught cheating, judge is harder on you next trial.")
+description = PackedStringArray("A loaded coin is a heavy burden.", "[color=green]+10% success rate[/color] multiplied by the number of trials since the first.\n[color=yellow][i]Significantly increases rate of success[/i][/color].", "[color=red]-3% success rate[/color], doubles for each trial after the first.\n[color=yellow][i]Caught cheating, judge is harder on you next trial[/i][/color].")
 order = 1
 trial_effects = SubResource("Resource_q7q5o")
 next_trial_effects = SubResource("Resource_usdyv")
