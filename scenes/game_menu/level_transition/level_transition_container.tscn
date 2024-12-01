@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://rin8g1bhvo5a"]
 
 [node name="LevelTransitionContainer" type="VBoxContainer"]
-offset_left = 488.0
-offset_top = 328.0
-offset_right = 664.0
-offset_bottom = 384.0
+offset_left = 448.0
+offset_top = 344.0
+offset_right = 712.0
+offset_bottom = 400.0
 alignment = 1
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
