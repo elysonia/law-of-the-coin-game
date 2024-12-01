@@ -3,7 +3,7 @@ extends Control
 var _is_left_arrow_pressed = false
 var _is_right_arrow_pressed = false
 var _is_all_arrow_keys_used = false
-var _arrow_button_container = null
+var _arrow_button_container_scene = null
 
 
 func initialize():
@@ -44,7 +44,7 @@ func initialize():
 		).instantiate()
 
 		add_child(arrow_container_scene)
-		_arrow_button_container = arrow_container_scene
+		_arrow_button_container_scene = arrow_container_scene
 		# TODO: Fix arrow buttons not responding to key input after pressing with mouse
 		arrow_container_scene.get_node("RightArrowButton").pressed.connect(_on_right_arrow_button_pressed)
 		arrow_container_scene.get_node("LeftArrowButton").pressed.connect(_on_left_arrow_button_pressed)
@@ -58,6 +58,8 @@ func _check_should_add_pick_chance():
 func _reset_arrow_pressed():
 	_is_left_arrow_pressed = false
 	_is_right_arrow_pressed = false
+	_arrow_button_container_scene.get_node("RightArrowButton").start_blinking_text()
+	_arrow_button_container_scene.get_node("LeftArrowButton").start_blinking_text()
 
 
 func _add_pick_chance():
@@ -67,27 +69,27 @@ func _add_pick_chance():
 
 
 func _on_right_arrow_button_pressed():
-	if _is_all_arrow_keys_used:
-		return
-
 	_is_right_arrow_pressed = true
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
 	if should_add_pick_chance:
 		_add_pick_chance()
 		_reset_arrow_pressed()
+	else:
+		_arrow_button_container_scene.get_node("RightArrowButton").stop_blinking_text()
+		_arrow_button_container_scene.get_node("LeftArrowButton").start_blinking_text()
 
 
 func _on_left_arrow_button_pressed():
-	if _is_all_arrow_keys_used:
-		return
-
 	_is_left_arrow_pressed = true
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
 	if should_add_pick_chance:
 		_add_pick_chance()
 		_reset_arrow_pressed()
+	else:
+		_arrow_button_container_scene.get_node("RightArrowButton").start_blinking_text()
+		_arrow_button_container_scene.get_node("LeftArrowButton").stop_blinking_text()
 
 
 func _on_multidirectional_keycap_input():

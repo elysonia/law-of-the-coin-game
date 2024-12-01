@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx3l7jh6vsu5x"]
+[gd_scene load_steps=5 format=3 uid="uid://dx3l7jh6vsu5x"]
+
+[ext_resource type="Script" path="res://scenes/coin_flip/coin/arrow_keys_control/right_arrow_button/right_arrow_button.gd" id="1_okrf7"]
+[ext_resource type="PackedScene" uid="uid://cqe5d18g8s1k0" path="res://scenes/coin_flip/coin/arrow_keys_control/blinking_label/blinking_label.tscn" id="2_d540a"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3xc6i"]
 keycode = 4194321
@@ -11,5 +14,11 @@ offset_right = 120.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_pavny")
-text = "Right ->"
 icon_alignment = 1
+script = ExtResource("1_okrf7")
+
+[node name="BlinkingLabel" parent="." instance=ExtResource("2_d540a")]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 120.0
+offset_bottom = 48.0
