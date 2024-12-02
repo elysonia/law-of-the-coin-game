@@ -2,6 +2,8 @@ extends Button
 
 
 func _pressed():
+	SoundManager.play_sfx("gavel_once_strong")
+
 	for modifier in GlobalLevelState.level_modifiers:
 		modifier.end_trial()
 

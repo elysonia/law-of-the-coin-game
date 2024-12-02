@@ -11,6 +11,7 @@ var current_scene = null
 var current_level_index = 0
 var money = 0
 var player_win_rate = 0
+var game_mode = GlobalEnums.GameMode.TITLE
 
 var level_modifiers: Array = []
 var level_modifier_handicaps = []
@@ -27,11 +28,25 @@ var _updates_label = preload("res://scenes/notifications/updates_label/updates_l
 
 func _ready():
 	_reset_modifiers()
+	game_mode_changed.connect(_on_game_mode_changed)
+
 	var current_level = get_level(current_level_index)
 	player_win_rate = current_level.player_win_rate
 
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+	play_title_bgm()
+
+
+func play_title_bgm():
+	SoundManager.stop_all()
+	SoundManager.play_bgm("title")
+
+
+func play_game_bgm():
+	SoundManager.stop_all()
+	SoundManager.play_bgm("game")
+	SoundManager.play_bgs("crowd_worried")
 
 
 func check_is_last_level():
@@ -53,21 +68,25 @@ func get_level(level_index):
 
 
 func goto_main_scene():
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.TITLE)
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
 	current_scene = _title_screen_scene.instantiate()
 	get_tree().root.add_child(current_scene)
+	play_title_bgm()
 
 
 func goto_game_scene():
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
 	current_scene = _game_scene.instantiate()
 	get_tree().root.add_child(current_scene)
+	play_game_bgm()
 
 
 # Remember to include the amount added/deducted in the message
@@ -129,3 +148,8 @@ func _reset_modifiers():
 	}
 
 	modifiers = new_modifiers
+
+
+func _on_game_mode_changed(_game_mode):
+	game_mode = _game_mode
+

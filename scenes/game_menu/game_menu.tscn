@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk0p7valow0sl"]
+[gd_scene load_steps=5 format=3 uid="uid://bk0p7valow0sl"]
 
-[ext_resource type="PackedScene" uid="uid://caiwn7brp2sym" path="res://scenes/game_menu/menu_button/menu_button.tscn" id="1_sfdoy"]
 [ext_resource type="Script" path="res://scenes/game_menu/game_menu.gd" id="1_w6p3n"]
-[ext_resource type="Script" path="res://scenes/game_menu/menu_button/menu_button.gd" id="2_onw3m"]
+[ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="2_1xg7l"]
 [ext_resource type="PackedScene" uid="uid://bha4idm30721u" path="res://scenes/game_menu/level_transition/level_transition.tscn" id="3_huxy0"]
 [ext_resource type="PackedScene" uid="uid://ci8mu5pesvdmf" path="res://scenes/game_menu/money_label/money_label.tscn" id="5_vcmha"]
 
@@ -20,19 +19,8 @@ script = ExtResource("1_w6p3n")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
-[node name="MenuButton" parent="." instance=ExtResource("1_sfdoy")]
-process_priority = -1
-process_physics_priority = -1
-layout_mode = 2
-offset_left = 38.0
-offset_right = 91.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0.662745, 0.227451, 0.976471, 1)
-theme_override_constants/h_separation = 0
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 15
-item_count = 0
-script = ExtResource("2_onw3m")
+[node name="MenuControl" parent="." instance=ExtResource("2_1xg7l")]
+layout_mode = 1
 
 [node name="LevelTransition" parent="." instance=ExtResource("3_huxy0")]
 layout_mode = 1
