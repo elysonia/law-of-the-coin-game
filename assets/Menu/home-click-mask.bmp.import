@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://crujmjidtts"
+path="res://.godot/imported/home-click-mask.bmp-ba85d1d88363c86c638d21f138949645.res"
+
+[deps]
+
+source_file="res://assets/Menu/home-click-mask.bmp"
+dest_files=["res://.godot/imported/home-click-mask.bmp-ba85d1d88363c86c638d21f138949645.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

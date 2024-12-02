@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0j2xgfud32l4"]
+
+[ext_resource type="Texture2D" uid="uid://myldfbvnvfhj" path="res://assets/Menu/home.png" id="1_wp1b8"]
+[ext_resource type="Texture2D" uid="uid://b0ba70rfm7vin" path="res://assets/Menu/home-hover.png" id="2_e7bej"]
+[ext_resource type="BitMap" uid="uid://crujmjidtts" path="res://assets/Menu/home-click-mask.bmp" id="3_5dgtc"]
+[ext_resource type="Script" path="res://scenes/game_menu/menu_control/home_button/home_button.gd" id="4_fvh7t"]
+
+[node name="HomeButton" type="TextureButton"]
+tooltip_text = "Home"
+texture_normal = ExtResource("1_wp1b8")
+texture_hover = ExtResource("2_e7bej")
+texture_click_mask = ExtResource("3_5dgtc")
+script = ExtResource("4_fvh7t")
