@@ -2,7 +2,8 @@ extends VSlider
 
 
 func _ready():
-	set_value_no_signal(SoundManager.get_bgm_volume_db())
+	var average_value = (abs(max_value) - abs(min_value)) / 2
+	value = average_value
 
 
 func _value_changed(new_value):
