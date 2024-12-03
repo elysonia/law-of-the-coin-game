@@ -3,7 +3,6 @@ extends ModifierManager
 
 func start_multi_trial_effects():
 	var button_mash_increment_rate = _modifier.multi_trial_effects.button_mash_increment_rate
-	print("multidirectionlkeycap", button_mash_increment_rate)
 	super.start_multi_trial_effects()
 
 	if (

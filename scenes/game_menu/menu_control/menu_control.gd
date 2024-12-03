@@ -14,7 +14,6 @@ func _ready():
 
 
 func _on_game_mode_changed(game_mode):
-	print({"game_mode": game_mode, "GlobalLevelState.game_mode": GlobalLevelState.game_mode})
 	for child in _buttons_container.get_children():
 		child.queue_free()
 
