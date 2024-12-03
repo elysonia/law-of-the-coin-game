@@ -52,14 +52,12 @@ func initialize():
 
 # Ensure adding pick chance only when the left and right arrow are pressed alternately
 func _check_should_add_pick_chance():
-	return _is_left_arrow_pressed and _is_right_arrow_pressed
+	return self._is_left_arrow_pressed and self._is_right_arrow_pressed
 
 
 func _reset_arrow_pressed():
 	_is_left_arrow_pressed = false
 	_is_right_arrow_pressed = false
-	_arrow_button_container_scene.get_node("RightArrowButton").start_blinking_text()
-	_arrow_button_container_scene.get_node("LeftArrowButton").start_blinking_text()
 
 
 func _add_pick_chance():
@@ -75,9 +73,8 @@ func _on_right_arrow_button_pressed():
 	if should_add_pick_chance:
 		_add_pick_chance()
 		_reset_arrow_pressed()
-	else:
-		_arrow_button_container_scene.get_node("RightArrowButton").stop_blinking_text()
-		_arrow_button_container_scene.get_node("LeftArrowButton").start_blinking_text()
+
+	_reset_blinking_text()
 
 
 func _on_left_arrow_button_pressed():
@@ -87,9 +84,7 @@ func _on_left_arrow_button_pressed():
 	if should_add_pick_chance:
 		_add_pick_chance()
 		_reset_arrow_pressed()
-	else:
-		_arrow_button_container_scene.get_node("RightArrowButton").start_blinking_text()
-		_arrow_button_container_scene.get_node("LeftArrowButton").stop_blinking_text()
+	_reset_blinking_text()
 
 
 func _on_multidirectional_keycap_input():
@@ -97,3 +92,14 @@ func _on_multidirectional_keycap_input():
 		return
 
 	_add_pick_chance()
+
+
+func _reset_blinking_text():
+	_arrow_button_container_scene.get_node("LeftArrowButton").stop_blinking_text()
+	_arrow_button_container_scene.get_node("RightArrowButton").stop_blinking_text()
+
+	if not _is_left_arrow_pressed:
+		_arrow_button_container_scene.get_node("LeftArrowButton").start_blinking_text()
+
+	if not _is_right_arrow_pressed:
+		_arrow_button_container_scene.get_node("RightArrowButton").start_blinking_text()
