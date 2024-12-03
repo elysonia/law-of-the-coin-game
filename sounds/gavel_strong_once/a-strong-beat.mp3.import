@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/a-strong-beat.mp3-3240c49908240af1df5a427cf0f
 
 loop=false
 loop_offset=0.0
-bpm=0.0
+bpm=120.0
 beat_count=0
 bar_beats=4
