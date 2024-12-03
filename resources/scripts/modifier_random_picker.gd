@@ -27,9 +27,7 @@ func generate_unique_random_integers_list(
 	return unique_random_integers_list
 
 
-func get_random_modifiers(
-	number_of_modifiers_required, available_modifier_list = []
-):
+func get_random_modifiers(number_of_modifiers_required, available_modifier_list = []):
 	var modifier_list = []
 	var random_integers = generate_unique_random_integers_list(
 		number_of_modifiers_required, 0, available_modifier_list.size() - 1
@@ -43,6 +41,9 @@ func get_random_modifiers(
 
 
 func get_perks(number_of_perks_required):
+	if number_of_perks_required == 0:
+		return []
+
 	var available_perks = modifiers.perks.filter(func(perk): return perk.can_be_picked)
 
 	if number_of_perks_required >= available_perks.size():
@@ -52,6 +53,9 @@ func get_perks(number_of_perks_required):
 
 
 func get_items(number_of_items_required):
+	if number_of_items_required == 0:
+		return []
+
 	var available_items = modifiers.items.filter(func(item): return item.can_be_picked)
 
 	if number_of_items_required >= available_items.size():

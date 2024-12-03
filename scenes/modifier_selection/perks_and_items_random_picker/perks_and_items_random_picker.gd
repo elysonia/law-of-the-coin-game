@@ -17,30 +17,10 @@ func _ready():
 	modifiers = GlobalLevelState.modifiers
 	_start_trial_button.pressed.connect(_on_start_trial_button_pressed)
 
-	var all_selectable_modifiers = []
 	var modifier_choices = []
 
-	var can_pick_perks = GlobalEnums.ModifierHandicap.NO_PERKS not in GlobalLevelState.level_modifier_handicaps
-	var can_pick_items = GlobalEnums.ModifierHandicap.NO_ITEMS not in GlobalLevelState.level_modifier_handicaps
-
-	if can_pick_perks:
-		all_selectable_modifiers.append_array(
-			modifiers.perks.filter(func(perk): return perk.can_be_picked)
-		)
-	
-	if can_pick_items:
-		all_selectable_modifiers.append_array(
-			modifiers.items.filter(func(item): return item.can_be_picked)
-		)
-
-
-	var is_show_all_selectable_modifiers = all_selectable_modifiers.size() <= 3
-
-	if is_show_all_selectable_modifiers:
-		modifier_choices.append_array(all_selectable_modifiers)
-	else:
-		var new_modifier_choices = get_modifier_choices()
-		modifier_choices.append_array(new_modifier_choices)
+	var new_modifier_choices = get_modifier_choices()
+	modifier_choices.append_array(new_modifier_choices)
 
 	modifier_choices.shuffle()
 
@@ -94,11 +74,21 @@ func _ready():
 func get_modifier_choices():
 	var temp_modifier_choices = []
 	var number_of_choices = randi_range(2, 3)
+
+	var can_pick_perks = GlobalEnums.ModifierHandicap.NO_PERKS not in GlobalLevelState.level_modifier_handicaps
+	var can_pick_items = GlobalEnums.ModifierHandicap.NO_ITEMS not in GlobalLevelState.level_modifier_handicaps
+
 	var number_of_perk_choices = (
 		(func():
+			if not can_pick_perks:
+				return 0
+			
+			if not can_pick_items:
+				return number_of_choices
+
 			if number_of_choices < 3:
 				return 1
-
+		
 			if randf_range(0, 1) > 0.5:
 				return 2
 
@@ -117,8 +107,10 @@ func get_modifier_choices():
 			return accum
 	, [])
 
+	var is_no_item_and_no_perks_next_trial = GlobalEnums.ModifierHandicap.NO_ITEMS in next_trial_handicaps and GlobalEnums.ModifierHandicap.NO_PERKS in next_trial_handicaps
+	
 	# To make sure the NO_PERKS and NO_ITEM modifiers are not options at the same time.
-	if GlobalEnums.ModifierHandicap.NO_ITEMS in next_trial_handicaps and GlobalEnums.ModifierHandicap.NO_PERKS in next_trial_handicaps:
+	if is_no_item_and_no_perks_next_trial:
 		return get_modifier_choices()
 		
 	return temp_modifier_choices
