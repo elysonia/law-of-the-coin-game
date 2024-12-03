@@ -174,7 +174,7 @@ func _get_exponential_value_for_current_level(value):
 
 	var exponentiated_value = value
 
-	for _level in range(0, GlobalLevelState.current_level_index):
+	for _level in range(0, GlobalLevelState.current_level_index - 1):
 		exponentiated_value *= 2
 
 	return exponentiated_value
