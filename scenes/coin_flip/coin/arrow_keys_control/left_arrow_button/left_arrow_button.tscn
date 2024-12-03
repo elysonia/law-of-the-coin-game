@@ -21,3 +21,4 @@ layout_mode = 0
 offset_left = 8.0
 offset_right = 112.0
 offset_bottom = 48.0
+mouse_filter = 2
