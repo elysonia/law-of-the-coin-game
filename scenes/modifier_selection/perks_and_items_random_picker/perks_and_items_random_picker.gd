@@ -15,7 +15,6 @@ var temp_modifier_list = []
 
 func _ready():
 	modifiers = GlobalLevelState.modifiers
-	_start_trial_button.disabled = true
 	_start_trial_button.pressed.connect(_on_start_trial_button_pressed)
 
 	var all_selectable_modifiers = []
@@ -89,11 +88,6 @@ func _ready():
 
 					_update_total_cost(temp_modifier_cost)
 					temp_modifier_cost_updated.emit(temp_modifier_cost, temp_modifier_list.size())
-
-				if temp_modifier_list.size() > 0:
-					_start_trial_button.disabled = false
-				else:
-					_start_trial_button.disabled = true
 		)
 
 

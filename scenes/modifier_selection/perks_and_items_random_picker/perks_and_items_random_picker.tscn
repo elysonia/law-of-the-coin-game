@@ -26,11 +26,12 @@ process_priority = -1
 
 [node name="InstructionLabel" type="Label" parent="."]
 offset_left = 400.0
-offset_top = 72.0
+offset_top = 80.0
 offset_right = 751.0
-offset_bottom = 100.0
+offset_bottom = 108.0
 theme_override_font_sizes/font_size = 20
-text = "Pick at least 1 modifier, maximum 2."
+text = "Pick a maximum of 2 modifiers."
+horizontal_alignment = 1
 
 [node name="InstructionTipLabel" type="Label" parent="."]
 offset_left = 464.0
