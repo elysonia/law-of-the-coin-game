@@ -132,6 +132,7 @@ func reset_game():
 	level_modifiers = []
 	level_modifier_handicaps = []
 	level_button_mash_time = {value = 5, label = ""}
+	level_button_mash_increment_rate = {value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = ""}
 	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 	level_notifications = []
 
