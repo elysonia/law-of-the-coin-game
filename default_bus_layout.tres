@@ -1,8 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cq16a3qdhlwk0"]
-
-[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_twwpl"]
-resource_name = "Record"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cq16a3qdhlwk0"]
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectRecord_twwpl")
-bus/0/effect/0/enabled = true
+bus/0/volume_db = -0.00162125

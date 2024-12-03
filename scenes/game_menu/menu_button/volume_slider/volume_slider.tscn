@@ -5,5 +5,6 @@
 [node name="VolumeSlider" type="VSlider"]
 offset_right = 16.0
 offset_bottom = 128.0
-min_value = -40.0
+min_value = -10.0
+max_value = 6.0
 script = ExtResource("1_utkin")
