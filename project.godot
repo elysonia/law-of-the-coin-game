@@ -22,6 +22,10 @@ GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
 GlobalEnums="*res://scenes/global/enums.gd"
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
