@@ -18,13 +18,16 @@ extends Resource
 ## The trial will cost this much by default.
 ## The lowest fixed trial cost is prioritized when
 ## an overlap occurs with another modifier.
+## Always overrides the global range_trial_cost with
+## it's own.
 @export var fixed_trial_cost: int
 ## Description of trial cost for in-game hints.
 @export var fixed_trial_cost_desc: String
 ## Additional range of cost for the trial.
 ## The trial will cost an extra amount in the range specified.
 ## The highest extra trial cost is prioritized when
-## an overlap occurs with another modifier.
+## an overlap occurs with another modifier when
+## the global fixed_trial_cost is not set.
 @export_range(0, 10) var range_trial_cost
 ## Description of range of trial cost for in-game hints.
 @export var range_trial_cost_desc: String

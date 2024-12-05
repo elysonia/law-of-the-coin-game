@@ -25,6 +25,10 @@ func _ready():
 	)
 
 	_reset_animation()
+
+	if GlobalLevelState.check_is_bgm_muted():
+		return 
+	
 	SoundManager.play_sfx("clears_throat", 3)
 
 
@@ -59,7 +63,8 @@ func _get_coin_result():
 	_heads_animation.animation_finished.connect(_on_animation_finished.bind(is_successful_throw))
 	_tails_animation.animation_finished.connect(_on_animation_finished.bind(is_successful_throw))
 
-	SoundManager.play_sfx("gavel_3_times")
+	if not GlobalLevelState.check_is_bgm_muted():
+		SoundManager.play_sfx("gavel_3_times")
 
 	if result_coin_name == GlobalEnums.COIN.HEADS:
 		_tails_animation.hide()

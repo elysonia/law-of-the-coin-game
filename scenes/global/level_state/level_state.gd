@@ -12,12 +12,25 @@ var current_level_index = 0
 var money = 0
 var player_win_rate = 0
 var game_mode = GlobalEnums.GameMode.TITLE
+var volume = null
+var max_volume = 0
+var min_volume = 0
 
+var level_reward_money = GlobalEnums.DEFAULT_REWARD_MONEY
 var level_modifiers: Array = []
+var level_trial_costs = {
+	fixed_trial_cost = 0,
+	fixed_trial_cost_desc = "",
+	range_trial_cost = 0,
+	range_trial_cost_desc = "",
+	name = ""
+}
+var level_button_mash_time = {value = GlobalEnums.DEFAULT_BUTTON_MASH_TIME, label = "", name = ""}
+var level_button_mash_increment_rate = {
+	value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = "", name = ""
+}
+var level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = "", name = ""}
 var level_modifier_handicaps = []
-var level_button_mash_time = {value = GlobalEnums.DEFAULT_BUTTON_MASH_TIME, label = ""}
-var level_button_mash_increment_rate = {value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = ""}
-var level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 var level_notifications: Array[String] = []
 
 var _available_levels = preload("res://resources/levels/levels.tres")
@@ -40,11 +53,16 @@ func _ready():
 
 func play_title_bgm():
 	SoundManager.stop_all()
+	print({"volume": volume, "min_volume": min_volume})
+	if check_is_bgm_muted():
+		return
 	SoundManager.play_bgm("title")
 
 
 func play_game_bgm():
 	SoundManager.stop_all()
+	if check_is_bgm_muted():
+		return
 	SoundManager.play_bgm("game")
 	SoundManager.play_bgs("crowd_worried")
 
@@ -129,12 +147,24 @@ func reset_game():
 	var current_level = get_level(current_level_index)
 	player_win_rate = current_level.player_win_rate
 
+	level_reward_money = GlobalEnums.DEFAULT_REWARD_MONEY
 	level_modifiers = []
 	level_modifier_handicaps = []
-	level_button_mash_time = {value = 5, label = ""}
-	level_button_mash_increment_rate = {value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = ""}
-	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = ""}
 	level_notifications = []
+
+	level_trial_costs = {
+		fixed_trial_cost = 0,
+		fixed_trial_cost_desc = "",
+		range_trial_cost = 0,
+		range_trial_cost_desc = "",
+		name = ""
+	}
+
+	level_button_mash_time = {value = GlobalEnums.DEFAULT_BUTTON_MASH_TIME, label = "", name = ""}
+	level_button_mash_increment_rate = {
+		value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = "", name = ""
+	}
+	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = "", name = ""}
 
 
 func _reset_modifiers():
@@ -151,6 +181,28 @@ func _reset_modifiers():
 	modifiers = new_modifiers
 
 
+func check_is_bgm_muted():
+	return volume != null and volume == min_volume
+
+
 func _on_game_mode_changed(_game_mode):
 	game_mode = _game_mode
 
+
+func set_volume(new_volume, new_min_volume, new_max_volume):
+	volume = new_volume
+	min_volume = new_min_volume
+	max_volume = new_max_volume
+
+	if new_volume == min_volume:
+		SoundManager.pause_all()
+		return
+
+	SoundManager.unpause_all()
+	SoundManager.set_bgm_volume_db(new_volume)
+	SoundManager.set_bgs_volume_db(new_volume)
+	SoundManager.set_sfx_volume_db(new_volume)
+	SoundManager.set_mfx_volume_db(new_volume)
+
+	for sound in SoundManager.get_audio_files_dictionary().keys():
+		SoundManager.set_volume_db(new_volume, sound)
