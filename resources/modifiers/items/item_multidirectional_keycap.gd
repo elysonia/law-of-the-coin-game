@@ -11,5 +11,6 @@ func start_multi_trial_effects():
 	):
 		GlobalLevelState.level_button_mash_increment_rate = {
 			value = GlobalEnums.ARROW_KEY_INCREMENT_RATE * (1 + button_mash_increment_rate),
-			label = _modifier.display_name
+			label = _modifier.display_name,
+			name = _modifier.name
 		}
