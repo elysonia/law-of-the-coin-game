@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dou57dn85ju2u"]
+[gd_scene load_steps=3 format=3 uid="uid://dou57dn85ju2u"]
 
 [ext_resource type="Script" path="res://scenes/game_menu/menu_control/menu_control.gd" id="1_r8qu0"]
+[ext_resource type="PackedScene" uid="uid://b6l70i14elht3" path="res://scenes/game_menu/menu_control/sound_control_button/sound_control_button.tscn" id="2_ebmqm"]
 
 [node name="MenuControl" type="Control"]
 layout_mode = 3
@@ -24,4 +25,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="ButtonsMarginContainer"]
+layout_mode = 2
+
+[node name="SoundControlButton" parent="ButtonsMarginContainer/ButtonsContainer" instance=ExtResource("2_ebmqm")]
 layout_mode = 2

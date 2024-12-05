@@ -4,7 +4,7 @@ extends Control
 @onready
 var _home_button_scene = preload("res://scenes/game_menu/menu_control/home_button/home_button.tscn")
 @onready var _sound_control_button_scene = preload(
-	"res://scenes/game_menu/menu_control/sound_control/sound_control_button.tscn"
+	"res://scenes/game_menu/menu_control/sound_control_button/sound_control_button.tscn"
 )
 
 
