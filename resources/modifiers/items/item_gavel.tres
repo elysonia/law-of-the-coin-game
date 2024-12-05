@@ -26,7 +26,7 @@ appear_condition = 1
 price = 10
 description = PackedStringArray(
     "I own this place.",
-    "Guaranteed win[color=green]100% win rate[/color]. [color=red]No reward money[/color] due to impersonating a judge but it\'s the last round anyway. \n[color=yellow][i]You’re the judge now[/i][/color].",
+    "[color=green]100% win rate.[/color]\n Guaranteed win. [color=red]No reward money[/color] due to impersonating a judge but it\'s the last round anyway. \n[color=yellow][i]You’re the judge now.[/i][/color]",
     "")
 order = 10
 trial_effects = SubResource("Resource_2003h")

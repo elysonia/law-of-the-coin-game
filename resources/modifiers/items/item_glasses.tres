@@ -50,7 +50,7 @@ display_name = "Glasses"
 type = 0
 appear_condition = 2
 price = 5
-description = PackedStringArray("I can seeeeeeee", "[color=green]+2% success rate[/color], doubles for each trial after the first. ", "[color=red]No item options next round.[/color]]", "[color=green]Immune to [b]blurry vision[/b][/color]. [color=yellow][i]Judge has slightly better impression of you from now on[/i][/color]. \n[color=green]+3% success rate for subsequent trials.[/color]")
+description = PackedStringArray("I can seeeeeeee", "[color=green]+2% success rate[/color], doubles for each trial after the first. ", "[color=red]No item options next round.[/color]]", "[color=green]Immune to [b]blurry vision.[/b][/color] [color=yellow][i]Judge has slightly better impression of you from now on.[/i][/color] \n[color=green]+3% success rate for subsequent trials.[/color]")
 order = 1
 trial_effects = SubResource("Resource_l80mp")
 next_trial_effects = SubResource("Resource_lv3un")

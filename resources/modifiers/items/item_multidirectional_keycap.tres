@@ -24,7 +24,7 @@ display_name = "Multidirectional Keycap"
 type = 0
 appear_condition = 0
 price = 6
-description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "", "", "[color=green]Transforms arrow keys into one key. Mashing a single arrow key increases rate of success. Increment from mashing all arrow keys stack[/color]. \n[color=red]All subsequent trials get extra 5% decrease in success rate[/color]. [color=red]50% decrease in rate of increment by mashing buttons[/color].")
+description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "", "", "[color=green]Transforms arrow keys into one key. Mashing a single arrow key increases rate of success. Increment from mashing all arrow keys stack.[/color] \n[color=red]All subsequent trials get extra 5% decrease in success rate.[/color] [color=red]Also reduces the success rate increment by mashing buttons from 1% to 0.5% per key mash.[/color]")
 order = 1
 multi_trial_effects = SubResource("Resource_5vrng")
 normal = "res://assets/Modifiers/Items/item-multidirectionalbtn.png"

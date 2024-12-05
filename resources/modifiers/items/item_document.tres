@@ -40,7 +40,7 @@ price = 5
 description = PackedStringArray(
     "Copious amount of printed Wikipedia pages.",
     "[color=green]+10% success rate[/color] multiplied by the number of trials since the first.\n[color=yellow][i]Contains evidence to prove your case. Significantly increases the success rate.[/i][/color]",
-    "[color=red]No perk modifier options next round[/color].",
+    "[color=red]No perk modifier options next round.[/color]",
     "")
 order = 1
 trial_effects = SubResource("Resource_ihmnv")
