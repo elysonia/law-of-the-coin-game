@@ -94,11 +94,11 @@ func _on_animation_finished(is_successful_throw):
 		coin_label.set_text("Success!")
 		if not GlobalLevelState.check_is_last_level():
 			var updates_label_text = (
-				"+$" + str(GlobalEnums.DEFAULT_REWARD_MONEY) + " reward money"
+				"+$" + str(GlobalLevelState.level_reward_money) + " reward money"
 			)
 
 			GlobalLevelState.set_money(
-				GlobalLevelState.money + GlobalEnums.DEFAULT_REWARD_MONEY, updates_label_text
+				GlobalLevelState.money + GlobalLevelState.level_reward_money, updates_label_text
 			)
 
 		add_child(coin_label)
