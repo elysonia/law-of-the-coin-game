@@ -95,7 +95,7 @@ func initialize():
 				name = ""
 			}
 		)
-	print({"next_trial_costs_map": next_trial_costs_map})
+	
 	var level_modifier_stats = GlobalLevelState.level_modifiers.reduce(
 		func(accum, modifier_manager):
 			var modifier = modifier_manager.get_modifier()
@@ -112,7 +112,7 @@ func initialize():
 				== modifier.name
 			)
 
-			var title_format_string = "[font_size={{10}}][b]{type}:[color=orange] {display_name}[/color][/b][/font_size]"
+			var title_format_string = "[font_size={{11}}][b][u]{type}:[color=orange] {display_name}[/color][/u][/b][/font_size]"
 			var title = title_format_string.format(
 				{type = type.capitalize(), display_name = modifier.display_name}
 			)
@@ -147,20 +147,56 @@ func initialize():
 				multi_trial_effects_array.filter(func(effect): return not effect.is_empty())
 			)
 
-			if modifier.name == next_trial_costs_map.name:
-				var next_fixed_trial_costs_format_string = "[font_size={{10}}]Next trial will cost [color={color}]{fixed_trial_cost} coin(s) as {fixed_trial_cost_desc}.[/color][/font_size]"
-				var next_range_trial_costs_format_string = "[font_size={{10}}]Next trial will cost extra [color=hot_pink]1 - {range_trial_cost} coin(s) as {range_trial_cost_desc}.[/color][/font_size]"
+			# Just exposing the info because its harder to code exceptions for not showing it blehblehbleh
+			var is_level_trial_costs_modifier = GlobalLevelState.level_trial_costs.name == modifier.name
+
+			var level_trial_costs_string_array = []
+			if is_level_trial_costs_modifier:
+				var fixed_trial_costs_format_string = "[font_size={{10}}][color={color}]{fixed_trial_cost} coin(s) as {fixed_trial_cost_desc}.[/color][/font_size]"
+				var range_trial_costs_format_string = "[font_size={{10}}][color=hot_pink]Extra {range_trial_cost} coin(s) as {range_trial_cost_desc}.[/color][/font_size]"
+				
+				var level_trial_costs_map = GlobalLevelState.level_trial_costs
+				if level_trial_costs_map.fixed_trial_cost > 0:
+					var fixed_trial_costs_text = fixed_trial_costs_format_string.format(
+						{
+							color =
+							"lawn_green" if level_trial_costs_map.fixed_trial_cost < 3 else "deep_pink",
+							fixed_trial_cost = level_trial_costs_map.fixed_trial_cost,
+							fixed_trial_cost_desc = level_trial_costs_map.fixed_trial_cost_desc
+						}
+					)
+					level_trial_costs_string_array.append(fixed_trial_costs_text)
+
+				if level_trial_costs_map.range_trial_cost > 0:
+					var range_trial_costs_text = range_trial_costs_format_string.format(
+						{
+							range_trial_cost = level_trial_costs_map.range_trial_cost,
+							range_trial_cost_desc = level_trial_costs_map.range_trial_cost_desc
+						}
+					)
+					level_trial_costs_string_array.append(range_trial_costs_text)
+
+			if not level_trial_costs_string_array.is_empty():
+				level_trial_costs_string_array.push_front("[font_size={{9}}][b]Current trial costed:[/b][/font_size]")
+
+			modifier_stats.append_array(level_trial_costs_string_array)
+
+			var next_trial_costs_string_array = []
+			var is_next_level_trial_costs_modifier = modifier.name == next_trial_costs_map.name
+			if is_next_level_trial_costs_modifier:
+				var next_fixed_trial_costs_format_string = "[font_size={{10}}][color={color}]{fixed_trial_cost} coin(s) as {fixed_trial_cost_desc}.[/color][/font_size]"
+				var next_range_trial_costs_format_string = "[font_size={{10}}]Extra [color=hot_pink]1 - {range_trial_cost} coin(s) as {range_trial_cost_desc}.[/color][/font_size]"
 
 				if next_trial_costs_map.fixed_trial_cost > 0:
 					var next_fixed_trial_costs_text = next_fixed_trial_costs_format_string.format(
 						{
 							color =
-							"ivory" if next_trial_costs_map.fixed_trial_cost < 3 else "deep_pink",
+							"lawn_green" if next_trial_costs_map.fixed_trial_cost < 3 else "deep_pink",
 							fixed_trial_cost = next_trial_costs_map.fixed_trial_cost,
 							fixed_trial_cost_desc = next_trial_costs_map.fixed_trial_cost_desc
 						}
 					)
-					modifier_stats.append(next_fixed_trial_costs_text)
+					next_trial_costs_string_array.append(next_fixed_trial_costs_text)
 
 				if next_trial_costs_map.range_trial_cost > 0:
 					var next_range_trial_costs_text = next_range_trial_costs_format_string.format(
@@ -169,9 +205,14 @@ func initialize():
 							range_trial_cost_desc = next_trial_costs_map.range_trial_cost_desc
 						}
 					)
-					modifier_stats.append(next_range_trial_costs_text)
+					next_trial_costs_string_array.append(next_range_trial_costs_text)
+
+			if not next_trial_costs_string_array.is_empty():
+				next_trial_costs_string_array.push_front("[font_size={{9}}][b]\nNext trial will cost:[/b][/font_size]")
+
+			modifier_stats.append_array(next_trial_costs_string_array)
 			
-			accum.append(modifier_stats)
+			accum.append(modifier_stats)				
 			return accum,
 
 		[],
@@ -303,15 +344,7 @@ func get_modifier_effects_stats_detail_string_array(modifier_manager, effects_na
 
 		var modifier_handicap = GlobalEnums.ModifierHandicap.find_key(effects.handicap)
 
-		if is_modifier_countered:
-			var effects_countered_format_string = "[font_size={{10}}][color=blanched_almond]{modifier_handicap} removed by {modifier_counter}![/color][/font_size]"
-			var effects_countered_text = effects_countered_format_string.format({
-				modifier_handicap = modifier_handicap,
-				modifier_counter = effects.counter_modifier.display_name
-			})
-
-			effects_string_array.append(effects_countered_text)
-		else:
+		if not is_modifier_countered:
 			var effects_counter_modifier_format_string = "[font_size={{10}}][color=blanched_almond]Remove {modifier_handicap} with: {modifier_counter}[/color][/font_size]"
 			var effects_counter_modifier_text = effects_counter_modifier_format_string.format(
 				{
@@ -370,6 +403,4 @@ func get_effects_trial_cost_details(modifier_manager, effects_name, next_trial_c
 		new_next_trial_cost_map.name = modifier_obj.name
 
 	
-	print({"modifier_obj.name": modifier_obj.name, "is_new_fixed_trial_cost": is_new_fixed_trial_cost, "is_new_range_trial_cost": is_new_range_trial_cost,"should_replace_fixed_trial_cost":should_replace_fixed_trial_cost, "should_replace_range_trial_cost": should_replace_range_trial_cost, "next_trial_cost_map":next_trial_cost_map,})
-
 	return new_next_trial_cost_map

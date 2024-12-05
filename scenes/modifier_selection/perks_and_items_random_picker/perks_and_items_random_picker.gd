@@ -143,8 +143,14 @@ func _on_start_trial_button_pressed():
 				return true
 			return false
 	)
-
 	for modifier_manager in sorted_level_modifiers:
 		modifier_manager.start_trial()
+	
+	# Filter out any modifier that has stopped taking effect due to
+	# new modifiers.
+	GlobalLevelState.level_modifiers = sorted_level_modifiers.filter(
+		func(modifier_manager):
+			return not modifier_manager.get_is_stopped()
+	)
 	
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
