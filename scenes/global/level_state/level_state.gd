@@ -53,7 +53,7 @@ func _ready():
 
 func play_title_bgm():
 	SoundManager.stop_all()
-	print({"volume": volume, "min_volume": min_volume})
+	
 	if check_is_bgm_muted():
 		return
 	SoundManager.play_bgm("title")
