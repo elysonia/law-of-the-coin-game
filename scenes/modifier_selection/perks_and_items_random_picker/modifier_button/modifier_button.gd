@@ -4,12 +4,27 @@ extends TextureButton
 var modifier_obj: Modifier
 var tooltip_scene = preload("./modifier_tooltips/modifier_tooltips.tscn")
 var is_toggled = false
+var _is_item_glasses_modifier = false
+var _is_blurry_vision_active = false
 
 @onready var _button_label = $ButtonLabel
 
 
 func _ready():
 	_button_label.hide()
+
+	_is_blurry_vision_active = (
+		GlobalEnums.ModifierHandicap.BLURRY_VISION in GlobalLevelState.level_modifier_handicaps
+	)
+
+	if _is_blurry_vision_active:
+		_is_item_glasses_modifier = (
+			modifier_obj.name == load("res://resources/modifiers/items/item_glasses.tres").name
+		)
+
+	# Allow player to see the glasses.
+	if _is_item_glasses_modifier:
+		z_index = 5
 
 
 func initialize(modifier: Modifier):
@@ -30,9 +45,13 @@ func _make_custom_tooltip(_for_text):
 	stylebox.set_bg_color(Color(0, 0, 0, 0))
 	new_tooltip.initialize(modifier_obj)
 
-	if GlobalEnums.ModifierHandicap.BLURRY_VISION in GlobalLevelState.level_modifier_handicaps:
-		var simple_blur_filter = load("res://scenes/game/simple_blur_filter.tscn").instantiate()
-		new_tooltip.add_child(simple_blur_filter)
+	if _is_blurry_vision_active:
+		# Allow player to see the glasses.
+		if _is_item_glasses_modifier:
+			pass
+		else:
+			var simple_blur_filter = load("res://scenes/game/simple_blur_filter.tscn").instantiate()
+			new_tooltip.add_child(simple_blur_filter)
 
 	return new_tooltip
 
