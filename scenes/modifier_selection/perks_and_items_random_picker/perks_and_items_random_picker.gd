@@ -55,7 +55,7 @@ func _ready():
 					, 0)
 
 					_update_total_cost(temp_modifier_cost)
-					temp_modifier_cost_updated.emit(temp_modifier_cost, temp_modifier_list.size()) 
+					temp_modifier_cost_updated.emit(temp_modifier_cost, temp_modifier_list.size())
 
 				else:
 					button.is_toggled = true
@@ -93,7 +93,7 @@ func get_modifier_choices():
 				return 2
 
 			return 1)
-		. call()
+		.call()
 	)
 	var number_of_item_choices = number_of_choices - number_of_perk_choices
 
