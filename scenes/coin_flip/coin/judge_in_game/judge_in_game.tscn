@@ -73,7 +73,7 @@ metadata/_edit_horizontal_guides_ = [19.0]
 position = Vector2(72, 96)
 scale = Vector2(0.068415, 0.0677419)
 sprite_frames = SubResource("SpriteFrames_tf8j5")
-animation = &"thinking"
+animation = &"empty_seat"
 
 [node name="AccessoriesFront" type="Control" parent="."]
 layout_mode = 3

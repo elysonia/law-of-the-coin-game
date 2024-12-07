@@ -15,6 +15,7 @@ extends Node2D
 func _ready():
 	check_money_stack()
 	check_number_one_necklace()
+	check_empty_seat()
 
 
 func get_animation():
@@ -33,6 +34,7 @@ func check_money_stack():
 		var money_stack = _accessories_front.get_node("MoneyStack")
 		money_stack.show()
 
+	return has_perk_hush_money_burger
 
 func check_number_one_necklace():
 	var level_modifiers = GlobalLevelState.level_modifiers
@@ -46,6 +48,8 @@ func check_number_one_necklace():
 		var number_one_necklace = _accessories_front.get_node("NumberOneNecklace")
 		number_one_necklace.show()
 
+	return has_perk_better_lawyer
+
 
 func check_empty_seat():
 	var level_modifiers = GlobalLevelState.level_modifiers
@@ -58,20 +62,30 @@ func check_empty_seat():
 	if has_item_gavel:
 		empty_seat()
 
+	return has_item_gavel
 
 func normal():
-	_judge_animation_sprite.stop()
-	_judge_animation_sprite.play("normal")
+	var should_play = not check_empty_seat()
+	
+	if should_play:
+		_judge_animation_sprite.stop()
+		_judge_animation_sprite.play("normal")
 
 
 func thinking():
-	_judge_animation_sprite.stop()
-	_judge_animation_sprite.play("thinking")
+	var should_play = not check_empty_seat()
+
+	if should_play:
+		_judge_animation_sprite.stop()
+		_judge_animation_sprite.play("thinking")
 
 
 func hit_gavel():
-	_judge_animation_sprite.stop()
-	_judge_animation_sprite.play("hit_gavel")
+	var should_play = not check_empty_seat()
+
+	if should_play:
+		_judge_animation_sprite.stop()
+		_judge_animation_sprite.play("hit_gavel")
 
 
 func empty_seat():
