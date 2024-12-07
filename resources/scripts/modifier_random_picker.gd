@@ -40,11 +40,71 @@ func get_random_modifiers(number_of_modifiers_required, available_modifier_list 
 	return modifier_list
 
 
-func get_perks(number_of_perks_required):
+func check_modifier_effects_has_handicap(
+		modifier,
+		handicap: GlobalEnums.ModifierHandicap,
+		effects_name: String,
+	):
+	var effects = modifier[effects_name]
+
+	if effects == null:
+		return false
+
+	return effects.handicap == handicap
+
+
+func check_modifier_can_be_picked(
+		modifier,
+		is_no_perks_handicap_modifier_allowed,
+		is_no_items_handicap_modifier_allowed,
+	):
+	var is_next_trial_effects_handicap_no_perks = check_modifier_effects_has_handicap(
+			modifier,
+			GlobalEnums.ModifierHandicap.NO_PERKS,
+			"next_trial_effects"
+		)
+
+	var is_next_trial_effects_handicap_no_items = check_modifier_effects_has_handicap(
+			modifier,
+			GlobalEnums.ModifierHandicap.NO_ITEMS,
+			"next_trial_effects",
+		)
+
+	if is_next_trial_effects_handicap_no_perks or is_next_trial_effects_handicap_no_items:
+		var should_include_modifier_with_no_perks_handicap = (
+				is_no_perks_handicap_modifier_allowed
+				and is_next_trial_effects_handicap_no_perks
+			)
+		var should_include_modifier_with_no_items_handicap = (
+				is_no_items_handicap_modifier_allowed
+				and is_next_trial_effects_handicap_no_items
+			)
+
+		return (
+			modifier.can_be_picked
+			and should_include_modifier_with_no_perks_handicap
+			and should_include_modifier_with_no_items_handicap
+		)
+
+	return modifier.can_be_picked
+
+
+func get_perks(
+		number_of_perks_required,
+		is_no_perks_handicap_modifier_allowed,
+		is_no_items_handicap_modifier_allowed
+	):
 	if number_of_perks_required == 0:
 		return []
 
-	var available_perks = modifiers.perks.filter(func(perk): return perk.can_be_picked)
+	var available_perks = modifiers.perks.filter(
+		func(modifier):
+			return check_modifier_can_be_picked(
+					modifier,
+					is_no_perks_handicap_modifier_allowed,
+					is_no_items_handicap_modifier_allowed,
+				)
+	)
 
 	if number_of_perks_required >= available_perks.size():
 		return available_perks
@@ -52,11 +112,22 @@ func get_perks(number_of_perks_required):
 	return get_random_modifiers(number_of_perks_required, available_perks)
 
 
-func get_items(number_of_items_required):
+func get_items(
+		number_of_items_required,
+		is_no_perks_handicap_modifier_allowed,
+		is_no_items_handicap_modifier_allowed
+	):
 	if number_of_items_required == 0:
 		return []
 
-	var available_items = modifiers.items.filter(func(item): return item.can_be_picked)
+	var available_items = modifiers.items.filter(
+			func(modifier):
+				return check_modifier_can_be_picked(
+						modifier,
+						is_no_perks_handicap_modifier_allowed,
+						is_no_items_handicap_modifier_allowed,
+					)
+	)
 
 	if number_of_items_required >= available_items.size():
 		return available_items
