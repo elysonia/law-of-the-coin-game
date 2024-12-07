@@ -3,7 +3,6 @@ var _next_trial_button = null
 var _back_to_title_button = null
 var _level_transition_container = null
 
-
 func _ready():
 	GlobalCoinEvents.coin_flip_failed.connect(_on_coin_flip_failed)
 	GlobalCoinEvents.coin_flip_succeeded.connect(_on_coin_flip_succeeded)
@@ -26,11 +25,19 @@ func _get_jailed_screen():
 	)
 
 
+
+func _get_adios_screen():
+	return load(
+		"res://scenes/game_menu/level_transition/adios/adios.tscn"
+	)
+
+
 func _on_coin_flip_failed():
 	_level_transition_container = _get_level_transition_container().instantiate()
 	var jailed_screen = _get_jailed_screen().instantiate()
 
 	add_child(jailed_screen)
+	await get_tree().create_timer(2).timeout
 	add_child(_level_transition_container)
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()
@@ -49,6 +56,11 @@ func _on_coin_flip_succeeded():
 		)
 		_level_transition_container.add_child(_next_trial_button)
 		return
+
+	var adios_screen = _get_adios_screen().instantiate()
+	add_child(adios_screen)
+
+	await adios_screen.adios_completed
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()
 	_level_transition_container.add_child(_back_to_title_button)

@@ -18,7 +18,7 @@ const ANIMATION_ENUM_ORDER = [
 ]
 
 const ANIMATION_DESCRIPTION = {
-	AnimationEnum.WALKING: "[font_size={{15}}]You were going through life doing the best you can.[/font_size]\n\n\n\n",
+	AnimationEnum.WALKING: "\t\t[font_size={{15}}]You were going through life doing the best you can.[/font_size]\n\n\n\n",
 	AnimationEnum.WALKING_TO_HOLE: "\t\t[font_size={{15}}]You walked into a deep hole (metaphor).[/font_size]\n\n\n\n",
 	AnimationEnum.FALLING_TO_HOLE: "\t\t\t\t[font_size={{15}}][shake rate=20.0 level=5 connected=1]AAAAAAAAAAAAAA[/shake][/font_size]\n\n\n\n",
 	AnimationEnum.FALLEN: "\t\t\t\t[font_size={{15}}][color=silver][i]Thump.[/i][/color] It was quite a fall.[/font_size]\n\n\n\n",
