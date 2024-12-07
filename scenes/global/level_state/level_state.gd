@@ -36,6 +36,7 @@ var level_notifications: Array[String] = []
 var _available_levels = preload("res://resources/levels/levels.tres")
 var _game_scene = preload("res://scenes/game/game.tscn")
 var _title_screen_scene = preload("res://scenes/title_screen/title_screen.tscn")
+var _intro_screen_scene = preload("res://scenes/intro/intro.tscn")
 var _updates_label = preload("res://scenes/notifications/updates_label/updates_label.tscn")
 
 
@@ -94,6 +95,16 @@ func goto_main_scene():
 	current_scene = _title_screen_scene.instantiate()
 	get_tree().root.add_child(current_scene)
 	play_title_bgm()
+
+
+func goto_intro_scene():
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.INTRO)
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null
+
+	current_scene = _intro_screen_scene.instantiate()
+	get_tree().root.add_child(current_scene)
 
 
 func goto_game_scene():

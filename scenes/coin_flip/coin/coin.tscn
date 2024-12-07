@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://t1w1uis47idt"]
+[gd_scene load_steps=16 format=3 uid="uid://t1w1uis47idt"]
 
 [ext_resource type="Script" path="res://scenes/coin_flip/coin/coin.gd" id="1_8m5e7"]
 [ext_resource type="Texture2D" uid="uid://cbvh2ybqmv7tr" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1.png" id="1_jjq3d"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bxmsmc8mvijjj" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame6.png" id="6_53um8"]
 [ext_resource type="Texture2D" uid="uid://ba1yf5jlcw053" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1-tails.png" id="7_jbyi0"]
 [ext_resource type="Texture2D" uid="uid://doy621qi1jjo6" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1-heads.png" id="8_icfod"]
+[ext_resource type="PackedScene" uid="uid://bspc556roqfbl" path="res://scenes/coin_flip/coin/judge_in_game/judge_in_game.tscn" id="12_detfi"]
+[ext_resource type="PackedScene" uid="uid://5xbcn36srm1k" path="res://scenes/coin_flip/coin/player/player.tscn" id="13_hsm8q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cuhqt"]
 animations = [{
@@ -75,8 +77,8 @@ position = Vector2(566, 257)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_8m5e7")
 item_list = Array[Resource("res://resources/scripts/random_item.gd")]([ExtResource("2_bc727"), ExtResource("3_seqrj")])
-metadata/_edit_vertical_guides_ = [576.0]
-metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_vertical_guides_ = [576.0, 680.0, 948.0]
+metadata/_edit_horizontal_guides_ = [320.0, 252.0, 660.0]
 
 [node name="TailsAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6.66667, -30)
@@ -88,3 +90,10 @@ frame_progress = 0.458025
 position = Vector2(6.66667, -30)
 sprite_frames = SubResource("SpriteFrames_rib48")
 frame_progress = 0.982804
+
+[node name="JudgeInGame" parent="." instance=ExtResource("12_detfi")]
+position = Vector2(-329.333, -91.3333)
+
+[node name="Player" parent="." instance=ExtResource("13_hsm8q")]
+z_index = 3
+position = Vector2(38.6667, 15.3333)

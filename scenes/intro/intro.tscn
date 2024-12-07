@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://fx1sujw3h12f"]
+
+[ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_ip7st"]
+[ext_resource type="PackedScene" uid="uid://b5m2go414bgcn" path="res://scenes/intro/player/player.tscn" id="2_ki4vj"]
+[ext_resource type="Texture2D" uid="uid://klh08buyoaq" path="res://assets/Story/intromaybe.png" id="2_m0spm"]
+[ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="4_e4nwy"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_t8jll"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_2cjhh"]
+events = [SubResource("InputEventKey_t8jll")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7gfu3"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_vic03"]
+events = [SubResource("InputEventKey_7gfu3")]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_ip7st")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("2_m0spm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.701961)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_ki4vj")]
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 392.0
+offset_right = 936.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_2cjhh")
+text = "Next"
+
+[node name="NextButtonTipLabel" type="RichTextLabel" parent="."]
+offset_left = 944.0
+offset_top = 408.0
+offset_right = 1072.0
+offset_bottom = 456.0
+mouse_filter = 2
+text = "or Press Space "
+
+[node name="SkipButtonTipLabel2" type="RichTextLabel" parent="."]
+offset_left = 984.0
+offset_top = 504.0
+offset_right = 1112.0
+offset_bottom = 552.0
+mouse_filter = 2
+text = "or Press Enter"
+
+[node name="SkipIntroButton" type="Button" parent="."]
+offset_left = 824.0
+offset_top = 488.0
+offset_right = 972.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_vic03")
+text = "Skip Intro"
+
+[node name="MenuControl" parent="." instance=ExtResource("4_e4nwy")]
+
+[node name="HitNextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 368.0
+offset_top = 264.0
+offset_right = 584.0
+offset_bottom = 336.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size={50
+}][color=snow][pulse freq=1.0 color=#ffffff40 ease=-2.0]Hit Next[/pulse][/color][/font_size]"
+fit_content = true

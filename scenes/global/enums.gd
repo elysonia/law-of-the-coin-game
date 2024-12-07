@@ -13,7 +13,7 @@ enum ModifierHandicap {
 	BLURRY_VISION = 4,
 	LOWER_MODIFIER_EFFECTIVENESS = 5
 }
-enum GameMode { TITLE = 0, MODIFIER_SELECTION = 1, COIN_FLIP = 2}
+enum GameMode { TITLE = 0, INTRO = 1, MODIFIER_SELECTION = 2, COIN_FLIP = 3}
 
 # INDEX is the neutral value for when no choices have been made
 const COIN = {INDEX = "index", HEADS = "heads", TAILS = "tails"}

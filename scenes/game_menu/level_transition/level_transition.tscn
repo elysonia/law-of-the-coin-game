@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game_menu/level_transition/level_transition.gd" id="1_wer6j"]
 
 [node name="LevelTransition3" type="Control"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

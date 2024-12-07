@@ -5,6 +5,7 @@ var _player_coin_name = GlobalEnums.COIN.INDEX
 var _arrow_keys_control_scene = null
 var _coin_side_control_scene = null
 
+@onready var _judge_in_game = $JudgeInGame
 @onready var _tails_animation = $TailsAnimatedSprite2D
 @onready var _heads_animation = $HeadsAnimatedSprite2D
 @onready var _coin_label = preload("res://scenes/coin_flip/coin/coin_label/coin_label.tscn")
@@ -14,9 +15,11 @@ func _ready():
 	var coin_side_control = load(
 		"res://scenes/coin_flip/coin/coin_side_control/coin_side_control.tscn"
 	)
+	_judge_in_game.normal()
 
 	_coin_side_control_scene = coin_side_control.instantiate()
 	get_parent().add_child.call_deferred(_coin_side_control_scene)
+
 	_coin_side_control_scene.get_node("HeadsButton").pressed.connect(
 		_on_player_picked.bind(GlobalEnums.COIN.HEADS)
 	)
@@ -27,8 +30,8 @@ func _ready():
 	_reset_animation()
 
 	if GlobalLevelState.check_is_bgm_muted():
-		return 
-	
+		return
+
 	SoundManager.play_sfx("clears_throat", 3)
 
 
@@ -40,6 +43,8 @@ func _reset_animation():
 
 
 func _show_arrow_keys():
+	_judge_in_game.thinking()
+
 	var arrow_keys_control = load(
 		"res://scenes/coin_flip/coin/arrow_keys_control/arrow_keys_control.tscn"
 	)
@@ -51,6 +56,7 @@ func _show_arrow_keys():
 
 func _get_coin_result():
 	_arrow_keys_control_scene.queue_free()
+
 	for item in item_list:
 		if str(item.name) == _player_coin_name:
 			item.pick_chance = GlobalLevelState.player_win_rate
@@ -65,6 +71,9 @@ func _get_coin_result():
 
 	if not GlobalLevelState.check_is_bgm_muted():
 		SoundManager.play_sfx("gavel_3_times")
+
+	_judge_in_game.hit_gavel()
+
 
 	if result_coin_name == GlobalEnums.COIN.HEADS:
 		_tails_animation.hide()
