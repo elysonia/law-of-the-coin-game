@@ -13,9 +13,9 @@ extends Node2D
 
 
 func _ready():
-	check_money_stack()
-	check_number_one_necklace()
-	check_empty_seat()
+	if not check_empty_seat():
+		check_money_stack()
+		check_number_one_necklace()
 
 
 func get_animation():
