@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5xbcn36srm1k"]
+[gd_scene load_steps=17 format=3 uid="uid://5xbcn36srm1k"]
 
 [ext_resource type="Texture2D" uid="uid://bh2skvuys546x" path="res://assets/Story/Player/mask.png" id="1_3pasc"]
 [ext_resource type="Script" path="res://scenes/coin_flip/coin/player/player.gd" id="1_p3u4x"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://jxpmq06opley" path="res://assets/Story/Player/squint.png" id="4_hoous"]
 [ext_resource type="Texture2D" uid="uid://c4oesthbcq172" path="res://assets/Story/Player/tears-1.png" id="5_l4r6g"]
 [ext_resource type="Texture2D" uid="uid://cdk760nxjy5s5" path="res://assets/Story/Player/tears-2.png" id="6_7hqmn"]
+[ext_resource type="Texture2D" uid="uid://dp0fevby7bfkn" path="res://assets/Story/Player/yawn-1.png" id="6_geg67"]
+[ext_resource type="Texture2D" uid="uid://bfggqhakav8ca" path="res://assets/Story/Player/yawn-2.png" id="7_3ichw"]
 [ext_resource type="Texture2D" uid="uid://sptdutnvnxqb" path="res://assets/Story/Player/tears-3.png" id="7_ftd3u"]
 [ext_resource type="Texture2D" uid="uid://ck2456hf6n1d6" path="res://assets/Story/Player/tears-4.png" id="8_fci6a"]
 [ext_resource type="Texture2D" uid="uid://debym2xbntfhk" path="res://assets/Story/Player/judge-outfit.png" id="9_k75g2"]
@@ -47,6 +49,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"squint",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("6_geg67")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_3ichw")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_geg67")
+}],
+"loop": false,
+"name": &"yawn",
 "speed": 5.0
 }]
 
@@ -96,7 +112,7 @@ expand_mode = 1
 position = Vector2(165.333, 132.667)
 scale = Vector2(0.101862, 0.109677)
 sprite_frames = SubResource("SpriteFrames_i7hd6")
-animation = &"squint"
+animation = &"yawn"
 
 [node name="AccessoriesFront" type="Control" parent="."]
 layout_mode = 3

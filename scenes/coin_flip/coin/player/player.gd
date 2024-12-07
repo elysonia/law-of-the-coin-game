@@ -1,6 +1,10 @@
 extends Node2D
 
 
+var _next_yawn_time = null
+var _is_yawning = false
+var _last_player_animation = null
+
 @onready var _accessories_front = $AccessoriesFront
 @onready var _accessories_back = $AccessoriesBack
 @onready var _player_animation = $PlayerAnimation
@@ -13,6 +17,7 @@ extends Node2D
 @onready var _item_gavel = preload("res://resources/modifiers/items/item_gavel.tres")
 @onready var _item_glasses = preload("res://resources/modifiers/items/item_glasses.tres")
 
+
 func _ready():
 	blink()
 	check_tears()
@@ -21,6 +26,25 @@ func _ready():
 	check_mask()
 	check_squint()
 
+
+func _process(_delta):
+	var current_time_msec = Time.get_ticks_msec()
+	var should_play_yawn = (
+		func():
+			if _is_yawning:
+				return false 
+
+			if _next_yawn_time == null:
+				_next_yawn_time = current_time_msec + get_yawn_interval()
+				return false
+
+			return current_time_msec >= _next_yawn_time
+	).call()
+	
+	if should_play_yawn:
+		_last_player_animation = _player_animation.get_animation()
+		yawn()
+		
 
 func check_tears():
 	var level_modifiers = GlobalLevelState.level_modifiers
@@ -98,3 +122,21 @@ func blink():
 func squint():
 	_player_animation.stop()
 	_player_animation.play("squint")
+
+
+func yawn():
+	_player_animation.stop()
+	_is_yawning = true
+	_player_animation.play("yawn")
+
+	await _player_animation.animation_finished
+	_is_yawning = false
+	_player_animation.play(_last_player_animation)
+	_last_player_animation = null
+
+	var current_time_msec = Time.get_ticks_msec()
+	_next_yawn_time = current_time_msec + get_yawn_interval()
+
+
+func get_yawn_interval():
+	return randi_range(4000, 8000)

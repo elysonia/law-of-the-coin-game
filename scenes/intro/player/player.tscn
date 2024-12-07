@@ -107,7 +107,7 @@ metadata/_edit_horizontal_guides_ = [320.0]
 position = Vector2(456, 312)
 scale = Vector2(0.216648, 0.196774)
 sprite_frames = SubResource("SpriteFrames_7rtts")
-animation = &"walking"
+animation = &"fallen"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 696.0
