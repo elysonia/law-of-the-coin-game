@@ -1,0 +1,122 @@
+[gd_scene load_steps=17 format=3 uid="uid://b5m2go414bgcn"]
+
+[ext_resource type="Script" path="res://scenes/intro/player/player.gd" id="1_h7hso"]
+[ext_resource type="Texture2D" uid="uid://7mlgmtvgqudn" path="res://assets/Story/fall-in-hole-1.png" id="1_x3lxx"]
+[ext_resource type="Texture2D" uid="uid://q4rlbiwugf48" path="res://assets/Story/fall-in-hole-2.png" id="2_4gy2h"]
+[ext_resource type="Texture2D" uid="uid://ie2okpsf3qdn" path="res://assets/Story/fallen.png" id="2_kx7w6"]
+[ext_resource type="Texture2D" uid="uid://d3se3i7v15yl4" path="res://assets/Story/fall-in-hole-3.png" id="3_6ihm8"]
+[ext_resource type="Texture2D" uid="uid://b42in2thocd7c" path="res://assets/Story/fall-in-hole-4.png" id="4_sw4n3"]
+[ext_resource type="Texture2D" uid="uid://cfg8cb6y70ebr" path="res://assets/Story/walk-1.png" id="5_xppjj"]
+[ext_resource type="Texture2D" uid="uid://51la30s6ndsi" path="res://assets/Story/walk-2.png" id="6_vxf28"]
+[ext_resource type="Texture2D" uid="uid://c4esc5x7bj34c" path="res://assets/Story/met-coin.png" id="7_8xsgh"]
+[ext_resource type="Texture2D" uid="uid://be5mq48dpcgsw" path="res://assets/Story/met-judge.png" id="7_dtijn"]
+[ext_resource type="Texture2D" uid="uid://ct14inydfcc35" path="res://assets/Story/walk-to-hole-1.png" id="7_j3b23"]
+[ext_resource type="Texture2D" uid="uid://dj1uxg163rddw" path="res://assets/Story/walk-to-hole-2.png" id="8_d6fie"]
+[ext_resource type="Texture2D" uid="uid://ceu5yu5qru3xj" path="res://assets/Story/walk-to-hole-3.png" id="9_uwk8s"]
+[ext_resource type="Texture2D" uid="uid://cceiays37ooba" path="res://assets/Story/walk-to-hole-4.png" id="10_v02wk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rtts"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_kx7w6")
+}],
+"loop": false,
+"name": &"fallen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.5,
+"texture": ExtResource("1_x3lxx")
+}, {
+"duration": 2.5,
+"texture": ExtResource("2_4gy2h")
+}, {
+"duration": 2.5,
+"texture": ExtResource("3_6ihm8")
+}, {
+"duration": 2.5,
+"texture": ExtResource("4_sw4n3")
+}],
+"loop": false,
+"name": &"falling_to_hole",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("7_8xsgh")
+}],
+"loop": false,
+"name": &"met_coin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": ExtResource("7_dtijn")
+}],
+"loop": false,
+"name": &"met_judge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("5_xppjj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_vxf28")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.3,
+"texture": ExtResource("7_j3b23")
+}, {
+"duration": 2.3,
+"texture": ExtResource("8_d6fie")
+}, {
+"duration": 2.3,
+"texture": ExtResource("9_uwk8s")
+}, {
+"duration": 2.5,
+"texture": ExtResource("10_v02wk")
+}],
+"loop": false,
+"name": &"walking_to_hole",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hfo8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_h7hso")
+metadata/_edit_vertical_guides_ = [576.0, 408.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="PlayerAnimationSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(456, 312)
+scale = Vector2(0.216648, 0.196774)
+sprite_frames = SubResource("SpriteFrames_7rtts")
+animation = &"met_judge"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 696.0
+offset_top = 176.0
+offset_right = 1008.0
+offset_bottom = 328.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hfo8")
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+scroll_following = true
+tab_size = 2

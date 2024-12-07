@@ -20,8 +20,17 @@ func _get_back_to_title_button():
 	)
 
 
+func _get_jailed_screen():
+	return load(
+		"res://scenes/game_menu/level_transition/jailed_screen/jailed_screen.tscn"
+	)
+
+
 func _on_coin_flip_failed():
 	_level_transition_container = _get_level_transition_container().instantiate()
+	var jailed_screen = _get_jailed_screen().instantiate()
+
+	add_child(jailed_screen)
 	add_child(_level_transition_container)
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()

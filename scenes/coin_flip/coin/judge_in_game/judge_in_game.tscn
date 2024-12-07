@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bspc556roqfbl"]
+
+[ext_resource type="Script" path="res://scenes/coin_flip/coin/judge_in_game/judge_in_game.gd" id="1_6qxub"]
+[ext_resource type="Texture2D" uid="uid://d0wc2awquvdk3" path="res://assets/Story/judge.png" id="1_ffrpc"]
+[ext_resource type="Texture2D" uid="uid://6qx6vhmtma76" path="res://assets/Story/judge-finger-tapping-1.png" id="2_bfdo2"]
+[ext_resource type="Texture2D" uid="uid://d0jc0f35sutq" path="res://assets/Story/judge-gavel-1.png" id="2_l7puq"]
+[ext_resource type="Texture2D" uid="uid://b25jkm5y3sa5o" path="res://assets/Story/judge-gavel-2.png" id="3_jnjym"]
+[ext_resource type="Texture2D" uid="uid://cg0g54nrwxp2h" path="res://assets/Story/judge-finger-tapping-2.png" id="3_u4016"]
+[ext_resource type="Texture2D" uid="uid://brsjrocwcaj60" path="res://assets/Story/judge-thinking.png" id="4_5rgi2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tf8j5"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("2_l7puq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_jnjym")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_l7puq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_l7puq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_jnjym")
+}],
+"loop": false,
+"name": &"hit_gavel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ffrpc")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("2_bfdo2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_u4016")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_5rgi2")
+}],
+"loop": true,
+"name": &"thinking",
+"speed": 5.0
+}]
+
+[node name="JudgeInGame" type="Node2D"]
+script = ExtResource("1_6qxub")
+
+[node name="JudgeAnimationSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 88)
+scale = Vector2(0.07742, 0.0768056)
+sprite_frames = SubResource("SpriteFrames_tf8j5")
+animation = &"hit_gavel"
+frame = 4
+frame_progress = 1.0

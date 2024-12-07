@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://fx1sujw3h12f"]
+
+[ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_ip7st"]
+[ext_resource type="PackedScene" uid="uid://b5m2go414bgcn" path="res://scenes/intro/player/player.tscn" id="2_ki4vj"]
+[ext_resource type="Texture2D" uid="uid://klh08buyoaq" path="res://assets/Story/intromaybe.png" id="2_m0spm"]
+[ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="4_e4nwy"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ht5nw"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_ga36k"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_2cjhh"]
+events = [SubResource("InputEventKey_ht5nw"), SubResource("InputEventKey_ga36k")]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_ip7st")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("2_m0spm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.701961)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_ki4vj")]
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 392.0
+offset_right = 936.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_2cjhh")
+text = "Next"
+
+[node name="NextButtonTipLabel" type="RichTextLabel" parent="."]
+offset_left = 944.0
+offset_top = 392.0
+offset_right = 1056.0
+offset_bottom = 440.0
+text = "Enter/Space also works"
+
+[node name="SkipIntroButton" type="Button" parent="."]
+offset_left = 824.0
+offset_top = 488.0
+offset_right = 972.0
+offset_bottom = 538.0
+theme_override_font_sizes/font_size = 30
+text = "Skip Intro"
+
+[node name="MenuControl" parent="." instance=ExtResource("4_e4nwy")]

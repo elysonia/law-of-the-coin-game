@@ -29,7 +29,7 @@ func _update_level_stats_detail():
 
 
 func _on_game_mode_changed(game_mode: GlobalEnums.GameMode):
-	if game_mode == GlobalEnums.GameMode.TITLE:
+	if game_mode not in _game_mode_scene_mapping.keys():
 		return
 
 	var game_mode_scene = _game_mode_scene_mapping[game_mode]

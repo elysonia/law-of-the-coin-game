@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rin8g1bhvo5a"]
 
 [node name="LevelTransitionContainer" type="VBoxContainer"]
+z_index = 4
 offset_left = 448.0
 offset_top = 344.0
 offset_right = 712.0
