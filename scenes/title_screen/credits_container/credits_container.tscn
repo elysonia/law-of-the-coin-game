@@ -20,6 +20,7 @@ offset_bottom = 648.0
 script = ExtResource("1_q608m")
 
 [node name="CreditsPanel" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 208.0
 offset_right = 944.0
 offset_bottom = 648.0
