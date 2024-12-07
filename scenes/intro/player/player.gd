@@ -1,5 +1,7 @@
 extends Node2D
 
+signal auto_animation_sequence_finished
+
 enum AnimationEnum {
 	WALKING = 0,
 	WALKING_TO_HOLE = 1,
@@ -8,6 +10,7 @@ enum AnimationEnum {
 	MET_JUDGE = 4,
 	MET_COIN = 5
 }
+
 const ANIMATION_ENUM_ORDER = [
 	AnimationEnum.WALKING,
 	AnimationEnum.WALKING_TO_HOLE,
@@ -40,6 +43,7 @@ func _on_animation_finished():
 	var next_animation_enum_order_index = animation_enum_order_index + 1
 
 	if next_animation_enum_order_index >= ANIMATION_ENUM_ORDER.size():
+		auto_animation_sequence_finished.emit()
 		return
 
 	var next_animation_enum = ANIMATION_ENUM_ORDER[next_animation_enum_order_index]

@@ -7,7 +7,7 @@ signal adios_completed
 
 
 func _ready():
-	get_tree().create_timer(2)
+	await get_tree().create_timer(2).timeout
 	play()
 
 

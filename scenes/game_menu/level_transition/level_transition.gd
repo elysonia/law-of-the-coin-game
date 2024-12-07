@@ -61,6 +61,7 @@ func _on_coin_flip_succeeded():
 	add_child(adios_screen)
 
 	await adios_screen.adios_completed
+	await get_tree().create_timer(2).timeout
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()
 	_level_transition_container.add_child(_back_to_title_button)

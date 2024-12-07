@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://c02y3b6dojbht"]
+[gd_scene load_steps=3 format=3 uid="uid://c02y3b6dojbht"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2ipo3"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_nbchv"]
+events = [SubResource("InputEventKey_2ipo3")]
 
 [node name="StartTrialButton" type="Button"]
 z_index = 2
@@ -7,4 +14,5 @@ offset_top = 520.0
 offset_right = 1101.0
 offset_bottom = 583.0
 theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_nbchv")
 text = "Start Trial"

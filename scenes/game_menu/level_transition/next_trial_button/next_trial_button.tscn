@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://7y3rmvcbbll5"]
+[gd_scene load_steps=4 format=3 uid="uid://7y3rmvcbbll5"]
 
 [ext_resource type="Script" path="res://scenes/game_menu/level_transition/next_trial_button/next_trial_button.gd" id="1_e0qpe"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pfl5r"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_fgjvq"]
+events = [SubResource("InputEventKey_pfl5r")]
 
 [node name="NextTrialButton" type="Button"]
 process_priority = -1
 theme_override_font_sizes/font_size = 40
+shortcut = SubResource("Shortcut_fgjvq")
 text = "Next Trial"
 script = ExtResource("1_e0qpe")

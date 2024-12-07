@@ -22,11 +22,14 @@ const PLAYER_STATE_ENUM_ORDER = [
 @onready var _player = $Player
 @onready var _next_button = $NextButton
 @onready var _skip_intro_button = $SkipIntroButton
+@onready var _hit_next_button = $HitNextLabel
+
 
 func _ready():
 	_player.walking()
 	_next_button.pressed.connect(_on_next_button_pressed)
 	_skip_intro_button.pressed.connect(_on_skip_intro_button_pressed)
+	_player.auto_animation_sequence_finished.connect(_on_auto_animation_sequence_finished)
 
 
 func _on_next_button_pressed():
@@ -56,3 +59,7 @@ func _on_next_button_pressed():
 
 func _on_skip_intro_button_pressed():
 	GlobalLevelState.goto_game_scene()
+
+
+func _on_auto_animation_sequence_finished():
+	_hit_next_button.show()

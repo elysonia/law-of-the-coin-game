@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyypvvdxrmjgh"]
+[gd_scene load_steps=4 format=3 uid="uid://cyypvvdxrmjgh"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/start_button/start_button.gd" id="1_gk62q"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_h6qst"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_j8gha"]
+events = [SubResource("InputEventKey_h6qst")]
 
 [node name="StartButton" type="Button"]
 size_flags_stretch_ratio = 0.0
 theme_override_constants/outline_size = 0
 theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 67
+shortcut = SubResource("Shortcut_j8gha")
 text = "Start"
 script = ExtResource("1_gk62q")
