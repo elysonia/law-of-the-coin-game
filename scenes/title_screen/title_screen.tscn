@@ -164,3 +164,12 @@ theme_override_font_sizes/font_size = 10
 text = "finished is better than perfect! I'll plan better next game! LOL!"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 440.0
+offset_right = 639.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 30
+text = "Credits"

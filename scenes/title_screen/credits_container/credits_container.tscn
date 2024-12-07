@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dykyueuica2ij"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/credits_container/credits_container.gd" id="1_q608m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykolm"]
+bg_color = Color(0.113725, 0.113725, 0.113725, 0.74902)
+
+[sub_resource type="InputEventKey" id="InputEventKey_s477t"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_bylc4"]
+events = [SubResource("InputEventKey_s477t")]
+
+[node name="CreditsContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_q608m")
+
+[node name="CreditsPanel" type="PanelContainer" parent="."]
+offset_left = 208.0
+offset_right = 944.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ykolm")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [320.0]
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CreditsText" type="RichTextLabel" parent="CreditsPanel/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 856.0
+offset_top = 24.0
+offset_right = 916.0
+offset_bottom = 81.0
+tooltip_text = "Close credits"
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 35
+shortcut = SubResource("Shortcut_bylc4")
+text = "X"
+
+[connection signal="meta_clicked" from="CreditsPanel/MarginContainer/CreditsText" to="." method="_on_credits_text_meta_clicked"]
