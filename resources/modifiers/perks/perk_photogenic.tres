@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://dfflkuek2hbtu"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://dfflkuek2hbtu"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_1a5hb"]
+[ext_resource type="Texture2D" uid="uid://bg2lr11qww7s7" path="res://assets/Modifiers/Perks/perk-photogenic-active.png" id="1_2kcim"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_6usk6"]
+[ext_resource type="Texture2D" uid="uid://bv6qkjadjyc7w" path="res://assets/Modifiers/Perks/perk-photogenic.png" id="3_c2lcd"]
 
 [sub_resource type="Resource" id="Resource_vj1w8"]
 script = ExtResource("1_1a5hb")
@@ -12,7 +14,8 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_mqc1h"]
@@ -24,20 +27,25 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_6usk6")
 display_name = "Photogenic"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 3
-description = PackedStringArray("Too handsome to be in jail.", "Your aesthetically pleasing mugshot went viral and the populace rallies to your defense.", "The populace realizes you’re not hot in person and send you hate mail which affects your mental well-being as well as physical . Reduces rate of success next round.")
+description = PackedStringArray("Too handsome to be in jail.", "[color=green]+2% success rate, doubles for each past trial after the first.[/color]\n[color=yellow][i]Your aesthetically pleasing mugshot went viral and the populace rallies to your defense.[/i][/color]", "[color=red]Lowers the success rate of next round by the success rate increment of this round by this perk.[/color]\n[color=yellow][i]The populace realizes you’re not hot in person and send you hate mail which affects your mental well-being as well as physical.[/i][/color]")
+order = 1
 trial_effects = SubResource("Resource_mqc1h")
 next_trial_effects = SubResource("Resource_vj1w8")
 normal = "res://assets/Modifiers/Perks/perk-photogenic.png"
 active = "res://assets/Modifiers/Perks/perk-photogenic-active.png"
+normal_image = ExtResource("3_c2lcd")
+active_image = ExtResource("1_2kcim")
+manager_script = "res://resources/modifiers/perks/perk_photogenic.gd"
 name = &"photogenic"
 pick_chance = 0.1
 can_be_picked = true

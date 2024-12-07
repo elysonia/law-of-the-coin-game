@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq886tp1l5ead"]
+
+[ext_resource type="AudioStream" uid="uid://b1b8162dmftnt" path="res://sounds/title/comedy-detective-127185.mp3" id="1_c6lk7"]
+
+[node name="TitleScreenMusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_c6lk7")
+volume_db = -8.667
+autoplay = true

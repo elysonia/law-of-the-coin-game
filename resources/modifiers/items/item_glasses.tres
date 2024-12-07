@@ -1,7 +1,22 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://ft5dbiequcv8"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=8 format=3 uid="uid://ft5dbiequcv8"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_84m1m"]
+[ext_resource type="Texture2D" uid="uid://cr84yu0h784n8" path="res://assets/Modifiers/Items/item-glasses-active.png" id="1_y58p7"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_biax0"]
+[ext_resource type="Texture2D" uid="uid://dejx5ytr80m2a" path="res://assets/Modifiers/Items/item-glasses.png" id="3_08l8h"]
+
+[sub_resource type="Resource" id="Resource_i50e4"]
+script = ExtResource("1_84m1m")
+fixed_coin_pick_chance = 0.03
+coin_pick_chance_increment = 0.0
+fixed_trial_cost = 0
+fixed_trial_cost_desc = ""
+range_trial_cost = null
+range_trial_cost_desc = ""
+button_mash_time_increase = 0
+button_mash_increment_rate = 0.0
+handicap = 0
+decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_lv3un"]
 script = ExtResource("1_84m1m")
@@ -12,7 +27,8 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "NO_ITEMS"
+button_mash_increment_rate = 0.0
+handicap = 1
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_l80mp"]
@@ -24,20 +40,26 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_biax0")
 display_name = "Glasses"
-type = "ITEM"
-appear_condition = "BLURRY_VISION"
+type = 0
+appear_condition = 2
 price = 5
-description = PackedStringArray("I can seeeeeeee", "Immune to blurry vision. Judge has slightly better impression of you from now on.", "No items next round.")
+description = PackedStringArray("I can seeeeeeee", "[color=green]+2% success rate[/color], doubles for each trial after the first. ", "[color=red]No item options next round.[/color]", "[color=green]Immune to [color=crimson][b]blurry vision.[/b][/color][/color] [color=yellow][i]Judge has slightly better impression of you from now on.[/i][/color] \n[color=green]+3% success rate for subsequent trials.[/color]")
+order = 1
 trial_effects = SubResource("Resource_l80mp")
 next_trial_effects = SubResource("Resource_lv3un")
+multi_trial_effects = SubResource("Resource_i50e4")
 normal = "res://assets/Modifiers/Items/item-glasses.png"
 active = "res://assets/Modifiers/Items/item-glasses-active.png"
+normal_image = ExtResource("3_08l8h")
+active_image = ExtResource("1_y58p7")
+manager_script = "res://resources/modifiers/items/item_glasses.gd"
 name = &"glasses"
 pick_chance = 0.1
-can_be_picked = true
+can_be_picked = false

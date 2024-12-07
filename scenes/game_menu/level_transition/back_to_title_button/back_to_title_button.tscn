@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://cj2r4b13l4jge"]
+[gd_scene load_steps=3 format=3 uid="uid://cj2r4b13l4jge"]
+
+[ext_resource type="Script" path="res://scenes/game_menu/level_transition/back_to_title_button/back_to_title_button.gd" id="1_1le0f"]
+[ext_resource type="AudioStream" uid="uid://btyyuleve23cu" path="res://sounds/gavel_strong_once/a-strong-beat.mp3" id="2_jfuq0"]
 
 [node name="BackToTitleButton" type="Button"]
+process_priority = -1
+theme_override_font_sizes/font_size = 40
+text = "Back to title"
+script = ExtResource("1_1le0f")
+
+[node name="StrongGavelOnceSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jfuq0")
+volume_db = -4.952

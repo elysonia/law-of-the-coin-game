@@ -1,9 +1,19 @@
 extends Control
 
 @onready var _level_label = $LevelLabel
-@onready var _money_label = $MoneyLabel
+
 
 func _ready():
+
 	var level_number = GlobalLevelState.current_level_index + 1
 	_level_label.text = "Trial " + str(level_number)
-	_money_label.text = "Money: $" + str(GlobalLevelState.money)
+	GlobalLevelState.game_mode_changed.connect(_on_game_mode_changed)
+
+	GlobalLevelState.show_all_notifications()
+
+
+func _on_game_mode_changed(_game_mode):
+	var level_number = GlobalLevelState.current_level_index + 1
+	_level_label.text = "Trial " + str(level_number)
+
+	GlobalLevelState.show_all_notifications()

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=6 format=3 uid="uid://dn5k3bumagoqh"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=8 format=3 uid="uid://dn5k3bumagoqh"]
 
 [ext_resource type="Resource" uid="uid://ft5dbiequcv8" path="res://resources/modifiers/items/item_glasses.tres" id="1_bkdfs"]
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_bxfnr"]
+[ext_resource type="Texture2D" uid="uid://cf6aerxu277b8" path="res://assets/Modifiers/Perks/perk-study-active.png" id="1_h7qbl"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_6v1sb"]
+[ext_resource type="Texture2D" uid="uid://brgpaqeaqh1tq" path="res://assets/Modifiers/Perks/perk-study.png" id="4_22ptn"]
 
 [sub_resource type="Resource" id="Resource_1adio"]
 script = ExtResource("1_bxfnr")
@@ -13,7 +15,8 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "BLURRY_VISION"
+button_mash_increment_rate = 0.0
+handicap = 4
 decrease_other_modifiers_effectiveness_by = 0.0
 counter_modifier = ExtResource("1_bkdfs")
 
@@ -26,21 +29,26 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "BLURRY_VISION"
+button_mash_increment_rate = 0.0
+handicap = 4
 decrease_other_modifiers_effectiveness_by = 0.0
 counter_modifier = ExtResource("1_bkdfs")
 
 [resource]
 script = ExtResource("2_6v1sb")
 display_name = "Turn over a new page"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 3
-description = PackedStringArray("Well acktually, ", "Study law by yourself. Slightly increase rate of success.", "Your eyesight is destroyed from too much reading. Lowers ability to make decisions next round.")
+description = PackedStringArray("Well acktually, ", "[color=green]+2% success rate, doubles for each trial after the first.[/color]\n[color=yellow][i]Study law by yourself. Slightly increase rate of success.[/i][/color]", "", "[color=red]Blurry vision[/color] until Glasses are bought. \n[color=yellow][i]Your eyesight is destroyed from too much reading. Lowers ability to make decisions for subsequent rounds.[/i][/color]")
+order = 1
 trial_effects = SubResource("Resource_wihg8")
 multi_trial_effects = SubResource("Resource_1adio")
-normal = ""
-active = ""
+normal = "res://assets/Modifiers/Perks/perk-study.png"
+active = "res://assets/Modifiers/Perks/perk-study-active.png"
+normal_image = ExtResource("4_22ptn")
+active_image = ExtResource("1_h7qbl")
+manager_script = "res://resources/modifiers/perks/perk_self_study.gd"
 name = &"self_study"
 pick_chance = 0.1
 can_be_picked = true

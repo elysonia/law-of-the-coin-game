@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://5euknfaoqgrh"
+path="res://.godot/imported/sound-control-click-mask.bmp-53d2009672d4fbd4537858ff4a74561d.res"
+
+[deps]
+
+source_file="res://assets/Menu/sound-control-click-mask.bmp"
+dest_files=["res://.godot/imported/sound-control-click-mask.bmp-53d2009672d4fbd4537858ff4a74561d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

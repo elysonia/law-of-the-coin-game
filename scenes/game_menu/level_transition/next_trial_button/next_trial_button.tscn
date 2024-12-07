@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://7y3rmvcbbll5"]
+[gd_scene load_steps=2 format=3 uid="uid://7y3rmvcbbll5"]
+
+[ext_resource type="Script" path="res://scenes/game_menu/level_transition/next_trial_button/next_trial_button.gd" id="1_e0qpe"]
 
 [node name="NextTrialButton" type="Button"]
+process_priority = -1
 theme_override_font_sizes/font_size = 40
 text = "Next Trial"
+script = ExtResource("1_e0qpe")

@@ -6,5 +6,5 @@ func _ready():
 	text = "Money: $" + str(GlobalLevelState.money)
 
 
-func _on_money_updated():
+func _on_money_updated(_message):
 	text = "Money: $" + str(GlobalLevelState.money)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8o0nflyopi1s"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_jn75i"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="Shortcut" id="Shortcut_ui1y7"]
+events = [SubResource("InputEventKey_jn75i")]
+
+[node name="RightButton" type="Button"]
+offset_right = 32.0
+offset_bottom = 31.0
+shortcut = SubResource("Shortcut_ui1y7")
+text = ">"

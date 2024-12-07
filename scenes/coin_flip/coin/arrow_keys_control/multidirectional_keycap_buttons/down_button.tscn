@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://beneow0xwyrhh"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f876i"]
+device = -1
+keycode = 4194322
+
+[sub_resource type="Shortcut" id="Shortcut_b7aii"]
+events = [SubResource("InputEventKey_f876i")]
+
+[node name="DownButton" type="Button"]
+offset_right = 32.0
+offset_bottom = 31.0
+shortcut = SubResource("Shortcut_b7aii")
+text = "v"

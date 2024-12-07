@@ -11,15 +11,32 @@ config_version=5
 [application]
 
 config/name="Law Of The Coin:re:re"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/title_screen/title_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/channel_disable_threshold_db=0.0
+
 [autoload]
 
+SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
 GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
 GlobalEnums="*res://scenes/global/enums.gd"
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
+
+[gui]
+
+timers/tooltip_delay_sec=0.1
 
 [rendering]
 

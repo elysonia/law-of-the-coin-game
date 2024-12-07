@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://c5tlkdus0j3sc"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://c5tlkdus0j3sc"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_5cjru"]
+[ext_resource type="Texture2D" uid="uid://bjrl8voj2u7fb" path="res://assets/Modifiers/Items/item-document-active.png" id="1_p87bq"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_1j6e0"]
+[ext_resource type="Texture2D" uid="uid://dbn234bx188m0" path="res://assets/Modifiers/Items/item-document.png" id="3_d5g44"]
 
 [sub_resource type="Resource" id="Resource_2nq5q"]
 script = ExtResource("1_5cjru")
@@ -12,7 +14,8 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = "NO_PERKS"
+button_mash_increment_rate = 0.0
+handicap = 3
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_ihmnv"]
@@ -24,20 +27,29 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_1j6e0")
 display_name = "Document"
-type = "ITEM"
-appear_condition = "ANYTIME"
+type = 0
+appear_condition = 0
 price = 5
-description = PackedStringArray("Copious amount of printed Wikipedia pages.", "Contains evidence to prove your case. Significantly increases rate of success.", "No perk options next round.")
+description = PackedStringArray(
+    "Copious amount of printed Wikipedia pages.",
+    "[color=green]+10% success rate[/color] multiplied by the number of trials since the first.\n[color=yellow][i]Contains evidence to prove your case. Significantly increases the success rate.[/i][/color]",
+    "[color=red]No perk modifier options next round.[/color]",
+    "")
+order = 1
 trial_effects = SubResource("Resource_ihmnv")
 next_trial_effects = SubResource("Resource_2nq5q")
 normal = "res://assets/Modifiers/Items/item-document.png"
 active = "res://assets/Modifiers/Items/item-document-active.png"
+normal_image = ExtResource("3_d5g44")
+active_image = ExtResource("1_p87bq")
+manager_script = "res://resources/modifiers/items/item_document.gd"
 name = &"document"
 pick_chance = 0.1
 can_be_picked = true

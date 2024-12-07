@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://blqdcwin6qylu"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://blqdcwin6qylu"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_mq8ct"]
+[ext_resource type="Texture2D" uid="uid://cfq2sqw3l7yu6" path="res://assets/Modifiers/Perks/perk-bribe-active.png" id="1_tve7x"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_o7kih"]
+[ext_resource type="Texture2D" uid="uid://w75w2qaepw30" path="res://assets/Modifiers/Perks/perk-bribe.png" id="3_fgyf4"]
 
 [sub_resource type="Resource" id="Resource_by0e2"]
 script = ExtResource("1_mq8ct")
@@ -10,10 +12,11 @@ coin_pick_chance_increment = 0.0
 fixed_trial_cost = 0
 fixed_trial_cost_desc = ""
 range_trial_cost = 2.0
-range_trial_cost_desc = "Lose additional 1 - 2 coins into the payment for the next trial."
+range_trial_cost_desc = "Judge bribe"
 button_mash_time_increase = 0
-handicap = ""
-decrease_level_modifiers_effectiveness_by = 0.0
+button_mash_increment_rate = 0.0
+handicap = 0
+decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_a6wn1"]
 script = ExtResource("1_mq8ct")
@@ -24,20 +27,25 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
-decrease_level_modifiers_effectiveness_by = 0.0
+button_mash_increment_rate = 0.0
+handicap = 0
+decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_o7kih")
 display_name = "Hush Money Burger"
-type = "PERK"
-appear_condition = "ANYTIME"
+type = 1
+appear_condition = 0
 price = 4
-description = PackedStringArray("Fries. Receipt.", "Bribe judge to gain significant favor in the current trial.", "The judge will require additional 1 - 2 coins as payment for the next trial.")
+description = PackedStringArray("Fries. Receipt.", "[color=green]+5% success rate multiplied by the number of trials after the first.[/color]\n[color=yellow][i]Bribe judge to gain significant favor in the current trial.[/i][/color]", "The judge will require [color=red]additional 1 - 2 coins as payment[/color] for the next trial.")
+order = 1
 trial_effects = SubResource("Resource_a6wn1")
 next_trial_effects = SubResource("Resource_by0e2")
 normal = "res://assets/Modifiers/Perks/perk-bribe.png"
 active = "res://assets/Modifiers/Perks/perk-bribe-active.png"
-name = &"hushMoneyBurger"
+normal_image = ExtResource("3_fgyf4")
+active_image = ExtResource("1_tve7x")
+manager_script = "res://resources/modifiers/perks/perk_hush_money_burger.gd"
+name = &"hush_money_burger"
 pick_chance = 0.1
 can_be_picked = true

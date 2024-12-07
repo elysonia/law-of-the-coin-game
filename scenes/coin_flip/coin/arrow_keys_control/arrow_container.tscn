@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxu5yto7nar4s"]
+
+[ext_resource type="PackedScene" uid="uid://wqbmi8sd2bky" path="res://scenes/coin_flip/coin/arrow_keys_control/left_arrow_button/left_arrow_button.tscn" id="1_yx68c"]
+[ext_resource type="PackedScene" uid="uid://dx3l7jh6vsu5x" path="res://scenes/coin_flip/coin/arrow_keys_control/right_arrow_button/right_arrow_button.tscn" id="2_ntl2o"]
+
+[node name="ArrowContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftArrowButton" parent="." instance=ExtResource("1_yx68c")]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 384.0
+offset_right = 552.0
+offset_bottom = 434.0
+
+[node name="RightArrowButton" parent="." instance=ExtResource("2_ntl2o")]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 384.0
+offset_right = 720.0
+offset_bottom = 434.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 440.0
+offset_right = 680.0
+offset_bottom = 489.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mash arrow buttons alternately to increase rate of success"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[editable path="LeftArrowButton"]

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://caiwn7brp2sym"]
-
-[node name="MenuButton" type="MenuButton"]
-text = "Menu"
-item_count = 2
-popup/item_0/text = "Back to title"
-popup/item_0/id = 0
-popup/item_1/text = "Restart"
-popup/item_1/id = 1

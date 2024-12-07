@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6axrek00hkow"]
+
+[ext_resource type="Shader" path="res://shaders/simple_blur.gdshader" id="1_se3tc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ep81v"]
+shader = ExtResource("1_se3tc")
+shader_parameter/lod = 1.613
+
+[node name="SimpleBlurFilter" type="ColorRect"]
+z_index = 2
+material = SubResource("ShaderMaterial_ep81v")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2

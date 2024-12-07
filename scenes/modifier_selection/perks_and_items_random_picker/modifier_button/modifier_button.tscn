@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://byfrvr45hapnu"]
+
+[ext_resource type="Texture2D" uid="uid://w75w2qaepw30" path="res://assets/Modifiers/Perks/perk-bribe.png" id="1_p5ae1"]
+[ext_resource type="Texture2D" uid="uid://cfq2sqw3l7yu6" path="res://assets/Modifiers/Perks/perk-bribe-active.png" id="2_ae5hx"]
+[ext_resource type="Script" path="res://scenes/modifier_selection/perks_and_items_random_picker/modifier_button/modifier_button.gd" id="3_2sqyv"]
+
+[node name="ModifierButton" type="TextureButton"]
+offset_right = 96.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+tooltip_text = "text"
+toggle_mode = true
+texture_normal = ExtResource("1_p5ae1")
+texture_pressed = ExtResource("2_ae5hx")
+texture_hover = ExtResource("2_ae5hx")
+script = ExtResource("3_2sqyv")
+
+[node name="ButtonLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.943648, 0, 0.155589, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.120707, 0.0470408, 0.00503613, 1)
+theme_override_font_sizes/font_size = 25
+text = "Cannot Afford"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,18 +1,21 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://biys3mvhpsdtp"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=7 format=3 uid="uid://biys3mvhpsdtp"]
 
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_1fks5"]
+[ext_resource type="Texture2D" uid="uid://bhjidkib6ojcv" path="res://assets/Modifiers/Items/item-weightedcoin-active.png" id="1_pdme2"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_s2a1a"]
+[ext_resource type="Texture2D" uid="uid://bcmtw2eobt3tk" path="res://assets/Modifiers/Items/item-weightedcoin.png" id="3_gid8t"]
 
 [sub_resource type="Resource" id="Resource_usdyv"]
 script = ExtResource("1_1fks5")
 fixed_coin_pick_chance = -0.03
-coin_pick_chance_increment = -2.0
+coin_pick_chance_increment = 2.0
 fixed_trial_cost = 0
 fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [sub_resource type="Resource" id="Resource_q7q5o"]
@@ -24,20 +27,25 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = 0.0
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_s2a1a")
 display_name = "Weighted Coin"
-type = "ITEM"
-appear_condition = "ANYTIME"
+type = 0
+appear_condition = 0
 price = 5
-description = PackedStringArray("A loaded coin is a heavy burden.", "Significantly increases rate of success.", "Caught cheating, judge is harder on you next trial.")
+description = PackedStringArray("A loaded coin is a heavy burden.", "[color=green]+10% success rate[/color] multiplied by the number of trials since the first.\n[color=yellow][i]Significantly increases rate of success.[/i][/color]", "[color=red]-3% success rate[/color], doubles for each trial after the first.\n[color=yellow][i]Caught cheating, judge is harder on you next trial.[/i][/color]")
+order = 1
 trial_effects = SubResource("Resource_q7q5o")
 next_trial_effects = SubResource("Resource_usdyv")
 normal = "res://assets/Modifiers/Items/item-weightedcoin.png"
 active = "res://assets/Modifiers/Items/item-weightedcoin-active.png"
+normal_image = ExtResource("3_gid8t")
+active_image = ExtResource("1_pdme2")
+manager_script = "res://resources/scripts/modifier_manager.gd"
 name = &"weighted_coin"
 pick_chance = 0.1
 can_be_picked = true

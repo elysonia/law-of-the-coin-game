@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4m0j7bl6yy0d"]
-
-[ext_resource type="PackedScene" uid="uid://dcwg8wiv0clmk" path="res://scenes/coin_flip/coin/flip_delay_timer/flip_delay_timer.tscn" id="1_rauso"]
-
-[node name="CoinFlipHUD" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="FlipDelayTimer" parent="." instance=ExtResource("1_rauso")]

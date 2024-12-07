@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6l70i14elht3"]
+
+[ext_resource type="Texture2D" uid="uid://xecrakmvsvgc" path="res://assets/Menu/sound-control.png" id="1_8es2u"]
+[ext_resource type="Texture2D" uid="uid://c3oepyeu5mmpr" path="res://assets/Menu/sound-control-hover.png" id="2_b827r"]
+[ext_resource type="BitMap" uid="uid://5euknfaoqgrh" path="res://assets/Menu/sound-control-click-mask.bmp" id="3_2lkan"]
+[ext_resource type="PackedScene" uid="uid://c2l0nam1qaljl" path="res://scenes/game_menu/menu_control/sound_control/volume_slider/volume_slider.tscn" id="4_f5tn2"]
+[ext_resource type="Script" path="res://scenes/game_menu/menu_control/sound_control_button/sound_control_button.gd" id="4_yiawg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_107fg"]
+bg_color = Color(0.624913, 0.379966, 0.170372, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.188235, 0.101961, 0.0313726, 0.501961)
+shadow_size = 6
+
+[node name="SoundControlButton" type="TextureButton"]
+tooltip_text = "Sound"
+texture_normal = ExtResource("1_8es2u")
+texture_hover = ExtResource("2_b827r")
+texture_click_mask = ExtResource("3_2lkan")
+script = ExtResource("4_yiawg")
+
+[node name="VolumeSliderContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 97.0
+offset_right = 53.0
+offset_bottom = 363.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_107fg")
+
+[node name="MarginContainer" type="MarginContainer" parent="VolumeSliderContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VolumeSliderContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VolumeSlider" parent="VolumeSliderContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_f5tn2")]
+layout_mode = 2

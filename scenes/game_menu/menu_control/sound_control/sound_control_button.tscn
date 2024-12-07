@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfuj7v1y72yg8"]
+
+[ext_resource type="Texture2D" uid="uid://xecrakmvsvgc" path="res://assets/Menu/sound-control.png" id="1_n5ggf"]
+[ext_resource type="Texture2D" uid="uid://c3oepyeu5mmpr" path="res://assets/Menu/sound-control-hover.png" id="2_opurf"]
+[ext_resource type="BitMap" uid="uid://5euknfaoqgrh" path="res://assets/Menu/sound-control-click-mask.bmp" id="3_uc6ot"]
+[ext_resource type="Script" path="res://scenes/game_menu/menu_control/sound_control/sound_control_button.gd" id="4_7074r"]
+[ext_resource type="PackedScene" uid="uid://dax4r8jwodhww" path="res://scenes/game_menu/menu_control/sound_control/volume_slider_container.tscn" id="5_5vfbm"]
+
+[node name="SoundControlButton" type="TextureButton"]
+offset_right = 96.0
+offset_bottom = 79.0
+tooltip_text = "Sound"
+texture_normal = ExtResource("1_n5ggf")
+texture_hover = ExtResource("2_opurf")
+texture_click_mask = ExtResource("3_uc6ot")
+script = ExtResource("4_7074r")
+metadata/_edit_horizontal_guides_ = [79.0]
+metadata/_edit_vertical_guides_ = [16.0]
+
+[node name="VolumeSliderContainer" parent="." instance=ExtResource("5_5vfbm")]
+layout_mode = 2
+offset_top = 96.0
+offset_bottom = 358.0

@@ -1,21 +1,11 @@
-[gd_resource type="Resource" script_class="Modifier" load_steps=5 format=3 uid="uid://c5tx75itukan5"]
+[gd_resource type="Resource" script_class="Modifier" load_steps=6 format=3 uid="uid://c5tx75itukan5"]
 
+[ext_resource type="Texture2D" uid="uid://b66441206ry3k" path="res://assets/Modifiers/Items/item-multidirectionalbtn-active.png" id="1_h8riy"]
 [ext_resource type="Script" path="res://resources/scripts/modifier_effects.gd" id="1_o8mj3"]
 [ext_resource type="Script" path="res://resources/scripts/modifier.gd" id="2_lw74o"]
+[ext_resource type="Texture2D" uid="uid://fgvdb1v1x024" path="res://assets/Modifiers/Items/item-multidirectionalbtn.png" id="3_ulhf8"]
 
 [sub_resource type="Resource" id="Resource_5vrng"]
-script = ExtResource("1_o8mj3")
-fixed_coin_pick_chance = 0.05
-coin_pick_chance_increment = 0.0
-fixed_trial_cost = 0
-fixed_trial_cost_desc = ""
-range_trial_cost = null
-range_trial_cost_desc = ""
-button_mash_time_increase = 0
-handicap = ""
-decrease_other_modifiers_effectiveness_by = 0.0
-
-[sub_resource type="Resource" id="Resource_vfgv6"]
 script = ExtResource("1_o8mj3")
 fixed_coin_pick_chance = -0.05
 coin_pick_chance_increment = 0.0
@@ -24,20 +14,24 @@ fixed_trial_cost_desc = ""
 range_trial_cost = null
 range_trial_cost_desc = ""
 button_mash_time_increase = 0
-handicap = ""
+button_mash_increment_rate = -0.5
+handicap = 0
 decrease_other_modifiers_effectiveness_by = 0.0
 
 [resource]
 script = ExtResource("2_lw74o")
 display_name = "Multidirectional Keycap"
-type = "ITEM"
-appear_condition = "ANYTIME"
+type = 0
+appear_condition = 0
 price = 6
-description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "Transforms arrow keys into one key. Only mash one key from now on to increase rate of success. All arrow keys can be used.", "All subsequent trials get extra 5% decrease in rate of success")
-trial_effects = SubResource("Resource_vfgv6")
+description = PackedStringArray("One key to be them all. Nothing in the way of success (X).", "", "", "[color=green]Transforms arrow keys into one key. Mashing a single arrow key increases rate of success. Increment from mashing all arrow keys stack.[/color] \n[color=red]All subsequent trials get extra 5% decrease in success rate.[/color] [color=red]Also reduces the success rate increment by mashing buttons from 1% to 0.5% per key mash.[/color]")
+order = 1
 multi_trial_effects = SubResource("Resource_5vrng")
 normal = "res://assets/Modifiers/Items/item-multidirectionalbtn.png"
 active = "res://assets/Modifiers/Items/item-multidirectionalbtn-active.png"
+normal_image = ExtResource("3_ulhf8")
+active_image = ExtResource("1_h8riy")
+manager_script = "res://resources/modifiers/items/item_multidirectional_keycap.gd"
 name = &"multidirectional_keycap"
 pick_chance = 0.1
 can_be_picked = true

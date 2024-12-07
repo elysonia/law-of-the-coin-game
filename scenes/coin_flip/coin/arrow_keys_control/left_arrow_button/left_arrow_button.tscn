@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wqbmi8sd2bky"]
+[gd_scene load_steps=5 format=3 uid="uid://wqbmi8sd2bky"]
 
-[sub_resource type="Theme" id="Theme_ew1ik"]
+[ext_resource type="PackedScene" uid="uid://cqe5d18g8s1k0" path="res://scenes/coin_flip/coin/arrow_keys_control/blinking_label/blinking_label.tscn" id="1_jfy4m"]
+[ext_resource type="Script" path="res://scenes/coin_flip/coin/arrow_keys_control/left_arrow_button/left_arrow_button.gd" id="1_voseq"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_3hqcv"]
 keycode = 4194319
@@ -11,7 +12,13 @@ events = [SubResource("InputEventKey_3hqcv")]
 [node name="LeftArrowButton" type="Button"]
 offset_right = 120.0
 offset_bottom = 50.0
-theme = SubResource("Theme_ew1ik")
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_fwlvq")
-text = "<- Left"
+script = ExtResource("1_voseq")
+
+[node name="BlinkingLabel" parent="." instance=ExtResource("1_jfy4m")]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 112.0
+offset_bottom = 48.0
+mouse_filter = 2
