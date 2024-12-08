@@ -43,8 +43,9 @@ metadata/_edit_horizontal_guides_ = [320.0]
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.611765)
 offset_left = 320.0
+offset_top = -8.0
 offset_right = 833.0
-offset_bottom = 640.0
+offset_bottom = 656.0
 mouse_filter = 2
 color = Color(0.151276, 0.151276, 0.151276, 1)
 
