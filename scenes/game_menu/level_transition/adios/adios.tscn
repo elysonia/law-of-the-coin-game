@@ -62,6 +62,7 @@ texture = ExtResource("6_45v12")
 expand_mode = 3
 
 [node name="AdiosLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 336.0
 offset_top = 128.0
 offset_right = 576.0
