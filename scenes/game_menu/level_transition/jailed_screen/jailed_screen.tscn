@@ -6,7 +6,7 @@
 z_index = 3
 offset_left = 360.0
 offset_right = 808.0
-offset_bottom = 640.0
+offset_bottom = 648.0
 mouse_filter = 2
 texture = ExtResource("1_v7gnr")
 expand_mode = 1
@@ -15,12 +15,12 @@ metadata/_edit_horizontal_guides_ = [320.0]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 48.0
-offset_right = 320.0
-offset_bottom = 165.0
-theme_override_constants/shadow_offset_x = 4
+offset_top = 72.0
+offset_right = 448.0
+offset_bottom = 176.0
 theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 4
 bbcode_enabled = true
-text = "[font_size={30}][color=black][outline_size={2}][fade start=4 length=21]You've lost everything...[/fade][/outline_size][/color][/font_size]"
+text = "[center][b][font_size={35][color=transparent][outline_size={4}][outline_color=white][fade start=2length=18]You've lost everything...[/fade][/outline_color][/outline_size][/color][/font_size][/b][/center]"
+fit_content = true
 scroll_active = false

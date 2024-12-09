@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://t1w1uis47idt"]
+[gd_scene load_steps=17 format=3 uid="uid://t1w1uis47idt"]
 
 [ext_resource type="Script" path="res://scenes/coin_flip/coin/coin.gd" id="1_8m5e7"]
 [ext_resource type="Texture2D" uid="uid://cbvh2ybqmv7tr" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame1.png" id="1_jjq3d"]
 [ext_resource type="Resource" uid="uid://bmr5pqjrt0rto" path="res://resources/coin_sides/coin_heads.tres" id="2_bc727"]
 [ext_resource type="Texture2D" uid="uid://3pyjw3llmb4w" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame2.png" id="2_fl3yi"]
+[ext_resource type="Script" path="res://resources/scripts/random_item.gd" id="2_nkxuj"]
 [ext_resource type="Texture2D" uid="uid://d2rn24wansjbg" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame3.png" id="3_kn2a7"]
 [ext_resource type="Resource" uid="uid://dngln3ofsygaw" path="res://resources/coin_sides/coin_tails.tres" id="3_seqrj"]
 [ext_resource type="Texture2D" uid="uid://btk1cbnr60yxf" path="res://assets/Pixel Fantasy Coin Flip/Coin Flip (animation frames)/goldcoin-frame4.png" id="4_n1wse"]
@@ -76,7 +77,7 @@ animations = [{
 position = Vector2(566, 257)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_8m5e7")
-item_list = Array[Resource("res://resources/scripts/random_item.gd")]([ExtResource("2_bc727"), ExtResource("3_seqrj")])
+item_list = Array[ExtResource("2_nkxuj")]([ExtResource("2_bc727"), ExtResource("3_seqrj")])
 metadata/_edit_vertical_guides_ = [576.0, 680.0, 948.0]
 metadata/_edit_horizontal_guides_ = [320.0, 252.0, 660.0]
 

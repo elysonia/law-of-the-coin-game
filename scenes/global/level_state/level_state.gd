@@ -5,7 +5,6 @@ extends Node
 signal money_updated
 signal game_mode_changed(game_mode: GlobalEnums.GameMode)
 
-# TODO: Fix original modifiers getting mutated
 var modifiers
 var current_scene = null
 var current_level_index = 0
@@ -38,6 +37,8 @@ var _game_scene = preload("res://scenes/game/game.tscn")
 var _title_screen_scene = preload("res://scenes/title_screen/title_screen.tscn")
 var _intro_screen_scene = preload("res://scenes/intro/intro.tscn")
 var _updates_label = preload("res://scenes/notifications/updates_label/updates_label.tscn")
+var _options_menu = preload("res://scenes/game_menu/options_menu/options_menu.tscn")
+var _options_menu_scene = null
 
 
 func _ready():
@@ -52,18 +53,22 @@ func _ready():
 	play_title_bgm()
 
 
+func _input(event):
+	if not is_instance_of(event, InputEventKey):
+		return
+
+	if event.keycode == KEY_ESCAPE:
+		toggle_options_menu()
+
+
 func play_title_bgm():
 	SoundManager.stop_all()
-	
-	if check_is_bgm_muted():
-		return
+
 	SoundManager.play_bgm("title")
 
 
 func play_game_bgm():
 	SoundManager.stop_all()
-	if check_is_bgm_muted():
-		return
 	SoundManager.play_bgm("game")
 	SoundManager.play_bgs("crowd_worried")
 
@@ -87,35 +92,45 @@ func get_level(level_index):
 
 
 func goto_main_scene():
-	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.TITLE)
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
 	current_scene = _title_screen_scene.instantiate()
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.TITLE)
 	get_tree().root.add_child(current_scene)
 	play_title_bgm()
 
 
 func goto_intro_scene():
-	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.INTRO)
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
 	current_scene = _intro_screen_scene.instantiate()
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.INTRO)
 	get_tree().root.add_child(current_scene)
 
 
 func goto_game_scene():
-	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
 	if is_instance_valid(current_scene):
 		current_scene.queue_free()
 		current_scene = null
 
 	current_scene = _game_scene.instantiate()
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
 	get_tree().root.add_child(current_scene)
 	play_game_bgm()
+
+
+func toggle_options_menu():
+	if is_instance_valid(_options_menu_scene):
+		_options_menu_scene.queue_free()
+		_options_menu_scene = null
+		return
+
+	_options_menu_scene = _options_menu.instantiate()
+	get_tree().root.add_child(_options_menu_scene)
 
 
 # Remember to include the amount added/deducted in the message
@@ -192,28 +207,5 @@ func _reset_modifiers():
 	modifiers = new_modifiers
 
 
-func check_is_bgm_muted():
-	return volume != null and volume == min_volume
-
-
 func _on_game_mode_changed(_game_mode):
 	game_mode = _game_mode
-
-
-func set_volume(new_volume, new_min_volume, new_max_volume):
-	volume = new_volume
-	min_volume = new_min_volume
-	max_volume = new_max_volume
-
-	if new_volume == min_volume:
-		SoundManager.pause_all()
-		return
-
-	SoundManager.unpause_all()
-	SoundManager.set_bgm_volume_db(new_volume)
-	SoundManager.set_bgs_volume_db(new_volume)
-	SoundManager.set_sfx_volume_db(new_volume)
-	SoundManager.set_mfx_volume_db(new_volume)
-
-	for sound in SoundManager.get_audio_files_dictionary().keys():
-		SoundManager.set_volume_db(new_volume, sound)

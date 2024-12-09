@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://fx1sujw3h12f"]
+[gd_scene load_steps=10 format=3 uid="uid://fx1sujw3h12f"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_ip7st"]
 [ext_resource type="PackedScene" uid="uid://b5m2go414bgcn" path="res://scenes/intro/player/player.tscn" id="2_ki4vj"]
 [ext_resource type="Texture2D" uid="uid://klh08buyoaq" path="res://assets/Story/intromaybe.png" id="2_m0spm"]
-[ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="4_e4nwy"]
+[ext_resource type="PackedScene" uid="uid://b0j2xgfud32l4" path="res://scenes/game_menu/menu_control/home_button/home_button.tscn" id="4_vqc88"]
+[ext_resource type="PackedScene" uid="uid://bdj8lmivmjfb2" path="res://scenes/game_menu/menu_control/options_button/options_button.tscn" id="5_t5kdh"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_t8jll"]
 device = -1
@@ -22,8 +23,8 @@ events = [SubResource("InputEventKey_7gfu3")]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_ip7st")
-metadata/_edit_vertical_guides_ = [576.0]
-metadata/_edit_horizontal_guides_ = [320.0]
+metadata/_edit_vertical_guides_ = [576.0, 64.0, 512.0, 480.0, 528.0, 96.0, 104.0]
+metadata/_edit_horizontal_guides_ = [320.0, 72.0, 40.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0
@@ -39,7 +40,7 @@ mouse_filter = 2
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_ki4vj")]
-metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_vertical_guides_ = [576.0, 64.0, 512.0, 480.0, 528.0, 96.0, 104.0]
 
 [node name="NextButton" type="Button" parent="."]
 offset_left = 848.0
@@ -75,8 +76,6 @@ theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_vic03")
 text = "Skip Intro"
 
-[node name="MenuControl" parent="." instance=ExtResource("4_e4nwy")]
-
 [node name="HitNextLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_left = 368.0
@@ -88,3 +87,15 @@ bbcode_enabled = true
 text = "[font_size={50
 }][color=snow][pulse freq=1.0 color=#ffffff40 ease=-2.0]Hit Next[/pulse][/color][/font_size]"
 fit_content = true
+
+[node name="HomeButton" parent="." instance=ExtResource("4_vqc88")]
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 72.0
+
+[node name="OptionsButton" parent="." instance=ExtResource("5_t5kdh")]
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 72.0

@@ -6,6 +6,3 @@ func _ready():
 	else:
 		value = GlobalLevelState.volume
 
-
-func _value_changed(new_value):
-	GlobalLevelState.set_volume(new_value, min_value, max_value)
