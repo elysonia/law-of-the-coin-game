@@ -137,7 +137,7 @@ func _ready():
 		new_text_list.append_array(content_text_list)
 		new_text_list.append("\n\n\n\n")
 
-	new_text_list.append("[font_size={{15}}]Made with Godot Engine[/font_size]\n\n")
+	new_text_list.append("[font_size={{15}}]Made with Godot Engine 4.3[/font_size]\n\n")
 	new_text_list.append("\n\n[font_size={{13}}][color=light_coral]Thanks for playing!\nHope it was enjoyable despite the shortcomings :D[/color][/font_size]\n\n")
 
 	new_text_list.append("[/center]")
