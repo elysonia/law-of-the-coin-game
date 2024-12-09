@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/title_screen/credits_container/credits_container.gd" id="1_q608m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykolm"]
-bg_color = Color(0.113725, 0.113725, 0.113725, 0.74902)
+bg_color = Color(0.114, 0.114, 0.114, 0.886)
 
 [node name="CreditsContainer" type="Control"]
 layout_mode = 3

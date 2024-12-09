@@ -107,6 +107,18 @@ const CONTENTS_LIST = [
 			}
 		]
 	},
+	{
+		type = ContentsTypeEnum.OTHERS,
+		title = "Godot Plugin",
+		description = "Godot Options Menus\nby",
+		author = "Marek Belski and contributors",
+		links = [
+			{
+				url = "https://github.com/Maaack/Godot-Options-Menus",
+				label = "github: Godot-Options-Menus"
+			}
+		]
+	},
 ]
 
 
