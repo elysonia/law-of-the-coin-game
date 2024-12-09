@@ -97,39 +97,6 @@ func get_modifier_choices():
 	)
 	var number_of_item_choices = number_of_choices - number_of_perk_choices
 
-	# # Make sure NO_ITEM and NO_PERK are not handicaps at the same time.
-	# # Crude but at least there are no uncontrollable recursions.
-	# var random_modifier_type = [GlobalEnums.ModifierType.PERK, GlobalEnums.ModifierType.ITEM].pick_random()
-
-	# var selectable_no_perks_handicap_modifiers = []
-	# var selectable_no_items_handicap_modifiers = [] 
-
-	# for perk in GlobalLevelState.modifiers.perks:
-	# 	if check_modifier_effects_has_handicap(perk, GlobalEnums.ModifierHandicap.NO_ITEMS, "next_trial_effects"):
-	# 		selectable_no_items_handicap_modifiers.append(perk)
-		
-	# 	if check_modifier_effects_has_handicap(perk, GlobalEnums.ModifierHandicap.NO_PERKS, "next_trial_effects"):
-	# 		selectable_no_perks_handicap_modifiers.append(perk)
-		
-	
-	# for item in GlobalLevelState.modifiers.items:
-		
-	# 	if check_modifier_effects_has_handicap(item, GlobalEnums.ModifierHandicap.NO_ITEMS, "next_trial_effects"):
-	# 		selectable_no_items_handicap_modifiers.append(item)
-		
-	# 	if check_modifier_effects_has_handicap(item, GlobalEnums.ModifierHandicap.NO_PERKS, "next_trial_effects"):
-	# 		selectable_no_perks_handicap_modifiers.append(item)
-		
-	# var has_no_selectable_no_perks_handicap_modifiers = selectable_no_perks_handicap_modifiers.is_empty()
-	# var has_no_selectable_no_items_handicap_modifiers = selectable_no_items_handicap_modifiers.is_empty() 
-
-	# print({
-	# 	"has_no_selectable_no_perks_handicap_modifiers": has_no_selectable_no_perks_handicap_modifiers,
-	# 	"has_no_selectable_no_items_handicap_modifiers": has_no_selectable_no_items_handicap_modifiers
-	# })
-	# var is_no_perks_handicap_modifier_allowed = has_no_selectable_no_items_handicap_modifiers or (true if number_of_perk_choices > number_of_item_choices else random_modifier_type == GlobalEnums.ModifierType.PERK)
-	# var is_no_items_handicap_modifier_allowed = has_no_selectable_no_perks_handicap_modifiers or (true if number_of_item_choices > number_of_perk_choices else random_modifier_type == GlobalEnums.ModifierType.ITEM)
-
 	next_modifier_choices.append_array(get_perks(number_of_perk_choices))
 	next_modifier_choices.append_array(get_items(number_of_item_choices))
 
