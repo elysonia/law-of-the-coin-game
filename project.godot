@@ -8,6 +8,14 @@
 
 config_version=5
 
+[Law Of The Coin:re:re]
+
+config/achievements/local_source="res://"
+config/achievements/remote_source="https://"
+config/achievements/save_directory="/home/elysonia/.local/share/godot/app_userdata/Law Of The Coin-re-re"
+config/achievements/save_file_name="achievements.json"
+config/achievements/password="YRBT2L6nIOQupMBrMTvLYzoiy"
+
 [application]
 
 config/name="Law Of The Coin:re:re"
@@ -26,6 +34,7 @@ GlobalLevelState="*res://scenes/global/level_state/level_state.gd"
 GlobalEnums="*res://scenes/global/enums.gd"
 GlobalCoinEvents="*res://scenes/global/coin_events/coin_events.gd"
 AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
+GodotParadiseAchievements="*res://addons/achievements/achievements.tscn"
 
 [display]
 
@@ -34,7 +43,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_options_menus/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/achievements/plugin.cfg", "res://addons/maaacks_options_menus/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [gui]
 
