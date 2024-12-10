@@ -13,8 +13,8 @@ var _game_mode_scene_mapping = {
 
 
 func _ready():
-	_on_game_mode_changed(GlobalEnums.GameMode.COIN_FLIP)
 	GlobalLevelState.game_mode_changed.connect(_on_game_mode_changed)
+	_on_game_mode_changed(GlobalEnums.GameMode.COIN_FLIP)
 
 
 func _update_level_stats_detail():

@@ -48,3 +48,23 @@ func stop_multi_trial_effects():
 		_instantiated_simple_blur.queue_free()
 
 	_instantiated_simple_blur = null
+
+
+func _update_global_level_state_modifiers():
+	var modifier_type = (GlobalEnums.ModifierType.keys()[_modifier.type] + "s").to_lower()
+	var multi_trial_effects = _modifier.multi_trial_effects
+
+	var updated_modifiers = GlobalLevelState.modifiers[modifier_type].map(
+		func(original_modifier):
+			if multi_trial_effects != null:
+				if original_modifier.name == multi_trial_effects.counter_modifier.name:
+					original_modifier.pick_chance += 0.1
+					original_modifier.can_be_picked = true
+
+			if original_modifier.name == _modifier.name:
+				original_modifier.can_be_picked = false
+			
+			return original_modifier
+	)
+
+	GlobalLevelState.modifiers[modifier_type] = updated_modifiers

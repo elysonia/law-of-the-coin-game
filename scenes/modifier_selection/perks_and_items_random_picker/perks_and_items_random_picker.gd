@@ -97,14 +97,23 @@ func get_modifier_choices():
 	)
 	var number_of_item_choices = number_of_choices - number_of_perk_choices
 
-	# Make sure NO_ITEM and NO_PERK are not handicaps at the same time.
-	# Crude but at least there are no uncontrollable recursions.
-	var random_modifier_type = [GlobalEnums.ModifierType.PERK, GlobalEnums.ModifierType.ITEM].pick_random()
-	var is_no_perks_handicap_modifier_allowed = true if number_of_perk_choices > number_of_item_choices else random_modifier_type == GlobalEnums.ModifierType.PERK
-	var is_no_items_handicap_modifier_allowed = true if number_of_item_choices > number_of_perk_choices else random_modifier_type == GlobalEnums.ModifierType.ITEM
+	next_modifier_choices.append_array(get_perks(number_of_perk_choices))
+	next_modifier_choices.append_array(get_items(number_of_item_choices))
 
-	next_modifier_choices.append_array(get_perks(number_of_perk_choices, is_no_perks_handicap_modifier_allowed, is_no_items_handicap_modifier_allowed))
-	next_modifier_choices.append_array(get_items(number_of_item_choices, is_no_perks_handicap_modifier_allowed, is_no_items_handicap_modifier_allowed))
+
+	var next_trial_handicaps = next_modifier_choices.reduce(
+		func(accum, modifier):
+			if modifier.next_trial_effects != null:
+				accum.append(modifier.next_trial_effects.handicap)
+			return accum
+	, [])
+
+	var is_no_item_and_no_perks_next_trial = GlobalEnums.ModifierHandicap.NO_ITEMS in next_trial_handicaps and GlobalEnums.ModifierHandicap.NO_PERKS in next_trial_handicaps
+	
+	# To make sure the NO_PERKS and NO_ITEM modifiers are not options at the same time.
+	if is_no_item_and_no_perks_next_trial:
+		return get_modifier_choices()
+
 
 	return next_modifier_choices
 

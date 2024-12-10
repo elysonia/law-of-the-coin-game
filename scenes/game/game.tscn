@@ -8,6 +8,8 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_f7slv")
+metadata/_edit_horizontal_guides_ = [40.0, 72.0]
+metadata/_edit_vertical_guides_ = [64.0, 384.0, 432.0, 376.0, 96.0, 104.0]
 
 [node name="GameBG" type="TextureRect" parent="."]
 modulate = Color(0.535112, 0.593163, 0.755619, 1)

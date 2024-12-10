@@ -32,7 +32,7 @@ func _process(_delta):
 	var should_play_yawn = (
 		func():
 			if _is_yawning:
-				return false 
+				return false
 
 			if _next_yawn_time == null:
 				_next_yawn_time = current_time_msec + get_yawn_interval()

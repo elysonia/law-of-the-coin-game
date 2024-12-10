@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dax4r8jwodhww"]
 
-[ext_resource type="PackedScene" path="res://scenes/game_menu/menu_button/volume_slider/volume_slider.tscn" id="1_d4hce"]
+[ext_resource type="PackedScene" uid="uid://c2l0nam1qaljl" path="res://scenes/game_menu/menu_control/sound_control/volume_slider/volume_slider.tscn" id="1_d4hce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahgpe"]
 bg_color = Color(0.541176, 0.372549, 0.247059, 1)

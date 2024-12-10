@@ -34,11 +34,12 @@ func _get_adios_screen():
 
 func _on_coin_flip_failed():
 	_level_transition_container = _get_level_transition_container().instantiate()
-	var jailed_screen = _get_jailed_screen().instantiate()
-
-	add_child(jailed_screen)
-	await get_tree().create_timer(2).timeout
 	add_child(_level_transition_container)
+
+	var jailed_screen = _get_jailed_screen().instantiate()
+	add_child(jailed_screen)
+
+	await get_tree().create_timer(2).timeout
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()
 	_level_transition_container.add_child(_back_to_title_button)

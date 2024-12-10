@@ -21,17 +21,20 @@ modulate = Color(0.96, 0.8912, 0.864, 1)
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0
+mouse_filter = 2
 texture = ExtResource("1_mf4c7")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 offset_right = 1155.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="StartButton" parent="CenterContainer" instance=ExtResource("3_v8l1x")]
 layout_mode = 2
 
 [node name="MenuControl" parent="." instance=ExtResource("3_y2txg")]
+visible = false
 layout_mode = 1
 offset_bottom = 0.0
 
@@ -56,10 +59,10 @@ offset_top = 304.0
 offset_right = 323.0
 offset_bottom = 372.0
 rotation = -0.190241
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 11
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 18
+theme_override_constants/shadow_offset_x = 11
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "5 Trials"
@@ -167,9 +170,19 @@ autowrap_mode = 2
 
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 440.0
-offset_right = 639.0
+offset_left = 520.0
+offset_top = 447.0
+offset_right = 632.0
 offset_bottom = 490.0
-theme_override_font_sizes/font_size = 30
-text = "Credits"
+theme_override_font_sizes/font_size = 25
+text = "Credits
+"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 400.0
+offset_right = 632.0
+offset_bottom = 443.0
+theme_override_font_sizes/font_size = 25
+text = "Options"
