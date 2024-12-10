@@ -73,7 +73,6 @@ func get_perks(
 				)
 	)
 
-	print({"available_perks": available_perks.map(func(perk): return perk.name)})
 	if number_of_perks_required >= available_perks.size():
 		return available_perks
 
@@ -93,7 +92,6 @@ func get_items(
 					)
 	)
 
-	print({"available_items": available_items.map(func(items): return items.name)})
 	if number_of_items_required >= available_items.size():
 		return available_items
 
