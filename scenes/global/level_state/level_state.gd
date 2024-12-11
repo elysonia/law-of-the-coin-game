@@ -31,6 +31,8 @@ var level_button_mash_increment_rate = {
 var level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = "", name = ""}
 var level_modifier_handicaps = []
 var level_notifications: Array[String] = []
+var are_keys_mashed = false
+var are_modifiers_bought = false
 
 var _available_levels = preload("res://resources/levels/levels.tres")
 var _game_scene = preload("res://scenes/game/game.tscn")
@@ -206,7 +208,8 @@ func reset_game():
 		value = GlobalEnums.ARROW_KEY_INCREMENT_RATE, label = "", name = ""
 	}
 	level_decrease_other_modifiers_effectiveness_by = {value = 0.0, label = "", name = ""}
-
+	are_keys_mashed = false
+	are_modifiers_bought = false
 
 func _reset_modifiers():
 	var original_modifiers = load("res://resources/modifiers/modifiers.tres")

@@ -62,11 +62,14 @@ func _reset_arrow_pressed():
 
 func _add_pick_chance():
 	var progress_bar = get_node("PlayerWinRateBar")
-	GlobalLevelState.player_win_rate +=  GlobalLevelState.level_button_mash_increment_rate.value
+	GlobalLevelState.player_win_rate += GlobalLevelState.level_button_mash_increment_rate.value
 	progress_bar.set_value_no_signal(GlobalLevelState.player_win_rate * 100)
 
 
 func _on_right_arrow_button_pressed():
+	if not GlobalLevelState.are_keys_mashed:
+		GlobalLevelState.are_keys_mashed = true
+ 
 	_is_right_arrow_pressed = true
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
@@ -78,6 +81,9 @@ func _on_right_arrow_button_pressed():
 
 
 func _on_left_arrow_button_pressed():
+	if not GlobalLevelState.are_keys_mashed:
+		GlobalLevelState.are_keys_mashed = true
+
 	_is_left_arrow_pressed = true
 	var should_add_pick_chance = _check_should_add_pick_chance()
 
@@ -88,6 +94,9 @@ func _on_left_arrow_button_pressed():
 
 
 func _on_multidirectional_keycap_input():
+	if not GlobalLevelState.are_keys_mashed:
+		GlobalLevelState.are_keys_mashed = true
+	
 	if not _is_all_arrow_keys_used:
 		return
 

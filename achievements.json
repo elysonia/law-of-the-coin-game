@@ -34,7 +34,7 @@
     },
     "straight_man": {
         "name": "Straight Man [i](slang)[/i]",
-        "description": "Win all 5 trials by only mashing keys",
+        "description": "Win all 5 trials by only mashing keys without buying any perks/items",
         "flavor_texts": {
             "before_unlock": "They say hard work beats talent…",
             "during_unlock": "And you (s)mashed it.",
@@ -66,7 +66,7 @@
     },
     "laissez_faire": {
         "name": "Laissez-faire",
-        "description": "Win all 5 trials without mashing keys or buying modifiers",
+        "description": "Win all 5 trials without mashing keys nor buying modifiers",
         "flavor_texts": {
             "before_unlock": "May the odds be with you because the algorithm I found on the internet won’t",
             "during_unlock": "You’ve exposed my poor programming skills!",

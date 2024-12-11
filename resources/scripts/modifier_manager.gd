@@ -18,6 +18,10 @@ func _init(modifier: Modifier, parent_node):
 	var new_player_money = GlobalLevelState.money - _modifier.price
 	var money_update_text = " ".join(["-$", str(_modifier.price), _modifier.display_name])
 	GlobalLevelState.set_money(new_player_money, money_update_text, true)
+	
+	if not GlobalLevelState.are_modifiers_bought: 
+		GlobalLevelState.are_modifiers_bought = true
+
 	update_opportunist_achievement()
 	_update_global_level_state_modifiers()
 
@@ -231,4 +235,4 @@ func update_opportunist_achievement():
 		GodotParadiseAchievements.update_achievement("opportunist", {bought_modifier_names = new_bought_modifier_names, current_progress = new_current_progress})
 
 		if new_current_progress == opportunist_achievement.count_goal:
-			GodotParadiseAchievements.update_achievement("opportunist", {unlocked = true})
+			GodotParadiseAchievements.unlock_achievement("opportunist")

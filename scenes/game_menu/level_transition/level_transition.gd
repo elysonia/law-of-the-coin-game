@@ -42,7 +42,7 @@ func _on_coin_flip_failed():
 	var hole_me_achievement = GodotParadiseAchievements.get_achievement("hole_me")
 
 	if not hole_me_achievement.unlocked:
-		GodotParadiseAchievements.update_achievement("hole_me", {unlocked = true})
+		GodotParadiseAchievements.unlock_achievement("hole_me")
 
 	await get_tree().create_timer(2).timeout
 
@@ -66,8 +66,20 @@ func _on_coin_flip_succeeded():
 	var whole_free_achievement = GodotParadiseAchievements.get_achievement("whole_free")
 
 	if not whole_free_achievement.unlocked:
-		GodotParadiseAchievements.update_achievement("whole_free", {unlocked = true})
+		GodotParadiseAchievements.unlock_achievement("whole_free")
 
+	var straight_man_achievement = GodotParadiseAchievements.get_achievement("straight_man")
+	var should_get_straight_man_achievement = GlobalLevelState.are_keys_mashed and not GlobalLevelState.are_modifiers_bought
+	
+	if not straight_man_achievement.unlocked and should_get_straight_man_achievement:
+		GodotParadiseAchievements.unlock_achievement("straight_man")
+	
+	var laissez_faire_achievement = GodotParadiseAchievements.get_achievement("laissez_faire")
+	var should_get_laissez_faire_achievement = not GlobalLevelState.are_keys_mashed and not GlobalLevelState.are_modifiers_bought
+	
+	if not laissez_faire_achievement.unlocked and should_get_laissez_faire_achievement:
+		GodotParadiseAchievements.unlock_achievement("laissez_faire")
+	
 	var adios_screen = _get_adios_screen().instantiate()
 	add_child(adios_screen)
 
