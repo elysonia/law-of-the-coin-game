@@ -10,11 +10,11 @@ config_version=5
 
 [Law Of The Coin:re:re]
 
-config/achievements/local_source="res://"
+config/achievements/local_source="res://achievements.json"
 config/achievements/remote_source="https://"
 config/achievements/save_directory="/home/elysonia/.local/share/godot/app_userdata/Law Of The Coin-re-re"
 config/achievements/save_file_name="achievements.json"
-config/achievements/password="YRBT2L6nIOQupMBrMTvLYzoiy"
+config/achievements/password="XwoEY4UXXb7VPPtXJf8CR9b5U"
 
 [application]
 
