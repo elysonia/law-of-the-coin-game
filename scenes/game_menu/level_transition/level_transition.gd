@@ -39,6 +39,11 @@ func _on_coin_flip_failed():
 	var jailed_screen = _get_jailed_screen().instantiate()
 	add_child(jailed_screen)
 
+	var hole_me_achievement = GodotParadiseAchievements.get_achievement("hole_me")
+
+	if not hole_me_achievement.unlocked:
+		GodotParadiseAchievements.update_achievement("hole_me", {unlocked = true})
+
 	await get_tree().create_timer(2).timeout
 
 	_back_to_title_button = _get_back_to_title_button().instantiate()
@@ -57,6 +62,11 @@ func _on_coin_flip_succeeded():
 		)
 		_level_transition_container.add_child(_next_trial_button)
 		return
+
+	var whole_free_achievement = GodotParadiseAchievements.get_achievement("whole_free")
+
+	if not whole_free_achievement.unlocked:
+		GodotParadiseAchievements.update_achievement("whole_free", {unlocked = true})
 
 	var adios_screen = _get_adios_screen().instantiate()
 	add_child(adios_screen)
