@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6njwor1ggu3h"]
-
-[ext_resource type="AudioStream" uid="uid://bja2uukpjrhsa" path="res://sounds/game/bass-vibes-kevin-macleod-main-version-02-49-12949.mp3" id="1_p68gn"]
-
-[node name="GameMusicPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_p68gn")
-volume_db = -4.952
-autoplay = true
