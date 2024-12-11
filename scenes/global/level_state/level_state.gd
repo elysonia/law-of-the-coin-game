@@ -65,7 +65,6 @@ func _input(event):
 
 func play_title_bgm():
 	SoundManager.stop_all()
-
 	SoundManager.play_bgm("title")
 
 
@@ -101,6 +100,10 @@ func goto_main_scene():
 	current_scene = _title_screen_scene.instantiate()
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.TITLE)
 	get_tree().root.add_child(current_scene)
+	
+	if SoundManager.is_playing("title"):
+		return
+	
 	play_title_bgm()
 
 

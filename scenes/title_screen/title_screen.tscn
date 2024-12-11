@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwrb0s6848di0"]
+[gd_scene load_steps=7 format=3 uid="uid://bwrb0s6848di0"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/title_screen.gd" id="1_3amqr"]
 [ext_resource type="Texture2D" uid="uid://cfx5ewadro7d6" path="res://assets/title_bg.png" id="1_mf4c7"]
 [ext_resource type="PackedScene" uid="uid://cyypvvdxrmjgh" path="res://scenes/title_screen/start_button/start_button.tscn" id="3_v8l1x"]
 [ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="3_y2txg"]
-[ext_resource type="Texture2D" uid="uid://d6ak8sh5ryqx" path="res://addons/achievements/trophy.png" id="5_ipvce"]
+[ext_resource type="Texture2D" uid="uid://diwe3alluj4hs" path="res://assets/trophy.png" id="5_jgci8"]
+[ext_resource type="Texture2D" uid="uid://bfrylk73tx65b" path="res://assets/trophy-active.png" id="6_0mwet"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -189,12 +190,27 @@ theme_override_font_sizes/font_size = 25
 text = "Options"
 
 [node name="TrophyButton" type="TextureButton" parent="."]
+modulate = Color(0.88614, 0.518701, 0.289066, 1)
 layout_mode = 0
-offset_left = 264.0
-offset_top = 552.0
-offset_right = 360.0
-offset_bottom = 640.0
+offset_left = 384.0
+offset_top = 360.0
+offset_right = 512.0
+offset_bottom = 502.0
 tooltip_text = "Achievements"
-texture_normal = ExtResource("5_ipvce")
+texture_normal = ExtResource("5_jgci8")
+texture_hover = ExtResource("6_0mwet")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TrophyButton2" type="TextureButton" parent="."]
+modulate = Color(0.632235, 0.268159, 0.326743, 1)
+layout_mode = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 768.0
+offset_bottom = 502.0
+tooltip_text = "Achievements"
+texture_normal = ExtResource("5_jgci8")
+texture_hover = ExtResource("6_0mwet")
 ignore_texture_size = true
 stretch_mode = 0

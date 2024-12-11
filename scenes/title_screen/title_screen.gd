@@ -6,13 +6,15 @@ extends Control
 	)
 @onready var _options_button = $OptionsButton
 @onready var _trophy_button = $TrophyButton
+@onready var _trophy_button_2 = $TrophyButton2
+
 
 
 func _ready():
 	_credits_button.pressed.connect(_on_credits_button_pressed)
 	_options_button.pressed.connect(_on_options_button_pressed)
 	_trophy_button.pressed.connect(_on_trophy_button_pressed)
-
+	_trophy_button_2.pressed.connect(_on_trophy_button_pressed)
 
 func _on_credits_button_pressed():
 	var credits_scene = _credits_container.instantiate()
