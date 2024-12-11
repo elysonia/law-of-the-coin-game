@@ -21,7 +21,7 @@ metadata/_edit_vertical_guides_ = [576.0, 64.0]
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.122644, 0.0744038, 0.00679926, 1)
+color = Color(0.113825, 0.0598309, 0.00273831, 1)
 
 [node name="WholeFree" parent="." instance=ExtResource("1_pmf58")]
 offset_left = 152.0

@@ -43,10 +43,14 @@ var _achievements_scene = preload(
 		"res://scenes/title_screen/achievements/achievements.tscn")
 var _options_menu = preload("res://scenes/game_menu/options_menu/options_menu.tscn")
 var _options_menu_scene = null
+var _achievement_unlocked_notif = preload(
+		"res://scenes/notifications/achievement_notification/achievement_notification.tscn"
+	)
 
 
 func _ready():
 	_reset_modifiers()
+	
 	game_mode_changed.connect(_on_game_mode_changed)
 
 	var current_level = get_level(current_level_index)
@@ -54,6 +58,7 @@ func _ready():
 
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+	GodotParadiseAchievements.achievement_unlocked.connect(_on_achievement_unlocked)
 	play_title_bgm()
 
 
@@ -227,3 +232,11 @@ func _reset_modifiers():
 
 func _on_game_mode_changed(_game_mode):
 	game_mode = _game_mode
+
+
+func _on_achievement_unlocked(_name, achievement):
+	var achievement_notif = _achievement_unlocked_notif.instantiate()
+	get_tree().root.add_child(achievement_notif)
+	achievement_notif.initialize(achievement)
+	await get_tree().create_timer(10).timeout
+	achievement_notif.queue_free()

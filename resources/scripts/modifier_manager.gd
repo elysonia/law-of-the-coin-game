@@ -229,7 +229,9 @@ func update_opportunist_achievement():
 		return
 
 	if _modifier.name not in opportunist_achievement.bought_modifier_names:
-		var new_bought_modifier_names = opportunist_achievement.bought_modifier_names.append(_modifier.name)
+		var new_bought_modifier_names = [] 
+		new_bought_modifier_names.append_array(opportunist_achievement.bought_modifier_names)
+		new_bought_modifier_names.append(_modifier.name)
 		var new_current_progress = opportunist_achievement.current_progress + 1
 
 		GodotParadiseAchievements.update_achievement("opportunist", {bought_modifier_names = new_bought_modifier_names, current_progress = new_current_progress})
