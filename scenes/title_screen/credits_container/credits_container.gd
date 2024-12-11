@@ -119,6 +119,18 @@ const CONTENTS_LIST = [
 			}
 		]
 	},
+	{
+		type = ContentsTypeEnum.OTHERS,
+		title = "Godot Plugin",
+		description = "GodotParadiseAchievements\nby",
+		author = "BananaHolograma",
+		links = [
+			{
+				url = "https://github.com/BananaHolograma/Achievements",
+				label = "github: Achievements"
+			}
+		]
+	},
 ]
 
 
@@ -181,8 +193,7 @@ func construct_credits_content_text(content):
 	return content_text_list
 
 
-
-func _on_credits_text_meta_clicked(meta:Variant):
+func _on_credits_text_meta_clicked(meta: Variant):
 	OS.shell_open(str(meta))
 
 
