@@ -1,11 +1,11 @@
 {
-    "whole-free": {
+    "whole_free": {
         "name": "Whole, Free",
         "description": "Win all 5 trials and escape punishment",
-        "flavor-texts": {
-            "before-unlock": "Sometimes the law can be…tilted…",
-            "during-unlock": "You did it!",
-            "after-unlock": "Thanks for playing until the end :D"
+        "flavor_texts": {
+            "before_unlock": "Sometimes the law can be…tilted…",
+            "during_unlock": "You did it!",
+            "after_unlock": "Thanks for playing until the end :D"
         },
         "is_secret": false,
         "count_goal": 1,
@@ -18,12 +18,13 @@
     "opportunist": {
         "name": "Opportunist",
         "description": "Buy all items and perks. ({current_progress}/{count_goal} bought)",
-        "flavor-texts": {
-            "before-unlock": "Put the money into good use.",
-            "during-unlock": "Yay you saw all the effects…",
-            "after-unlock": "Just didn’t want all that effort to draw to be a waste :D"
+        "flavor_texts": {
+            "before_unlock": "Put the money into good use.",
+            "during_unlock": "Yay you saw all the effects…",
+            "after_unlock": "Just didn’t want all that effort to draw to be a waste :D"
         },
-       "is_secret": false,
+        "bought_modifier_names": [], 
+        "is_secret": false,
         "count_goal": 10,
         "current_progress": 0,
         "icon_path": "res://assets/Story/trophy-opportunist.png",
@@ -31,13 +32,13 @@
         "unlocked": false,
         "active": true
     },
-    "straight-man": {
+    "straight_man": {
         "name": "Straight Man [i](slang)[/i]",
         "description": "Win all 5 trials by only mashing keys",
-        "flavor-texts": {
-            "before-unlock": "They say hard work beats talent…",
-            "during-unlock": "And you (s)mashed it.",
-            "after-unlock": "Your keyboard did not appreciate that but thanks for playing"
+        "flavor_texts": {
+            "before_unlock": "They say hard work beats talent…",
+            "during_unlock": "And you (s)mashed it.",
+            "after_unlock": "Your keyboard did not appreciate that but thanks for playing"
         },
         "is_secret": false,
         "count_goal": 1,
@@ -47,13 +48,13 @@
         "unlocked": false,
         "active": true
     },
-    "hole-me": {
+    "hole_me": {
         "name": "Hole, Me",
         "description": "Fail a trial for the first time and lose the game",
-        "flavor-texts": {
-            "before-unlock": "Did not escape the hole…",
-            "during-unlock": "Should have watched where you walk…",
-            "after-unlock": "Thanks for trying the game :D"
+        "flavor_texts": {
+            "before_unlock": "Did not escape the hole…",
+            "during_unlock": "Should have watched where you walk…",
+            "after_unlock": "Thanks for trying the game :D"
         },
        "is_secret": false,
         "count_goal": 1,
@@ -63,13 +64,13 @@
         "unlocked": false,
         "active": true
     },
-    "laissez-faire": {
+    "laissez_faire": {
         "name": "Laissez-faire",
         "description": "Win all 5 trials without mashing keys or buying modifiers",
-        "flavor-texts": {
-            "before-unlock": "May the odds be with you because the algorithm I found on the internet won’t",
-            "during-unlock": "You’ve exposed my poor programming skills!",
-            "after-unlock": "This wasn’t supposed to happen…"
+        "flavor_texts": {
+            "before_unlock": "May the odds be with you because the algorithm I found on the internet won’t",
+            "during_unlock": "You’ve exposed my poor programming skills!",
+            "after_unlock": "This wasn’t supposed to happen…"
         },
         "is_secret": false,
         "count_goal": 1,
