@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmxkjob3nxa6c"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/achievements/trophy/trophy.gd" id="2_m16ie"]
+
+[node name="Trophy" type="TextureRect"]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 296.0
+offset_bottom = 288.0
+expand_mode = 1
+script = ExtResource("2_m16ie")
+
+[node name="TrophyDescription" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 200.0
+offset_right = 192.0
+offset_bottom = 296.0
+
+[node name="TrophyName" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 40.0
+offset_right = 192.0
+offset_bottom = 80.0

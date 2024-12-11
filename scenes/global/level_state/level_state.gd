@@ -37,6 +37,8 @@ var _game_scene = preload("res://scenes/game/game.tscn")
 var _title_screen_scene = preload("res://scenes/title_screen/title_screen.tscn")
 var _intro_screen_scene = preload("res://scenes/intro/intro.tscn")
 var _updates_label = preload("res://scenes/notifications/updates_label/updates_label.tscn")
+var _achievements_scene = preload(
+		"res://scenes/title_screen/achievements/achievements.tscn")
 var _options_menu = preload("res://scenes/game_menu/options_menu/options_menu.tscn")
 var _options_menu_scene = null
 
@@ -121,6 +123,16 @@ func goto_game_scene():
 	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.COIN_FLIP)
 	get_tree().root.add_child(current_scene)
 	play_game_bgm()
+
+
+func goto_achievements_scene():
+	if is_instance_valid(current_scene):
+		current_scene.queue_free()
+		current_scene = null
+
+	current_scene = _achievements_scene.instantiate()
+	GlobalLevelState.game_mode_changed.emit(GlobalEnums.GameMode.ACHIEVEMENTS)
+	get_tree().root.add_child(current_scene)
 
 
 func toggle_options_menu():

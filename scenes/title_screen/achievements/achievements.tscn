@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://3ei1jhtg8kpl"]
+
+[ext_resource type="PackedScene" uid="uid://cmxkjob3nxa6c" path="res://scenes/title_screen/achievements/trophy/trophy.tscn" id="1_pmf58"]
+[ext_resource type="Texture2D" uid="uid://b80gs8dlv1qqo" path="res://assets/Story/trophy-whole-free.png" id="1_ymgku"]
+[ext_resource type="Texture2D" uid="uid://cmeffbybvgrew" path="res://assets/Story/trophy-whole-free-locked.png" id="3_fnj0r"]
+[ext_resource type="Texture2D" uid="uid://duka2ma3d4vp7" path="res://assets/Story/trophy-opportunist-locked.png" id="4_5tu15"]
+[ext_resource type="Texture2D" uid="uid://74oag0rnkagl" path="res://assets/Story/trophy-opportunist.png" id="5_js3d1"]
+[ext_resource type="Texture2D" uid="uid://bq8koy3xmafgi" path="res://assets/Story/trophy-straight-man-locked.png" id="6_1krwy"]
+[ext_resource type="Texture2D" uid="uid://bc8gyukvabsih" path="res://assets/Story/trophy-straight-man.png" id="7_2sxix"]
+[ext_resource type="Texture2D" uid="uid://ipk3yim5m5sj" path="res://assets/Story/trophy-hole-me-locked.png" id="8_k4wx4"]
+[ext_resource type="Texture2D" uid="uid://b7kwe8xybce25" path="res://assets/Story/trophy-hole-me.png" id="9_8sfs8"]
+[ext_resource type="Texture2D" uid="uid://co22j8bjxwyx1" path="res://assets/Story/trophy-laissez-faire-locked.png" id="10_ygwts"]
+[ext_resource type="Texture2D" uid="uid://dxbwi0iqwios6" path="res://assets/Story/trophy-laissez-faire.png" id="11_xui1o"]
+[ext_resource type="PackedScene" uid="uid://b0j2xgfud32l4" path="res://scenes/game_menu/menu_control/home_button/home_button.tscn" id="12_xhw6m"]
+[ext_resource type="PackedScene" uid="uid://bdj8lmivmjfb2" path="res://scenes/game_menu/menu_control/options_button/options_button.tscn" id="13_3wmnu"]
+
+[node name="Achievements" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [320.0, 40.0, 72.0]
+metadata/_edit_vertical_guides_ = [576.0, 64.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.122644, 0.0744038, 0.00679926, 1)
+
+[node name="WholeFree" parent="." instance=ExtResource("1_pmf58")]
+offset_left = 152.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 264.0
+locked_icon = ExtResource("3_fnj0r")
+unlocked_icon = ExtResource("1_ymgku")
+achievement_key = "whole_free"
+
+[node name="Opportunist" parent="." instance=ExtResource("1_pmf58")]
+offset_left = 496.0
+offset_top = 64.0
+offset_right = 664.0
+offset_bottom = 264.0
+locked_icon = ExtResource("4_5tu15")
+unlocked_icon = ExtResource("5_js3d1")
+achievement_key = "opportunist"
+
+[node name="StraightMan" parent="." instance=ExtResource("1_pmf58")]
+offset_left = 872.0
+offset_top = 56.0
+offset_right = 1040.0
+offset_bottom = 256.0
+locked_icon = ExtResource("6_1krwy")
+unlocked_icon = ExtResource("7_2sxix")
+achievement_key = "straight_man"
+
+[node name="HoleMe" parent="." instance=ExtResource("1_pmf58")]
+offset_left = 280.0
+offset_top = 320.0
+offset_right = 448.0
+offset_bottom = 520.0
+locked_icon = ExtResource("8_k4wx4")
+unlocked_icon = ExtResource("9_8sfs8")
+achievement_key = "hole_me"
+
+[node name="Trophy5" parent="." instance=ExtResource("1_pmf58")]
+offset_left = 688.0
+offset_top = 320.0
+offset_right = 856.0
+offset_bottom = 520.0
+locked_icon = ExtResource("10_ygwts")
+unlocked_icon = ExtResource("11_xui1o")
+achievement_key = "laissez_faire"
+
+[node name="HomeButton" parent="." instance=ExtResource("12_xhw6m")]
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 72.0
+
+[node name="OptionsButton" parent="." instance=ExtResource("13_3wmnu")]
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 72.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwrb0s6848di0"]
+[gd_scene load_steps=6 format=3 uid="uid://bwrb0s6848di0"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/title_screen.gd" id="1_3amqr"]
 [ext_resource type="Texture2D" uid="uid://cfx5ewadro7d6" path="res://assets/title_bg.png" id="1_mf4c7"]
 [ext_resource type="PackedScene" uid="uid://cyypvvdxrmjgh" path="res://scenes/title_screen/start_button/start_button.tscn" id="3_v8l1x"]
 [ext_resource type="PackedScene" uid="uid://dou57dn85ju2u" path="res://scenes/game_menu/menu_control/menu_control.tscn" id="3_y2txg"]
+[ext_resource type="Texture2D" uid="uid://d6ak8sh5ryqx" path="res://addons/achievements/trophy.png" id="5_ipvce"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -186,3 +187,14 @@ offset_right = 632.0
 offset_bottom = 443.0
 theme_override_font_sizes/font_size = 25
 text = "Options"
+
+[node name="TrophyButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 552.0
+offset_right = 360.0
+offset_bottom = 640.0
+tooltip_text = "Achievements"
+texture_normal = ExtResource("5_ipvce")
+ignore_texture_size = true
+stretch_mode = 0
