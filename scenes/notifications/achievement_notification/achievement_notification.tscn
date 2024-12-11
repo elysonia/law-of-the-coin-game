@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://2bcgn3jtddgy"]
+[gd_scene load_steps=3 format=3 uid="uid://2bcgn3jtddgy"]
 
 [ext_resource type="Script" path="res://scenes/notifications/achievement_notification/achievement_notification.gd" id="1_gxs1j"]
-[ext_resource type="Script" path="res://scenes/notifications/achievement_notification/trophy_icon.gd" id="2_vbnkr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygr0o"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 0.898039)
@@ -32,7 +31,6 @@ offset_right = 112.0
 offset_bottom = 88.0
 mouse_filter = 2
 expand_mode = 1
-script = ExtResource("2_vbnkr")
 
 [node name="Description" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
