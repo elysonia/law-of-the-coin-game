@@ -46,13 +46,14 @@ func _show_arrow_keys():
 		"res://scenes/coin_flip/coin/arrow_keys_control/arrow_keys_control.tscn"
 	)
 	_arrow_keys_control_scene = arrow_keys_control.instantiate()
-	get_parent().add_child.call_deferred(_arrow_keys_control_scene)
+	get_parent().add_child(_arrow_keys_control_scene)
 	_arrow_keys_control_scene.initialize()
 	_arrow_keys_control_scene.get_node("FlipDelayTimer").timeout.connect(_get_coin_result)
 
 
 func _get_coin_result():
 	_arrow_keys_control_scene.queue_free()
+	_arrow_keys_control_scene = null
 
 	for item in item_list:
 		if str(item.name) == _player_coin_name:
